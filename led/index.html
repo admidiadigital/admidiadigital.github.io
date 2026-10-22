@@ -66,6 +66,8 @@ section{padding:70px 0 10px}
 .bem .bi svg{width:22px;height:22px}
 .bem b{display:block;font-size:16.5px;margin-bottom:6px;letter-spacing:-.01em}.bem p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}
 /* projetos */
+.pf{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}.pf button{border:1px solid #e3ebf5;background:#fff;border-radius:999px;padding:8px 14px;font-family:var(--f);font-size:13px;font-weight:600;color:var(--muted);cursor:pointer}.pf button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.pj.hide{display:none}
 .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px}
 .pj{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/5;background:#000;box-shadow:0 12px 30px #000e291f}
 .pj img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
@@ -111,7 +113,7 @@ section{padding:70px 0 10px}
     <p class="lead">Painéis de LED pra fachada, totem e interior, e telas corporativas com a comunicação da sua empresa. A gente cuida do projeto, da instalação e do conteúdo.</p>
     <div class="ctas"><a class="btn p" href="#" onclick="zap('Comercial 1','orcamento');return false">Quero um orçamento</a><a class="btn w" href="#projetos">Ver projetos</a></div>
   </div>
-  <div class="himg"><img src="img/academia-led.jpg" alt="Painel de LED ADmídia instalado em academia"><span class="tag">Painel de LED interno · Academia</span></div>
+  <div class="himg"><img src="img/primus-noite.jpg" alt="Totem de LED da ADmídia aceso à noite"><span class="tag">Totem de LED · Primus Pneus, BR-101</span></div>
 </div></section>
 
 <div class="strip"><div class="wrap">
@@ -154,13 +156,18 @@ section{padding:70px 0 10px}
 <section id="projetos"><div class="wrap">
   <div class="sec-k rv">Projetos</div>
   <h2 class="rv">Alguns projetos <span>que já fizemos</span>.</h2>
+  <div class="pf rv"><button class="on" onclick="filtroPj(this,'')">Todos</button><button onclick="filtroPj(this,'Painel de LED')">Painéis de LED</button><button onclick="filtroPj(this,'Corporativo')">Corporativo</button></div>
   <div class="pgrid">
-    <div class="pj rv"><img src="img/usimais.jpg" alt="Painel de LED na fachada da Farmácia Usimais" loading="lazy"><span class="chip">Painel de LED</span><div class="cap"><b>Farmácia Usimais</b><small>Painel de LED na fachada</small></div></div>
-    <div class="pj rv"><img src="img/trevo-br101.jpg" alt="Instalação de painel de LED próximo à BR-101" loading="lazy"><span class="chip">Painel de LED</span><div class="cap"><b>Trevo da BR-101</b><small>Painel de LED externo em totem</small></div></div>
-    <div class="pj rv"><img src="img/laco.jpg" alt="Painéis de LED no salão Laço" loading="lazy"><span class="chip">Corporativo</span><div class="cap"><b>Laço</b><small>Painéis de LED com a identidade do salão</small></div></div>
-    <div class="pj rv"><img src="img/jhowbatata.jpg" alt="Cardápio digital da Jhow Batata" loading="lazy"><span class="chip">Corporativo</span><div class="cap"><b>Jhow Batata</b><small>Cardápio digital com 3 telas</small></div></div>
-    <div class="pj rv"><img src="img/magnifico.jpg" alt="Cardápio digital do Magnífico" loading="lazy"><span class="chip">Corporativo</span><div class="cap"><b>Magnífico</b><small>Cardápio digital na praça de alimentação</small></div></div>
-    <div class="pj rv"><img src="img/bgmen.jpg" alt="Telas corporativas na BG Men" loading="lazy"><span class="chip">Corporativo</span><div class="cap"><b>BG Men</b><small>Telas verticais com conteúdo da marca</small></div></div>
+    <div class="pj rv"><img src="img/primus-noite.jpg" alt="Primus Pneus · Totem de LED no trevo da BR-101" loading="lazy"><span class="chip">Painel de LED</span><div class="cap"><b>Primus Pneus</b><small>Totem de LED no trevo da BR-101</small></div></div>
+    <div class="pj rv"><img src="img/usimais.jpg" alt="Farmácia Usimais · Painel de LED na fachada" loading="lazy"><span class="chip">Painel de LED</span><div class="cap"><b>Farmácia Usimais</b><small>Painel de LED na fachada</small></div></div>
+    <div class="pj rv"><img src="img/totem-instalacao.jpg" alt="Totem de LED · Estrutura e montagem pela nossa equipe" loading="lazy"><span class="chip">Painel de LED</span><div class="cap"><b>Totem de LED</b><small>Estrutura e montagem pela nossa equipe</small></div></div>
+    <div class="pj rv"><img src="img/lubrafer.jpg" alt="Lubrafer · Videowall com 3 telas na loja" loading="lazy"><span class="chip">Corporativo</span><div class="cap"><b>Lubrafer</b><small>Videowall com 3 telas na loja</small></div></div>
+    <div class="pj rv"><img src="img/laco.jpg" alt="Laço · Painéis de LED com a identidade do salão" loading="lazy"><span class="chip">Corporativo</span><div class="cap"><b>Laço</b><small>Painéis de LED com a identidade do salão</small></div></div>
+    <div class="pj rv"><img src="img/sorveteria.jpg" alt="Sorveteria · Cardápio digital com 3 telas" loading="lazy"><span class="chip">Corporativo</span><div class="cap"><b>Sorveteria</b><small>Cardápio digital com 3 telas</small></div></div>
+    <div class="pj rv"><img src="img/jhowbatata.jpg" alt="Jhow Batata · Cardápio digital com 3 telas" loading="lazy"><span class="chip">Corporativo</span><div class="cap"><b>Jhow Batata</b><small>Cardápio digital com 3 telas</small></div></div>
+    <div class="pj rv"><img src="img/magnifico.jpg" alt="Magnífico · Cardápio digital na praça de alimentação" loading="lazy"><span class="chip">Corporativo</span><div class="cap"><b>Magnífico</b><small>Cardápio digital na praça de alimentação</small></div></div>
+    <div class="pj rv"><img src="img/bgmen.jpg" alt="BG Men · Telas verticais com conteúdo da marca" loading="lazy"><span class="chip">Corporativo</span><div class="cap"><b>BG Men</b><small>Telas verticais com conteúdo da marca</small></div></div>
+    <div class="pj rv"><img src="img/academia-led.jpg" alt="Academia · Painel de LED interno" loading="lazy"><span class="chip">Painel de LED</span><div class="cap"><b>Academia</b><small>Painel de LED interno</small></div></div>
   </div>
 </div></section>
 
@@ -186,6 +193,7 @@ section{padding:70px 0 10px}
 const ZAP={ 'Comercial 1':'48991079940', 'Comercial 2':'48999292439' };   // Comercial 1 = Davi · Comercial 2 = Matheus
 const IC_WA='<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.23 8.23 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 5.83 2.42 8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48a.92.92 0 0 0-.67.31c-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.02 2.56.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.29Z"/></svg>';
 const MSG={orcamento:'Olá! Vim pelo site e quero um orçamento de painel de LED / telas corporativas pro meu negócio.',contato:'Olá! Vim pelo site e quero saber mais sobre painéis de LED e telas corporativas.'};
+function filtroPj(b,c){document.querySelectorAll('.pf button').forEach(x=>x.classList.toggle('on',x===b));document.querySelectorAll('.pj').forEach(p=>p.classList.toggle('hide',!!c&&p.querySelector('.chip').textContent!==c));}
 function videoCompleto(){const v=document.getElementById('vled');v.loop=false;v.muted=false;v.src='instalacao-led.mp4';v.controls=true;v.play();const b=document.querySelector('.vfull');if(b)b.remove();}
 function zap(n,tipo){const num=ZAP[n];window.open('https://wa.me/55'+num+'?text='+encodeURIComponent(MSG[tipo]||MSG.contato),'_blank');}
 document.getElementById('cbtns').innerHTML=Object.keys(ZAP).map(n=>'<a class="cb1" href="#" onclick="zap(\''+n+'\',\'contato\');return false">'+IC_WA+n+'</a>').join('')+'<a class="cb2" href="../">Ver pontos de mídia</a>';
