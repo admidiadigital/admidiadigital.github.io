@@ -328,9 +328,9 @@ h2{font-size:clamp(28px,3.6vw,44px);line-height:1.08;letter-spacing:-.035em;marg
   <p>Conta rapidinho quem é você. Assim a proposta já sai no seu nome.</p>
   <label>Seu nome<input id="g-nome" autocomplete="name" required></label>
   <label>Empresa<input id="g-empresa" autocomplete="organization" required></label>
+  <label>WhatsApp<input id="g-whats" inputmode="tel" autocomplete="tel" placeholder="(48) 99999-9999" required oninput="mascTel(this)"></label>
   <label>Segmento<select id="g-seg" required><option value="">Escolha…</option><option>Alimentação</option><option>Saúde e estética</option><option>Varejo e moda</option><option>Serviços</option><option>Imobiliário e construção</option><option>Automotivo</option><option>Educação</option><option>Eventos e entretenimento</option><option>Outro</option></select></label>
-  <label>Cidade<input id="g-cidade" autocomplete="address-level2" list="g-cids" placeholder="Ex.: Tubarão" required><datalist id="g-cids"><option>Tubarão</option><option>Capivari de Baixo</option><option>Laguna</option><option>Gravatal</option><option>Jaguaruna</option><option>Braço do Norte</option><option>Criciúma</option></datalist></label>
-  <label>WhatsApp <span style="font-weight:400;color:var(--faint)">(opcional)</span><input id="g-whats" inputmode="tel" autocomplete="tel" placeholder="(48) 99999-9999" oninput="mascTel(this)"></label>
+  <label>Cidade <span style="font-weight:400;color:var(--faint)">(opcional)</span><input id="g-cidade" autocomplete="address-level2" list="g-cids" placeholder="Ex.: Tubarão"><datalist id="g-cids"><option>Tubarão</option><option>Capivari de Baixo</option><option>Laguna</option><option>Gravatal</option><option>Jaguaruna</option><option>Braço do Norte</option><option>Criciúma</option></datalist></label>
   <div class="gerr" id="g-err"></div>
   <button class="btn p" type="submit" id="g-btn">Continuar montando</button>
   <small>Seus dados ficam só com a ADmídia. Nada de spam.</small>
@@ -343,7 +343,7 @@ h2{font-size:clamp(28px,3.6vw,44px);line-height:1.08;letter-spacing:-.035em;marg
 const ZAP={ 'Comercial 1':'48991079940', 'Comercial 2':'48999292439' };   // Comercial 1 = Davi · Comercial 2 = Matheus            // números com DDD, só dígitos. Ex: '48999998888'
 const DESC_QTD={min:4,pct:20};                    // 4 ou mais pontos elegíveis → 20%
 const DESC_12M=10;                                 // plano 12 meses → +10%
-const BUILD='1021-2301';
+const BUILD='1021-2302';
 (function(){async function chk(){try{const r=await fetch('version.txt?ts='+Date.now(),{cache:'no-store'});if(!r.ok)return;const v=(await r.text()).trim();if(v&&BUILD.indexOf('__')<0&&v!==BUILD&&!sessionStorage.getItem('rl_'+v)){sessionStorage.setItem('rl_'+v,'1');location.replace(location.pathname+'?v='+v+location.hash);}}catch(_){}}chk();document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')chk();});})();
 const IC_FLIP='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 21v-5h5"/></svg>';
 const SB_URL='https://dbvykrqtfakhylndrtdn.supabase.co',SB_KEY='sb_publishable_3PpYrWZ4Eb9SW7635PhF6w_F_XfR4dC';
@@ -357,13 +357,12 @@ let PEND=null;
 function abrirGate(id){PEND=id;document.getElementById('gate').hidden=false;document.body.classList.add('travado');setTimeout(()=>{const i=document.getElementById('g-nome');if(i)i.focus();},250);}
 function fecharGate(){PEND=null;document.getElementById('gate').hidden=true;document.body.classList.remove('travado');}
 async function enviarLead(e){e.preventDefault();const g=id=>document.getElementById(id).value.trim();
-  const lead={nome:g('g-nome'),empresa:g('g-empresa'),segmento:g('g-seg'),cidade:g('g-cidade'),whatsapp:g('g-whats').replace(/\D/g,'')||null,origem:'site-pontos',pagina:location.href.slice(0,300)};
+  const lead={nome:g('g-nome'),empresa:g('g-empresa'),segmento:g('g-seg'),cidade:g('g-cidade')||null,whatsapp:g('g-whats').replace(/\D/g,'')||null,origem:'site-pontos',pagina:location.href.slice(0,300)};
   const err=document.getElementById('g-err');
   if(lead.nome.length<2){err.textContent='Coloca seu nome.';return false;}
   if(lead.empresa.length<2){err.textContent='Coloca o nome da empresa.';return false;}
+  if(!lead.whatsapp||lead.whatsapp.length<10){err.textContent='Coloca o WhatsApp com DDD.';return false;}
   if(!lead.segmento){err.textContent='Escolhe o segmento.';return false;}
-  if(lead.cidade.length<2){err.textContent='Coloca a cidade.';return false;}
-  if(lead.whatsapp&&lead.whatsapp.length<10){err.textContent='WhatsApp com DDD, ou deixa em branco.';return false;}
   err.textContent='';const b=document.getElementById('g-btn');b.disabled=true;b.textContent='Salvando…';
   try{const ctl=new AbortController();setTimeout(()=>ctl.abort(),6000);await fetch(SB_URL+'/rest/v1/leads',{method:'POST',signal:ctl.signal,headers:{apikey:SB_KEY,Authorization:'Bearer '+SB_KEY,'Content-Type':'application/json',Prefer:'return=minimal'},body:JSON.stringify(lead)});}catch(_){}
   lsSet('admidia_lead',JSON.stringify(lead));if(!cliente){cliente=lead.empresa;save();}
@@ -448,7 +447,7 @@ function openCart(){document.getElementById('cart').classList.add('open');docume
 function closeCart(){document.getElementById('cart').classList.remove('open');document.getElementById('ov').classList.remove('open');}
 function texto(){const c=calc();const d=new Date().toLocaleDateString('pt-BR');
   const L=getLead();
-  return 'Olá! Montei uma campanha na ADmídia ('+d+').\n'+(L?'\nNome: '+L.nome+'\nEmpresa: '+L.empresa+'\nSegmento: '+L.segmento+'\nCidade: '+L.cidade+(L.whatsapp?'\nWhatsApp: '+L.whatsapp:'')+'\n':(cliente?'\nEmpresa: '+cliente+'\n':''))+'\nPontos:\n'+c.its.map(p=>'• '+p.nome+' — '+(p.valor?brl(p.valor)+'/mês':'sob consulta')).join('\n')
+  return 'Olá! Montei uma campanha na ADmídia ('+d+').\n'+(L?'\nNome: '+L.nome+'\nEmpresa: '+L.empresa+'\nWhatsApp: '+L.whatsapp+'\nSegmento: '+L.segmento+(L.cidade?'\nCidade: '+L.cidade:'')+'\n':(cliente?'\nEmpresa: '+cliente+'\n':''))+'\nPontos:\n'+c.its.map(p=>'• '+p.nome+' — '+(p.valor?brl(p.valor)+'/mês':'sob consulta')).join('\n')
     +'\n\nPlano: '+plano+' meses'+(c.pQtd?'\nDesconto: '+c.pQtd+'%'+(c.p12?' + '+c.p12+'% (12 meses)':''):(c.p12?'\nDesconto: '+c.p12+'% (12 meses)':''))
     +'\nTotal mensal: '+brl(c.mensal)+'\nTotal do contrato: '+brl(c.contrato)+'\n\nLink do pacote: '+location.href;}
 function zap(n){const num=ZAP[n];const t=encodeURIComponent(texto());if(!num){toast('Número do '+n+' ainda não configurado');window.open('https://wa.me/?text='+t,'_blank');return;}window.open('https://wa.me/55'+num+'?text='+t,'_blank');}
@@ -459,7 +458,7 @@ const PDF_CSS='#pdfwrap{position:fixed;left:-10000px;top:0}#pdfdoc{width:760px;b
 function propostaHTML(){const c=calc();const d=new Date();const val=new Date(d.getTime()+7*86400000);
   const rows=c.its.map((p,i)=>'<tr><td>'+(i+1)+'</td><td><div class="th" style="background-image:url(\''+new URL(p.foto,location.href).href+'\')"></div></td><td><b>'+esc(p.nome)+'</b><br><small>'+esc(p.cat)+' · '+esc(p.end)+'</small></td><td class="r">'+(p.fluxo?k(p.fluxo):'—')+'</td><td class="r">'+(p.valor?brl(p.valor):'sob consulta')+'</td><td class="r"><b>'+(p.valor?brl(precoItem(p,c)):'—')+'</b></td></tr>').join('');
   return '<div class="hd"><div><div class="s">Proposta comercial</div><h1>'+(cliente?esc(cliente):'Campanha ADmídia')+'</h1></div><img src="'+new URL('logo.png',location.href).href+'"></div>'
-    +(getLead()?'<div class="meta"><div>Contato<b>'+esc(getLead().nome)+'</b></div><div>Segmento<b>'+esc(getLead().segmento)+'</b></div><div>Cidade<b>'+esc(getLead().cidade)+'</b></div>'+(getLead().whatsapp?'<div>WhatsApp<b>'+esc(getLead().whatsapp)+'</b></div>':'')+'</div>':'')+'<div class="meta"><div>Data<b>'+d.toLocaleDateString('pt-BR')+'</b></div><div>Válida até<b>'+val.toLocaleDateString('pt-BR')+'</b></div><div>Plano<b>'+plano+' meses</b></div><div>Pontos<b>'+c.its.length+'</b></div><div>Alcance<b>'+k(c.fluxo)+' pessoas/mês</b></div></div>'
+    +(getLead()?'<div class="meta"><div>Contato<b>'+esc(getLead().nome)+'</b></div><div>Segmento<b>'+esc(getLead().segmento)+'</b></div>'+(getLead().whatsapp?'<div>WhatsApp<b>'+esc(getLead().whatsapp)+'</b></div>':'')+(getLead().cidade?'<div>Cidade<b>'+esc(getLead().cidade)+'</b></div>':'')+'</div>':'')+'<div class="meta"><div>Data<b>'+d.toLocaleDateString('pt-BR')+'</b></div><div>Válida até<b>'+val.toLocaleDateString('pt-BR')+'</b></div><div>Plano<b>'+plano+' meses</b></div><div>Pontos<b>'+c.its.length+'</b></div><div>Alcance<b>'+k(c.fluxo)+' pessoas/mês</b></div></div>'
     +'<table><thead><tr><th>#</th><th></th><th>Ponto</th><th class="r">Fluxo/mês</th><th class="r">Tabela</th><th class="r">Seu valor/mês</th></tr></thead><tbody>'+rows+'</tbody></table>'
     +'<div class="tot"><div><span>Subtotal</span><span>'+brl(c.bruto)+'</span></div>'+(c.pQtd?'<div class="d"><span>Desconto '+c.pQtd+'% ('+c.eleg.length+' pontos)</span><span>− '+brl(c.dQtd)+'</span></div>':'')+(c.p12?'<div class="d"><span>Plano 12 meses +'+c.p12+'%</span><span>− '+brl(c.d12)+'</span></div>':'')+'<div class="t"><span>Total mensal</span><span>'+brl(c.mensal)+'</span></div><div><span>Total do contrato ('+plano+' meses)</span><span>'+brl(c.contrato)+'</span></div></div>'
     +'<div class="ft"><b>Como funciona:</b> sua marca é exibida nas telas dos pontos escolhidos, todos os dias, no horário de funcionamento de cada local. Produção da arte inclusa. '+(c.sc.length?'Pontos "sob consulta" serão orçados à parte. ':'')+'Valores mensais, sujeitos a disponibilidade do ponto.<br><b>ADmídia</b> · Tubarão/SC · '+Object.entries(ZAP).filter(e=>e[1]).map(e=>'WhatsApp '+e[0]+': ('+e[1].slice(0,2)+') '+e[1].slice(2,7)+'-'+e[1].slice(7)).join(' · ')+'</div>';}
