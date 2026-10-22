@@ -186,6 +186,22 @@ a{color:inherit}
 .bar .bt{font-weight:600;font-size:14px}.bar .bt small{display:block;font-size:11px;color:#cfe0ff;font-weight:600}
 .bar button{border:0;background:#fff;color:var(--navy);border-radius:999px;padding:10px 16px;font-weight:700;font-size:13px;cursor:pointer}
 @media(max-width:700px){.bar{bottom:10px;padding:8px 8px 8px 14px;gap:10px}.bar .bt{font-size:13px}.bar button{padding:9px 12px}.cartbtn{display:none}}
+.gate{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:16px;background:#0b173033;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);animation:gfade .25s ease}
+.gate[hidden]{display:none}
+@keyframes gfade{from{opacity:0}to{opacity:1}}
+.gbox{position:relative;width:min(420px,100%);max-height:calc(100vh - 32px);overflow:auto;background:#fff;border-radius:24px;padding:28px 26px 22px;box-shadow:0 40px 90px #000e2940;display:flex;flex-direction:column;gap:12px;animation:gup .3s cubic-bezier(.2,.8,.2,1)}
+@keyframes gup{from{transform:translateY(18px);opacity:0}to{transform:none;opacity:1}}
+.gx{position:absolute;right:14px;top:14px;width:32px;height:32px;border-radius:50%;border:1px solid #e3ebf5;background:#fff;color:#55627a;cursor:pointer;font-size:14px}
+.glogo{height:26px;align-self:flex-start;margin-bottom:6px}
+.gbox h3{margin:0;font-size:22px;letter-spacing:-.03em;color:#0b1730;font-weight:700}
+.gbox p{margin:-4px 0 4px;color:#55627a;font-size:14.5px;line-height:1.5}
+.gbox label{display:flex;flex-direction:column;gap:5px;font-size:12.5px;font-weight:600;color:#3b4a63}
+.gbox input,.gbox select{border:1px solid #dfe6ef;border-radius:12px;padding:12px 13px;font-family:var(--f);font-size:15px;color:#0b1730;background:#fbfcfe;outline:none;transition:border-color .15s,box-shadow .15s}
+.gbox input:focus,.gbox select:focus{border-color:var(--blue);box-shadow:0 0 0 3px #0092ff26;background:#fff}
+.gbox .btn{justify-content:center;margin-top:4px;width:100%}
+.gbox small{color:var(--faint);font-size:12px;text-align:center}
+.gerr{color:var(--red);font-size:13px}
+body.travado{overflow:hidden}
 @media print{.hero,.ctrl,#map,.cart,.ov,.toast,.cartbtn,.bar{display:none!important}}
 /* ===== visual clean ===== */
 body{margin:0;font-family:var(--f);color:var(--ink);background:#fbfcfe;-webkit-font-smoothing:antialiased}
@@ -305,6 +321,20 @@ h2{font-size:clamp(28px,3.6vw,44px);line-height:1.08;letter-spacing:-.035em;marg
   <div class="hint">Sem compromisso. A proposta vai pronta pra você só confirmar.</div>
 </aside>
 <div class="bar" id="bar"><span class="bn" id="bn">0</span><span class="bt"><span id="bt">R$ 0,00/mês</span><small id="bs">no seu pacote</small></span><button onclick="openCart()">Ver pacote →</button></div>
+<div class="gate" id="gate" hidden><form class="gbox" onsubmit="return enviarLead(event)" novalidate>
+  <button type="button" class="gx" onclick="fecharGate()" aria-label="Fechar">✕</button>
+  <img src="logo_dark.png" alt="ADmídia" class="glogo">
+  <h3>Falta pouco pra montar seu pacote</h3>
+  <p>Conta rapidinho quem é você. Assim a proposta já sai no seu nome.</p>
+  <label>Seu nome<input id="g-nome" autocomplete="name" required></label>
+  <label>Empresa<input id="g-empresa" autocomplete="organization" required></label>
+  <label>Segmento<select id="g-seg" required><option value="">Escolha…</option><option>Alimentação</option><option>Saúde e estética</option><option>Varejo e moda</option><option>Serviços</option><option>Imobiliário e construção</option><option>Automotivo</option><option>Educação</option><option>Eventos e entretenimento</option><option>Outro</option></select></label>
+  <label>Cidade<input id="g-cidade" autocomplete="address-level2" list="g-cids" placeholder="Ex.: Tubarão" required><datalist id="g-cids"><option>Tubarão</option><option>Capivari de Baixo</option><option>Laguna</option><option>Gravatal</option><option>Jaguaruna</option><option>Braço do Norte</option><option>Criciúma</option></datalist></label>
+  <label>WhatsApp <span style="font-weight:400;color:var(--faint)">(opcional)</span><input id="g-whats" inputmode="tel" autocomplete="tel" placeholder="(48) 99999-9999" oninput="mascTel(this)"></label>
+  <div class="gerr" id="g-err"></div>
+  <button class="btn p" type="submit" id="g-btn">Continuar montando</button>
+  <small>Seus dados ficam só com a ADmídia. Nada de spam.</small>
+</form></div>
 <div class="toast" id="toast"></div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
@@ -313,9 +343,33 @@ h2{font-size:clamp(28px,3.6vw,44px);line-height:1.08;letter-spacing:-.035em;marg
 const ZAP={ 'Comercial 1':'48991079940', 'Comercial 2':'48999292439' };   // Comercial 1 = Davi · Comercial 2 = Matheus            // números com DDD, só dígitos. Ex: '48999998888'
 const DESC_QTD={min:4,pct:20};                    // 4 ou mais pontos elegíveis → 20%
 const DESC_12M=10;                                 // plano 12 meses → +10%
-const BUILD='1021-2259';
+const BUILD='1021-2301';
 (function(){async function chk(){try{const r=await fetch('version.txt?ts='+Date.now(),{cache:'no-store'});if(!r.ok)return;const v=(await r.text()).trim();if(v&&BUILD.indexOf('__')<0&&v!==BUILD&&!sessionStorage.getItem('rl_'+v)){sessionStorage.setItem('rl_'+v,'1');location.replace(location.pathname+'?v='+v+location.hash);}}catch(_){}}chk();document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')chk();});})();
 const IC_FLIP='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 21v-5h5"/></svg>';
+const SB_URL='https://dbvykrqtfakhylndrtdn.supabase.co',SB_KEY='sb_publishable_3PpYrWZ4Eb9SW7635PhF6w_F_XfR4dC';
+function lsGet(k){try{return localStorage.getItem(k);}catch(_){return null;}}
+function lsSet(k,v){try{localStorage.setItem(k,v);}catch(_){}}
+function getLead(){try{return JSON.parse(lsGet('admidia_lead')||'null');}catch(_){return null;}}
+function mascTel(el){let d=el.value.replace(/\D/g,'').slice(0,11);el.value=d.length>6?'('+d.slice(0,2)+') '+d.slice(2,d.length-4)+'-'+d.slice(-4):d.length>2?'('+d.slice(0,2)+') '+d.slice(2):d;}
+(function(){if(/equipe/.test(location.hash+location.search)){lsSet('admidia_equipe','1');history.replaceState(null,'',location.pathname);}})();
+function precisaCadastro(){return lsGet('admidia_equipe')!=='1'&&!getLead();}
+let PEND=null;
+function abrirGate(id){PEND=id;document.getElementById('gate').hidden=false;document.body.classList.add('travado');setTimeout(()=>{const i=document.getElementById('g-nome');if(i)i.focus();},250);}
+function fecharGate(){PEND=null;document.getElementById('gate').hidden=true;document.body.classList.remove('travado');}
+async function enviarLead(e){e.preventDefault();const g=id=>document.getElementById(id).value.trim();
+  const lead={nome:g('g-nome'),empresa:g('g-empresa'),segmento:g('g-seg'),cidade:g('g-cidade'),whatsapp:g('g-whats').replace(/\D/g,'')||null,origem:'site-pontos',pagina:location.href.slice(0,300)};
+  const err=document.getElementById('g-err');
+  if(lead.nome.length<2){err.textContent='Coloca seu nome.';return false;}
+  if(lead.empresa.length<2){err.textContent='Coloca o nome da empresa.';return false;}
+  if(!lead.segmento){err.textContent='Escolhe o segmento.';return false;}
+  if(lead.cidade.length<2){err.textContent='Coloca a cidade.';return false;}
+  if(lead.whatsapp&&lead.whatsapp.length<10){err.textContent='WhatsApp com DDD, ou deixa em branco.';return false;}
+  err.textContent='';const b=document.getElementById('g-btn');b.disabled=true;b.textContent='Salvando…';
+  try{const ctl=new AbortController();setTimeout(()=>ctl.abort(),6000);await fetch(SB_URL+'/rest/v1/leads',{method:'POST',signal:ctl.signal,headers:{apikey:SB_KEY,Authorization:'Bearer '+SB_KEY,'Content-Type':'application/json',Prefer:'return=minimal'},body:JSON.stringify(lead)});}catch(_){}
+  lsSet('admidia_lead',JSON.stringify(lead));if(!cliente){cliente=lead.empresa;save();}
+  const id=PEND;fecharGate();b.disabled=false;b.textContent='Continuar montando';
+  if(id!=null&&!SEL.has(id))toggle(id);else renderCart();
+  return false;}
 const PLANOS=[6,12];
 const IC_WA='<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.23 8.23 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 5.83 2.42 8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48a.92.92 0 0 0-.67.31c-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.02 2.56.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.29Z"/></svg>';
 const IC_DOC='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>';
@@ -354,7 +408,7 @@ document.addEventListener('click',e=>{const c=e.target.closest&&e.target.closest
 (function(){let feito=false;const tentar=()=>{if(feito)return;const g=document.getElementById('grid');if(!g)return;const io=new IntersectionObserver(es=>{es.forEach(x=>{if(x.isIntersecting&&!feito){feito=true;io.disconnect();const c=g.querySelector('.card:not(.vira)');if(c){setTimeout(()=>{c.classList.add('peek');setTimeout(()=>c.classList.remove('peek'),1500);},500);}}});},{threshold:.35});io.observe(g);};if('IntersectionObserver' in window)setTimeout(tentar,1200);})();
 function virar(id){const c=document.getElementById('c'+id);if(!c)return;if(VIRADO.has(id))VIRADO.delete(id);else VIRADO.add(id);c.classList.toggle('vira',VIRADO.has(id));}
 function render(){const l=lista();document.getElementById('grid').innerHTML=l.map(card).join('')||'<div class="empty">Nenhum ponto nesse filtro.</div>';document.getElementById('count').textContent=l.length+' ponto'+(l.length!==1?'s':'')+(cat!=='Todos'?' · '+cat:'');updateMarkers(l);}
-function toggle(id){const p=PONTOS.find(x=>x.id===id);if(!p)return;if(SEL.has(id)){SEL.delete(id);toast('Removido');}else{SEL.add(id);toast(p.nome+' adicionado ✓');[document.getElementById('cartbtn'),document.getElementById('bar')].forEach(b=>{b.classList.remove('pulse');void b.offsetWidth;b.classList.add('pulse');});}
+function toggle(id){const p=PONTOS.find(x=>x.id===id);if(!p)return;if(!SEL.has(id)&&precisaCadastro()){abrirGate(id);return;}if(SEL.has(id)){SEL.delete(id);toast('Removido');}else{SEL.add(id);toast(p.nome+' adicionado ✓');[document.getElementById('cartbtn'),document.getElementById('bar')].forEach(b=>{b.classList.remove('pulse');void b.offsetWidth;b.classList.add('pulse');});}
   save();render();renderCart();if(markers[id])markers[id].setIcon(icon(p));if(map&&map._popup)map.closePopup();}
 /* ---- mapa ---- */
 function icon(p){const on=SEL.has(p.id);const col=CATCOL[p.cat]||'#999';
@@ -393,7 +447,8 @@ function setPlano(m){plano=m;save();renderCart();}
 function openCart(){document.getElementById('cart').classList.add('open');document.getElementById('ov').classList.add('open');}
 function closeCart(){document.getElementById('cart').classList.remove('open');document.getElementById('ov').classList.remove('open');}
 function texto(){const c=calc();const d=new Date().toLocaleDateString('pt-BR');
-  return 'Olá! Montei uma campanha na ADmídia'+(cliente?' pra '+cliente:'')+' ('+d+'):\n\n'+c.its.map(p=>'• '+p.nome+' — '+(p.valor?brl(p.valor)+'/mês':'sob consulta')).join('\n')
+  const L=getLead();
+  return 'Olá! Montei uma campanha na ADmídia ('+d+').\n'+(L?'\nNome: '+L.nome+'\nEmpresa: '+L.empresa+'\nSegmento: '+L.segmento+'\nCidade: '+L.cidade+(L.whatsapp?'\nWhatsApp: '+L.whatsapp:'')+'\n':(cliente?'\nEmpresa: '+cliente+'\n':''))+'\nPontos:\n'+c.its.map(p=>'• '+p.nome+' — '+(p.valor?brl(p.valor)+'/mês':'sob consulta')).join('\n')
     +'\n\nPlano: '+plano+' meses'+(c.pQtd?'\nDesconto: '+c.pQtd+'%'+(c.p12?' + '+c.p12+'% (12 meses)':''):(c.p12?'\nDesconto: '+c.p12+'% (12 meses)':''))
     +'\nTotal mensal: '+brl(c.mensal)+'\nTotal do contrato: '+brl(c.contrato)+'\n\nLink do pacote: '+location.href;}
 function zap(n){const num=ZAP[n];const t=encodeURIComponent(texto());if(!num){toast('Número do '+n+' ainda não configurado');window.open('https://wa.me/?text='+t,'_blank');return;}window.open('https://wa.me/55'+num+'?text='+t,'_blank');}
@@ -404,7 +459,7 @@ const PDF_CSS='#pdfwrap{position:fixed;left:-10000px;top:0}#pdfdoc{width:760px;b
 function propostaHTML(){const c=calc();const d=new Date();const val=new Date(d.getTime()+7*86400000);
   const rows=c.its.map((p,i)=>'<tr><td>'+(i+1)+'</td><td><div class="th" style="background-image:url(\''+new URL(p.foto,location.href).href+'\')"></div></td><td><b>'+esc(p.nome)+'</b><br><small>'+esc(p.cat)+' · '+esc(p.end)+'</small></td><td class="r">'+(p.fluxo?k(p.fluxo):'—')+'</td><td class="r">'+(p.valor?brl(p.valor):'sob consulta')+'</td><td class="r"><b>'+(p.valor?brl(precoItem(p,c)):'—')+'</b></td></tr>').join('');
   return '<div class="hd"><div><div class="s">Proposta comercial</div><h1>'+(cliente?esc(cliente):'Campanha ADmídia')+'</h1></div><img src="'+new URL('logo.png',location.href).href+'"></div>'
-    +'<div class="meta"><div>Data<b>'+d.toLocaleDateString('pt-BR')+'</b></div><div>Válida até<b>'+val.toLocaleDateString('pt-BR')+'</b></div><div>Plano<b>'+plano+' meses</b></div><div>Pontos<b>'+c.its.length+'</b></div><div>Alcance<b>'+k(c.fluxo)+' pessoas/mês</b></div></div>'
+    +(getLead()?'<div class="meta"><div>Contato<b>'+esc(getLead().nome)+'</b></div><div>Segmento<b>'+esc(getLead().segmento)+'</b></div><div>Cidade<b>'+esc(getLead().cidade)+'</b></div>'+(getLead().whatsapp?'<div>WhatsApp<b>'+esc(getLead().whatsapp)+'</b></div>':'')+'</div>':'')+'<div class="meta"><div>Data<b>'+d.toLocaleDateString('pt-BR')+'</b></div><div>Válida até<b>'+val.toLocaleDateString('pt-BR')+'</b></div><div>Plano<b>'+plano+' meses</b></div><div>Pontos<b>'+c.its.length+'</b></div><div>Alcance<b>'+k(c.fluxo)+' pessoas/mês</b></div></div>'
     +'<table><thead><tr><th>#</th><th></th><th>Ponto</th><th class="r">Fluxo/mês</th><th class="r">Tabela</th><th class="r">Seu valor/mês</th></tr></thead><tbody>'+rows+'</tbody></table>'
     +'<div class="tot"><div><span>Subtotal</span><span>'+brl(c.bruto)+'</span></div>'+(c.pQtd?'<div class="d"><span>Desconto '+c.pQtd+'% ('+c.eleg.length+' pontos)</span><span>− '+brl(c.dQtd)+'</span></div>':'')+(c.p12?'<div class="d"><span>Plano 12 meses +'+c.p12+'%</span><span>− '+brl(c.d12)+'</span></div>':'')+'<div class="t"><span>Total mensal</span><span>'+brl(c.mensal)+'</span></div><div><span>Total do contrato ('+plano+' meses)</span><span>'+brl(c.contrato)+'</span></div></div>'
     +'<div class="ft"><b>Como funciona:</b> sua marca é exibida nas telas dos pontos escolhidos, todos os dias, no horário de funcionamento de cada local. Produção da arte inclusa. '+(c.sc.length?'Pontos "sob consulta" serão orçados à parte. ':'')+'Valores mensais, sujeitos a disponibilidade do ponto.<br><b>ADmídia</b> · Tubarão/SC · '+Object.entries(ZAP).filter(e=>e[1]).map(e=>'WhatsApp '+e[0]+': ('+e[1].slice(0,2)+') '+e[1].slice(2,7)+'-'+e[1].slice(7)).join(' · ')+'</div>';}
