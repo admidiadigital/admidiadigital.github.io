@@ -416,22 +416,6 @@
   "valor_tabela_antiga": 120
  },
  {
-  "id": 27,
-  "nome": "Edifício Level (almaz)",
-  "cat": "Edifícios comerciais",
-  "end": "Av. Marcolino Martins Cabral, 2644 - Aeroporto, Tubarão - SC",
-  "fluxo": 5000,
-  "valor": 187.0,
-  "telas": null,
-  "foto": "fotos/27.jpg",
-  "lat": -28.475714,
-  "lng": -48.994983,
-  "aprox": false,
-  "nd": false,
-  "led": false,
-  "valor_tabela_antiga": 220
- },
- {
   "id": 28,
   "nome": "Seven Business Center",
   "cat": "Edifícios comerciais",
