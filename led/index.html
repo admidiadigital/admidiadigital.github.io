@@ -55,7 +55,13 @@ section{padding:70px 0 10px}
 .vid video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:28px;display:block;background:#000;box-shadow:0 40px 90px #000e2930}
 .vfull{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);display:inline-flex;align-items:center;gap:7px;border:0;border-radius:999px;background:#ffffffe6;color:var(--navy);font-family:var(--f);font-weight:600;font-size:13px;padding:9px 14px;cursor:pointer;box-shadow:0 8px 20px #000e2933;white-space:nowrap}.vfull svg{width:14px;height:14px}
 .vtag{position:absolute;left:14px;top:14px;background:#000e29cc;color:#fff;font-size:12px;font-weight:600;padding:6px 11px;border-radius:999px}
-/* moldura de totem de LED */
+/* totem (imagem) */
+.totem{position:relative;width:min(340px,100%);aspect-ratio:535/1064}
+.totem .tv-scr{position:absolute;left:3.74%;top:1.79%;width:92.71%;height:96.24%;overflow:hidden;background:#000}
+.totem video{width:100%!important;height:100%!important;aspect-ratio:auto!important;object-fit:cover;border-radius:0!important;box-shadow:none!important}
+.totem .tv-frame{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;filter:drop-shadow(0 30px 40px #000e2930)}
+.totem .vtag{left:12px;top:12px}.totem .vfull{bottom:12px;font-size:12px}
+/* moldura de totem de LED (antiga) */
 .ledtot{width:min(380px,100%)}
 .ledtot .tela{position:relative;padding:12px;border-radius:8px;background:linear-gradient(145deg,#2a2d33 0%,#101216 45%,#1c1f24 100%);box-shadow:0 40px 80px #000e2938,inset 0 1px 0 #ffffff1f,inset 0 -2px 0 #00000080,0 0 0 1px #000}
 .ledtot .tela::before{content:'';position:absolute;inset:5px;border-radius:5px;border:1px solid #ffffff10;pointer-events:none}
@@ -74,6 +80,67 @@ section{padding:70px 0 10px}
 .bem .bi{width:42px;height:42px;border-radius:12px;background:#eaf5ff;color:var(--blue);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
 .bem .bi svg{width:22px;height:22px}
 .bem b{display:block;font-size:16.5px;margin-bottom:6px;letter-spacing:-.01em}.bem p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}
+/* sistema */
+.macimg img{width:100%;display:block;border-radius:22px;box-shadow:0 30px 70px #000e2926}
+.ad{margin-top:46px;border-radius:24px;overflow:hidden;background:#fff;border:1px solid #e8eef6;box-shadow:0 12px 34px #000e2914}
+.ad img{width:100%;display:block}
+.ad-cap{display:grid;grid-template-columns:1fr 1fr}
+.ad-cap>div{padding:18px 22px}
+.ad-cap small{display:block;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.ad-cap b{display:block;font-size:19px;letter-spacing:-.02em;margin:3px 0 4px}
+.ad-cap p{margin:0;font-size:14px;line-height:1.5}
+.ad-cap .antes{background:#f1f3f6;color:#55627a}.ad-cap .antes small{color:#8a97ad}.ad-cap .antes b{color:#3b4a63}
+.ad-cap .depois{background:var(--navy);color:#cfe2ff}.ad-cap .depois small{color:#7fc4ff}.ad-cap .depois b{color:#fff}
+@media(max-width:600px){.ad-cap{grid-template-columns:1fr}}
+.sis{background:linear-gradient(180deg,#f2f8ff,var(--bg))}
+.sis-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:48px;align-items:center}
+.cmp{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:stretch;margin-top:8px}
+.cmp-c{border-radius:18px;padding:18px;border:1px solid #e8eef6;background:#fff}
+.cmp-c small{display:block;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.cmp-c b{display:block;font-size:19px;letter-spacing:-.02em;margin:4px 0 10px}
+.cmp-c ul{margin:0;padding:0;list-style:none;display:grid;gap:7px;font-size:13.5px;color:var(--muted)}
+.cmp-c li{display:flex;gap:8px;align-items:flex-start}
+.antes li::before{content:'✕';color:#c0392b;font-weight:700;font-size:11px;margin-top:2px}
+.depois{background:var(--navy);border-color:var(--navy)}.depois small{color:#7fc4ff}.depois b{color:#fff}.depois ul{color:#cfe2ff}
+.depois li::before{content:'✓';color:var(--blue);font-weight:700}
+.cmp-arrow{align-self:center;color:var(--blue);font-size:22px;font-weight:700}
+.mac{position:relative}
+.mac>img{width:100%;display:block;filter:drop-shadow(0 30px 40px #000e2930)}
+.scr{position:absolute;left:9.64%;top:4.27%;width:80.47%;height:82.69%;background:#f6f8fb;border-radius:2px;overflow:hidden;display:flex;flex-direction:column;container-type:inline-size;font-family:var(--f)}
+.ui-top{height:6.5cqw;flex:0 0 auto;display:flex;align-items:center;gap:1cqw;padding:0 2.2cqw;background:#e9edf2;border-bottom:1px solid #dde3ea}
+.ui-top i{width:1.4cqw;height:1.4cqw;border-radius:50%;background:#ff5f57}.ui-top i:nth-child(2){background:#febc2e}.ui-top i:nth-child(3){background:#28c840}
+.ui-top span{margin-left:1.6cqw;font-size:2cqw;font-weight:600;color:#55627a}
+.ui-body{flex:1;display:flex;min-height:0}
+.ui-side{width:22cqw;flex:0 0 auto;background:var(--navy);color:#cfe2ff;padding:2.2cqw 1.6cqw;display:flex;flex-direction:column;gap:.9cqw}
+.ui-st{font-size:1.6cqw;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7fc4ff;margin-bottom:.4cqw}
+.ui-it{display:flex;align-items:center;gap:1cqw;font-size:1.9cqw;padding:1cqw 1.2cqw;border-radius:1cqw}
+.ui-it.on{background:#ffffff1a;color:#fff}
+.ui-it em{width:1.1cqw;height:1.1cqw;border-radius:50%;background:#28c840;flex:0 0 auto}.ui-it em.ag{background:var(--blue)}
+.ui-main{flex:1;padding:2.4cqw;display:flex;flex-direction:column;gap:1.8cqw;min-width:0}
+.ui-h{display:flex;align-items:center;justify-content:space-between}
+.ui-h b{font-size:2.6cqw;color:var(--ink)}.ui-h span{font-size:1.8cqw;color:#1a9e5c;display:flex;align-items:center;gap:.8cqw;font-weight:600}
+.ui-h span em{width:1.1cqw;height:1.1cqw;border-radius:50%;background:#28c840}
+.ui-g{display:grid;grid-template-columns:1fr 1fr;gap:1.6cqw;flex:1;min-height:0}
+.ui-th{position:relative;border-radius:1cqw;overflow:hidden;background:#000;box-shadow:0 .4cqw 1.2cqw #000e2926;outline:.35cqw solid transparent;outline-offset:.2cqw;animation:sel 8s infinite}
+.ui-th img{width:100%;height:100%;object-fit:cover;display:block}
+.ui-th span{position:absolute;left:.8cqw;bottom:.8cqw;background:#000e29c7;color:#fff;font-size:1.5cqw;font-weight:600;padding:.4cqw .9cqw;border-radius:5cqw}
+.ui-th.t2{animation-delay:2s}.ui-th.t3{animation-delay:4s}.ui-th.t4{animation-delay:6s}
+@keyframes sel{0%,22%{outline-color:var(--blue)}25%,100%{outline-color:transparent}}
+.ui-bar{display:flex;align-items:center;justify-content:flex-end;gap:1.6cqw}
+.ui-ok{font-size:1.8cqw;font-weight:600;color:#1a9e5c;opacity:0;animation:ok 8s infinite}
+@keyframes ok{0%,60%{opacity:0}66%,92%{opacity:1}100%{opacity:0}}
+.ui-bar button{border:0;border-radius:5cqw;background:var(--blue);color:#fff;font-family:var(--f);font-weight:600;font-size:1.9cqw;padding:1cqw 2.4cqw;animation:pub 8s infinite}
+@keyframes pub{0%,56%{transform:scale(1)}60%{transform:scale(.92)}64%,100%{transform:scale(1)}}
+.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:14px;align-items:start;margin-top:46px}
+.fl{background:#fff;border:1px solid #e8eef6;border-radius:20px;padding:20px;box-shadow:0 1px 3px #000e290a;text-align:center;height:100%}
+.fl b{display:block;font-size:16px;margin:12px 0 6px}.fl p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.55}
+.fl-ic{width:64px;height:64px;margin:12px auto 0;border-radius:18px;background:#eaf5ff;color:var(--blue);display:flex;align-items:center;justify-content:center}.fl-ic svg{width:32px;height:32px}
+.fl-img{height:88px;max-width:100%;object-fit:contain;display:block;margin:0 auto}
+.fl-img.wide{border-radius:10px;object-fit:cover;width:100%;max-width:220px}
+.fl-ar{align-self:center;color:var(--blue);font-size:24px;font-weight:700}
+@media(prefers-reduced-motion:reduce){.ui-th,.ui-ok,.ui-bar button{animation:none}.ui-ok{opacity:1}}
+@media(max-width:900px){.sis-grid{grid-template-columns:1fr;gap:30px}.flow{grid-template-columns:1fr;gap:10px}.fl-ar{transform:rotate(90deg);justify-self:center}}
+@media(max-width:600px){.cmp{grid-template-columns:1fr}.cmp-arrow{transform:rotate(90deg);justify-self:center}}
 /* projetos */
 .pf{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}.pf button{border:1px solid #e3ebf5;background:#fff;border-radius:999px;padding:8px 14px;font-family:var(--f);font-size:13px;font-weight:600;color:var(--muted);cursor:pointer}.pf button.on{background:var(--ink);border-color:var(--ink);color:#fff}
 .pj.hide{display:none}
@@ -111,7 +178,7 @@ section{padding:70px 0 10px}
 <body>
 <header class="site"><div class="top">
   <a class="logo" href="../"><img src="../logo_dark.png" alt="ADmídia"></a>
-  <nav class="nav"><a href="#led">Painéis de LED</a><a href="#corporativo">Corporativo</a><a href="#projetos">Projetos</a><a href="#contato">Fale conosco</a></nav>
+  <nav class="nav"><a href="#led">Painéis de LED</a><a href="#corporativo">Corporativo</a><a href="#sistema">Sistema</a><a href="#projetos">Projetos</a><a href="#contato">Fale conosco</a></nav>
   <a class="pill dk" href="../"><span class="t">Anunciar nos nossos pontos</span><span>→</span></a>
 </div></header>
 
@@ -144,11 +211,11 @@ section{padding:70px 0 10px}
       <div class="st rv"><i>4</i><div><b>Suporte</b><p>Acompanhamento depois da instalação, com equipe local.</p></div></div>
     </div>
   </div>
-  <div class="vid ledtot rv"><div class="tela"><video id="vled" src="instalacao-destaques.mp4" poster="img/poster-instalacao.jpg" autoplay muted loop playsinline preload="auto"></video><span class="vtag">Bastidores de uma instalação</span><button class="vfull" onclick="videoCompleto()"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Ver vídeo completo com som</button></div><div class="poste" aria-hidden="true"></div><div class="base" aria-hidden="true"></div></div>
+  <div class="vid totem rv"><div class="tv-scr"><video id="vled" src="instalacao-destaques.mp4" poster="img/poster-instalacao.jpg" autoplay muted loop playsinline preload="auto"></video><span class="vtag">Bastidores de uma instalação</span><button class="vfull" onclick="videoCompleto()"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Ver vídeo completo com som</button></div><img class="tv-frame" src="img/totem-frame2.png" alt="" aria-hidden="true"></div>
 </div></section>
 
 <section><div class="wrap dep">
-  <div class="vid ledtot rv" style="justify-self:start"><div class="tela"><video src="depoimento-usimais.mp4" poster="img/poster-usimais.jpg" controls playsinline preload="metadata"></video><span class="vtag">Depoimento</span></div><div class="poste" aria-hidden="true"></div><div class="base" aria-hidden="true"></div></div>
+  <div class="vid totem rv" style="justify-self:start"><div class="tv-scr"><video src="depoimento-usimais.mp4" poster="img/poster-usimais.jpg" controls playsinline preload="metadata"></video><span class="vtag">Depoimento</span></div><img class="tv-frame" src="img/totem-frame2.png" alt="" aria-hidden="true"></div>
   <div class="rv">
     <div class="sec-k">Quem instalou, recomenda</div>
     <blockquote>O LED chegou na nossa farmácia pra atender o cliente com inovação. Excelente qualidade, instalação fácil e simples de mexer.</blockquote>
@@ -167,6 +234,24 @@ section{padding:70px 0 10px}
     <div class="bem rv"><div class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div><b>Mais vendas no ponto</b><p>Cardápio digital, combos e lançamentos onde a decisão de compra acontece.</p></div>
     <div class="bem rv"><div class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2 21c0-4 3-6.5 7-6.5s7 2.5 7 6.5"/><circle cx="17.5" cy="9" r="2.5"/><path d="M16 14.6c3.4.2 6 2.4 6 6.4"/></svg></div><b>Equipe mais engajada</b><p>Metas, aniversariantes, treinamentos e comunicados internos sem depender de e-mail ou papel.</p></div>
     <div class="bem rv"><div class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 16-10-1 12-5 16-9 17z"/><path d="M4 21c3-6 7-9 11-11"/></svg></div><b>Economia e sustentabilidade</b><p>Adeus gasto com gráfica e impressão toda semana.</p></div>
+  </div>
+</div></section>
+
+<section class="sis" id="sistema"><div class="wrap">
+  <div class="sis-grid">
+    <div>
+      <div class="sec-k rv">Sistema de gestão</div>
+      <h2 class="rv">Tudo à distância. <span>Sem pendrive.</span></h2>
+      <p class="lead rv">A ADmídia aproveita as telas que você já tem e transforma a atualização em gestão digital. Você muda a arte no computador ou no celular, e as telas atualizam sozinhas.</p>
+      </div>
+    <div class="macimg rv"><img src="img/sis/sistema-mac.jpg" alt="Sistema de gestão de telas da ADmídia aberto no computador" loading="lazy"></div>
+  </div>
+  <div class="ad rv">
+    <img src="img/sis/antes-depois.jpg" alt="Antes: trocar pendrive na TV. Depois: atualizar todas as telas pelo celular" loading="lazy">
+    <div class="ad-cap">
+      <div class="antes"><small>Hoje</small><b>Pendrive</b><p>Preparar o arquivo, levar até a TV e trocar na mão.</p></div>
+      <div class="depois"><small>Com a ADmídia</small><b>Gestão digital</b><p>Atualização à distância, em poucos cliques, em todas as telas.</p></div>
+    </div>
   </div>
 </div></section>
 
