@@ -53,6 +53,7 @@ section{padding:70px 0 10px}
 .st b{display:block;font-size:15.5px;margin-bottom:3px}.st p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.5}
 .vid{position:relative;justify-self:center;width:min(360px,100%)}
 .vid video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:28px;display:block;background:#000;box-shadow:0 40px 90px #000e2930}
+.vfull{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);display:inline-flex;align-items:center;gap:7px;border:0;border-radius:999px;background:#ffffffe6;color:var(--navy);font-family:var(--f);font-weight:600;font-size:13px;padding:9px 14px;cursor:pointer;box-shadow:0 8px 20px #000e2933;white-space:nowrap}.vfull svg{width:14px;height:14px}
 .vtag{position:absolute;left:14px;top:14px;background:#000e29cc;color:#fff;font-size:12px;font-weight:600;padding:6px 11px;border-radius:999px}
 /* corporativo */
 .corp{background:linear-gradient(180deg,var(--bg),#f2f8ff)}
@@ -132,7 +133,7 @@ section{padding:70px 0 10px}
       <div class="st rv"><i>4</i><div><b>Suporte</b><p>Acompanhamento depois da instalação, com equipe local.</p></div></div>
     </div>
   </div>
-  <div class="vid rv"><video src="instalacao-led.mp4" poster="img/poster-instalacao.jpg" controls playsinline preload="metadata"></video><span class="vtag">Bastidores de uma instalação</span></div>
+  <div class="vid rv"><video id="vled" src="instalacao-destaques.mp4" poster="img/poster-instalacao.jpg" autoplay muted loop playsinline preload="auto"></video><span class="vtag">Bastidores de uma instalação</span><button class="vfull" onclick="videoCompleto()"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Ver vídeo completo com som</button></div>
 </div></section>
 
 <section class="corp" id="corporativo"><div class="wrap">
@@ -185,6 +186,7 @@ section{padding:70px 0 10px}
 const ZAP={ 'Comercial 1':'48991079940', 'Comercial 2':'48999292439' };   // Comercial 1 = Davi · Comercial 2 = Matheus
 const IC_WA='<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.23 8.23 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 5.83 2.42 8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48a.92.92 0 0 0-.67.31c-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.02 2.56.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.29Z"/></svg>';
 const MSG={orcamento:'Olá! Vim pelo site e quero um orçamento de painel de LED / telas corporativas pro meu negócio.',contato:'Olá! Vim pelo site e quero saber mais sobre painéis de LED e telas corporativas.'};
+function videoCompleto(){const v=document.getElementById('vled');v.loop=false;v.muted=false;v.src='instalacao-led.mp4';v.controls=true;v.play();const b=document.querySelector('.vfull');if(b)b.remove();}
 function zap(n,tipo){const num=ZAP[n];window.open('https://wa.me/55'+num+'?text='+encodeURIComponent(MSG[tipo]||MSG.contato),'_blank');}
 document.getElementById('cbtns').innerHTML=Object.keys(ZAP).map(n=>'<a class="cb1" href="#" onclick="zap(\''+n+'\',\'contato\');return false">'+IC_WA+n+'</a>').join('')+'<a class="cb2" href="../">Ver pontos de mídia</a>';
 (function(){const els=[...document.querySelectorAll('.rv')];if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return;}
