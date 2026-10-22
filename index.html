@@ -124,7 +124,14 @@ a{color:inherit}
 .back dt{color:var(--faint)}.back dd{margin:0;color:#0b1730;font-weight:500}
 .back .bk-acts{display:flex;gap:8px;margin-top:auto;padding-top:14px;align-items:center}
 .back .lk{border:1px solid #e3ebf5;background:#fff;border-radius:999px;padding:9px 14px;font-family:var(--f);font-size:13px;font-weight:600;color:#0b1730;cursor:pointer}
-.mais{font-size:12px;color:var(--blue);font-weight:600;margin-top:8px;cursor:pointer}
+.mais{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;font-size:12.5px;color:var(--blue);font-weight:600;margin-top:10px;padding:6px 11px;border-radius:999px;background:#eaf5ff;cursor:pointer;transition:background .15s}
+.mais svg{width:14px;height:14px}.card:hover .mais{background:#d9eeff}
+.flipb{position:absolute;right:12px;top:12px;width:32px;height:32px;border-radius:50%;background:#ffffffe6;color:#0b1730;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px #000e2926;backdrop-filter:blur(6px)}
+.flipb svg{width:16px;height:16px}
+.card:not(.vira):hover .flip{transform:rotateY(-7deg)}
+.card.peek .flip{animation:peek 1.4s cubic-bezier(.4,0,.2,1)}
+@keyframes peek{0%{transform:rotateY(0)}35%{transform:rotateY(-38deg)}55%{transform:rotateY(-38deg)}100%{transform:rotateY(0)}}
+@media(prefers-reduced-motion:reduce){.card.peek .flip{animation:none}.card:not(.vira):hover .flip{transform:none}}
 .card.picked .face{box-shadow:0 0 0 2px var(--blue),0 16px 36px #0092ff22}
 .ph{position:relative;aspect-ratio:4/3;background:#dfe6f0;overflow:hidden;cursor:pointer}
 .ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
@@ -306,8 +313,9 @@ h2{font-size:clamp(28px,3.6vw,44px);line-height:1.08;letter-spacing:-.035em;marg
 const ZAP={ 'Comercial 1':'48991079940', 'Comercial 2':'48999292439' };   // Comercial 1 = Davi · Comercial 2 = Matheus            // números com DDD, só dígitos. Ex: '48999998888'
 const DESC_QTD={min:4,pct:20};                    // 4 ou mais pontos elegíveis → 20%
 const DESC_12M=10;                                 // plano 12 meses → +10%
-const BUILD='1021-2208';
+const BUILD='1021-2215';
 (function(){async function chk(){try{const r=await fetch('version.txt?ts='+Date.now(),{cache:'no-store'});if(!r.ok)return;const v=(await r.text()).trim();if(v&&BUILD.indexOf('__')<0&&v!==BUILD&&!sessionStorage.getItem('rl_'+v)){sessionStorage.setItem('rl_'+v,'1');location.replace(location.pathname+'?v='+v+location.hash);}}catch(_){}}chk();document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')chk();});})();
+const IC_FLIP='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 21v-5h5"/></svg>';
 const PLANOS=[6,12];
 const IC_WA='<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.23 8.23 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 5.83 2.42 8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48a.92.92 0 0 0-.67.31c-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.02 2.56.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.29Z"/></svg>';
 const IC_DOC='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>';
@@ -334,7 +342,7 @@ function lista(){const q=(document.getElementById('q').value||'').toLowerCase().
 function card(p){const on=SEL.has(p.id);
   const btn='<button class="add '+(on?'on':'')+'" onclick="event.stopPropagation();toggle('+p.id+')" aria-label="'+(on?'Remover do pacote':'Adicionar ao pacote')+'" title="'+(on?'Remover do pacote':'Adicionar ao pacote')+'">'+(on?'✓':'+')+'</button>';
   const preco=p.valor?'<div class="pr">'+brl(p.valor)+'<small>/mês</small></div>':'<div class="pr sc">Sob consulta</div>';
-  const front='<div class="face front"><div class="ph"><img loading="lazy" src="'+p.foto+'" alt="">'+(p.fluxo?'<span class="fl">'+k(p.fluxo)+' pessoas/mês</span>':'')+'</div><div class="bd"><div class="ct">'+esc(p.cat)+'</div><div class="nm">'+esc(p.nome)+'</div><div class="ad" title="'+esc(p.end)+'">'+esc(p.end)+'</div>'+(p.nd?'<div class="tag">Valor fixo · sem desconto</div>':'')+'<div class="mais">Ver detalhes</div><div class="row">'+preco+btn+'</div></div></div>';
+  const front='<div class="face front"><div class="ph"><img loading="lazy" src="'+p.foto+'" alt="">'+(p.fluxo?'<span class="fl">'+k(p.fluxo)+' pessoas/mês</span>':'')+'<span class="flipb" title="Toque pra ver detalhes">'+IC_FLIP+'</span></div><div class="bd"><div class="ct">'+esc(p.cat)+'</div><div class="nm">'+esc(p.nome)+'</div><div class="ad" title="'+esc(p.end)+'">'+esc(p.end)+'</div>'+(p.nd?'<div class="tag">Valor fixo · sem desconto</div>':'')+'<div class="mais">'+IC_FLIP+'Ver detalhes</div><div class="row">'+preco+btn+'</div></div></div>';
   const info=[['Categoria',p.cat],['Endereço',p.end],['Fluxo',p.fluxo?Number(p.fluxo).toLocaleString('pt-BR')+' pessoas/mês':'—'],['Telas',p.telas?p.telas+(p.telas>1?' telas':' tela'):(p.led?'Painel de LED':'Tela indoor')],['Valor',p.valor?brl(p.valor)+'/mês':'Sob consulta'],['Desconto',p.nd?'Valor fixo, sem desconto':'Entra no desconto de pacote']];
   const back='<div class="face back"><div class="bk-top"><div><div class="ct">'+esc(p.cat)+'</div><div class="nm">'+esc(p.nome)+'</div></div><button class="x2" aria-label="Voltar">✕</button></div>'
     +(p.desc?'<div class="ds">'+esc(p.desc)+'</div>':'<div class="ds vz">Descrição do local em breve.</div>')
@@ -343,6 +351,7 @@ function card(p){const on=SEL.has(p.id);
   return '<div class="card '+(on?'picked ':'')+(VIRADO.has(p.id)?'vira':'')+'" id="c'+p.id+'" data-id="'+p.id+'"><div class="flip">'+front+back+'</div></div>';}
 const VIRADO=new Set();
 document.addEventListener('click',e=>{const c=e.target.closest&&e.target.closest('.card[data-id]');if(!c)return;if(e.target.closest('.add,.lk'))return;virar(+c.dataset.id);});
+(function(){let feito=false;const tentar=()=>{if(feito)return;const g=document.getElementById('grid');if(!g)return;const io=new IntersectionObserver(es=>{es.forEach(x=>{if(x.isIntersecting&&!feito){feito=true;io.disconnect();const c=g.querySelector('.card:not(.vira)');if(c){setTimeout(()=>{c.classList.add('peek');setTimeout(()=>c.classList.remove('peek'),1500);},500);}}});},{threshold:.35});io.observe(g);};if('IntersectionObserver' in window)setTimeout(tentar,1200);})();
 function virar(id){const c=document.getElementById('c'+id);if(!c)return;if(VIRADO.has(id))VIRADO.delete(id);else VIRADO.add(id);c.classList.toggle('vira',VIRADO.has(id));}
 function render(){const l=lista();document.getElementById('grid').innerHTML=l.map(card).join('')||'<div class="empty">Nenhum ponto nesse filtro.</div>';document.getElementById('count').textContent=l.length+' ponto'+(l.length!==1?'s':'')+(cat!=='Todos'?' · '+cat:'');updateMarkers(l);}
 function toggle(id){const p=PONTOS.find(x=>x.id===id);if(!p)return;if(SEL.has(id)){SEL.delete(id);toast('Removido');}else{SEL.add(id);toast(p.nome+' adicionado ✓');[document.getElementById('cartbtn'),document.getElementById('bar')].forEach(b=>{b.classList.remove('pulse');void b.offsetWidth;b.classList.add('pulse');});}
