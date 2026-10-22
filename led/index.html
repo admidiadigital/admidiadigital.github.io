@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ADmídia · LED e Corporativo</title>
+<meta name="description" content="Painéis de LED e telas corporativas para o seu negócio: projeto, instalação e gestão do conteúdo. Comunicação interna digital em Tubarão e região.">
+<meta name="theme-color" content="#fbfcfe">
+<link rel="icon" type="image/png" href="../favicon_navy.png"><link rel="apple-touch-icon" href="../apple-touch-icon_navy.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#000E29;--ink:#0b1730;--blue:#0092FF;--muted:#55627a;--faint:#8a97ad;--line:#eef2f7;--bg:#fbfcfe;--f:'Montserrat',-apple-system,Segoe UI,Roboto,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--f);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.site{position:sticky;top:0;z-index:60;background:#fbfcfecc;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top{max-width:1240px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:18px}
+.logo img{height:28px;display:block}
+.nav{display:flex;gap:26px;margin-left:auto}.nav a{color:#3b4a63;text-decoration:none;font-weight:500;font-size:14px}.nav a:hover{color:var(--navy)}
+.pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:9px 16px;font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap}
+.pill.dk{background:var(--navy);color:#fff}
+.btn{border:1px solid transparent;border-radius:999px;padding:13px 22px;font-weight:600;font-size:15px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-family:var(--f);transition:transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.p{background:var(--navy);color:#fff;box-shadow:0 8px 24px #000e2933}.btn.w{background:#fff;color:var(--navy);border-color:#e3ebf5}
+.ic{width:18px;height:18px;flex:0 0 auto}
+.kicker{display:inline-block;background:#fff;border:1px solid #e3ebf5;color:#3b4a63;font-size:12.5px;font-weight:500;padding:7px 14px;border-radius:999px;margin-bottom:20px;box-shadow:0 1px 2px #000e290a}
+h1{font-size:clamp(36px,5vw,62px);line-height:1.04;letter-spacing:-.045em;margin:0 0 18px;font-weight:700}
+h1 span,h2 span{color:var(--blue)}
+h2{font-size:clamp(28px,3.6vw,44px);line-height:1.08;letter-spacing:-.035em;margin:0 0 16px;font-weight:700}
+.lead{font-size:clamp(16px,1.5vw,18px);color:var(--muted);line-height:1.6;margin:0 0 28px;max-width:560px}
+.sec-k{font-size:13px;font-weight:600;color:var(--blue);margin-bottom:10px}
+section{padding:70px 0 10px}
+/* hero */
+.hero{position:relative;z-index:0;padding:clamp(48px,8vh,90px) 0 60px;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;z-index:-1;background:radial-gradient(45% 70% at 80% 55%,#0092ff4d,transparent 70%),radial-gradient(35% 50% at 100% 100%,#8fd0ff66,transparent 70%),radial-gradient(40% 50% at 0% 100%,#33a9ff2e,transparent 70%),var(--bg)}
+.hgrid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.ctas{display:flex;gap:10px;flex-wrap:wrap}
+.himg{justify-self:end;width:min(420px,100%);position:relative}
+.himg img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:28px;display:block;box-shadow:0 40px 90px #000e2930}
+.tag{position:absolute;left:16px;bottom:16px;background:#ffffffe6;color:var(--navy);font-size:13px;font-weight:600;padding:8px 13px;border-radius:999px;backdrop-filter:blur(6px)}
+/* faixa */
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:22px 20px}
+.si{text-align:center;border-right:1px solid var(--line);padding:4px}.si:last-child{border-right:0}
+.si b{display:block;font-size:20px;font-weight:700;letter-spacing:-.02em;color:var(--navy)}.si span{font-size:12.5px;color:#6b7891}
+/* LED */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.steps{display:grid;gap:14px;margin-top:24px}
+.st{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid #e8eef6;border-radius:18px;padding:16px 18px;box-shadow:0 1px 3px #000e290a}
+.st i{font-style:normal;flex:0 0 auto;width:32px;height:32px;border-radius:50%;background:#eaf5ff;color:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:700}
+.st b{display:block;font-size:15.5px;margin-bottom:3px}.st p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.5}
+.vid{position:relative;justify-self:center;width:min(360px,100%)}
+.vid video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:28px;display:block;background:#000;box-shadow:0 40px 90px #000e2930}
+.vtag{position:absolute;left:14px;top:14px;background:#000e29cc;color:#fff;font-size:12px;font-weight:600;padding:6px 11px;border-radius:999px}
+/* corporativo */
+.corp{background:linear-gradient(180deg,var(--bg),#f2f8ff)}
+.quote{font-size:clamp(20px,2.4vw,28px);font-weight:700;letter-spacing:-.03em;color:var(--ink);margin:6px 0 0}
+.quote span{color:var(--blue)}
+.bens{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.bem{background:#fff;border:1px solid #e8eef6;border-radius:20px;padding:22px;box-shadow:0 1px 3px #000e290a;transition:transform .25s,box-shadow .25s}
+.bem:hover{transform:translateY(-4px);box-shadow:0 18px 40px #000e2914}
+.bem .bi{width:42px;height:42px;border-radius:12px;background:#eaf5ff;color:var(--blue);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.bem .bi svg{width:22px;height:22px}
+.bem b{display:block;font-size:16.5px;margin-bottom:6px;letter-spacing:-.01em}.bem p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}
+/* projetos */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px}
+.pj{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/5;background:#000;box-shadow:0 12px 30px #000e291f}
+.pj img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.pj:hover img{transform:scale(1.05)}
+.pj .cap{position:absolute;left:0;right:0;bottom:0;padding:40px 16px 14px;background:linear-gradient(transparent,#000e29d9);color:#fff}
+.pj .cap b{display:block;font-size:16px}.pj .cap small{font-size:12.5px;color:#cfe6ff}
+.chip{position:absolute;left:14px;top:14px;background:#ffffffe6;color:var(--navy);font-size:11.5px;font-weight:600;padding:5px 10px;border-radius:999px}
+/* depoimento */
+.dep{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.dep blockquote{margin:0;font-size:clamp(20px,2.4vw,28px);line-height:1.35;letter-spacing:-.02em;font-weight:600;color:var(--ink)}
+.dep blockquote::before{content:'“';display:block;font-size:64px;line-height:.6;color:var(--blue);margin-bottom:10px}
+.dep cite{display:block;margin-top:16px;font-style:normal;color:var(--muted);font-size:14.5px}
+.dep cite b{color:var(--ink)}
+/* contato */
+.cwrap{position:relative;border-radius:32px;overflow:hidden;background:linear-gradient(135deg,#0092FF 0%,#0070e0 55%,#0052b8 100%);box-shadow:0 30px 70px #0092ff40;margin:70px 0 40px}
+.cbg{position:absolute;inset:0;background:radial-gradient(45% 80% at 100% 0%,#ffffff40,transparent 60%),radial-gradient(40% 70% at 0% 100%,#00b4ff55,transparent 65%)}
+.cin{position:relative;text-align:center;padding:clamp(48px,7vw,80px) 24px;color:#fff}
+.cin h2{color:#fff}.cin p{color:#e6f3ff;font-size:17px;max-width:560px;margin:0 auto 28px;line-height:1.55}
+.cbtns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.cb1,.cb2{border-radius:999px;padding:13px 22px;font-family:var(--f);font-weight:600;font-size:15px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+.cb1{background:#fff;color:var(--ink);border:1px solid #fff}.cb1 .ic{color:#25d366}
+.cb2{background:transparent;color:#fff;border:1px solid #ffffff80}
+.foot{text-align:center;color:var(--faint);font-size:12.5px;padding:10px 20px 40px}
+.foot a{color:var(--blue);text-decoration:none;font-weight:600}
+/* revelar ao rolar */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+@media(max-width:900px){.nav{display:none}.hgrid,.split,.dep{grid-template-columns:1fr;gap:34px}.himg{justify-self:center;width:min(380px,100%)}.bens,.pgrid{grid-template-columns:1fr 1fr}.strip .wrap{grid-template-columns:1fr 1fr}.si:nth-child(2){border-right:0}}
+@media(max-width:600px){.top{padding:12px 14px}.logo img{height:24px}.bens,.pgrid{grid-template-columns:1fr}.hero{padding:40px 0 40px}section{padding:54px 0 6px}.pill .t{display:none}}
+</style>
+</head>
+<body>
+<header class="site"><div class="top">
+  <a class="logo" href="../"><img src="../logo_dark.png" alt="ADmídia"></a>
+  <nav class="nav"><a href="#led">Painéis de LED</a><a href="#corporativo">Corporativo</a><a href="#projetos">Projetos</a><a href="#contato">Fale conosco</a></nav>
+  <a class="pill dk" href="../"><span class="t">Anunciar nos nossos pontos</span><span>→</span></a>
+</div></header>
+
+<section class="hero" id="topo"><div class="wrap hgrid">
+  <div>
+    <div class="kicker">LED e Corporativo · ADmídia</div>
+    <h1>Sua marca brilhando, <span>dentro e fora</span> do seu negócio.</h1>
+    <p class="lead">Painéis de LED pra fachada, totem e interior, e telas corporativas com a comunicação da sua empresa. A gente cuida do projeto, da instalação e do conteúdo.</p>
+    <div class="ctas"><a class="btn p" href="#" onclick="zap('Comercial 1','orcamento');return false">Quero um orçamento</a><a class="btn w" href="#projetos">Ver projetos</a></div>
+  </div>
+  <div class="himg"><img src="img/academia-led.jpg" alt="Painel de LED ADmídia instalado em academia"><span class="tag">Painel de LED interno · Academia</span></div>
+</div></section>
+
+<div class="strip"><div class="wrap">
+  <div class="si"><b>Projeto sob medida</b><span>do tamanho certo pro seu espaço</span></div>
+  <div class="si"><b>Instalação completa</b><span>estrutura, elétrica e montagem</span></div>
+  <div class="si"><b>Conteúdo gerenciado</b><span>troca de arte de qualquer lugar</span></div>
+  <div class="si"><b>Suporte local</b><span>equipe aqui em Tubarão</span></div>
+</div></div>
+
+<section id="led"><div class="wrap split">
+  <div>
+    <div class="sec-k rv">Painéis de LED</div>
+    <h2 class="rv">Do projeto ao painel <span>aceso</span>.</h2>
+    <p class="lead rv">Painéis de LED pra fachada, totem, outdoor e ambientes internos. Brilho pra ser visto de dia e de noite, com imagem e vídeo em alta definição.</p>
+    <div class="steps">
+      <div class="st rv"><i>1</i><div><b>Projeto</b><p>Visita técnica, medida do espaço e escolha do painel ideal pro seu objetivo e orçamento.</p></div></div>
+      <div class="st rv"><i>2</i><div><b>Estrutura e instalação</b><p>Fabricação da estrutura, parte elétrica e montagem com a nossa equipe.</p></div></div>
+      <div class="st rv"><i>3</i><div><b>Conteúdo</b><p>Você troca as artes quando quiser, de qualquer lugar. Se preferir, a gente produz.</p></div></div>
+      <div class="st rv"><i>4</i><div><b>Suporte</b><p>Acompanhamento depois da instalação, com equipe local.</p></div></div>
+    </div>
+  </div>
+  <div class="vid rv"><video src="instalacao-led.mp4" poster="img/poster-instalacao.jpg" controls playsinline preload="metadata"></video><span class="vtag">Bastidores de uma instalação</span></div>
+</div></section>
+
+<section class="corp" id="corporativo"><div class="wrap">
+  <div class="sec-k rv">Corporativo</div>
+  <h2 class="rv">Comunicação que acompanha o <span>ritmo do seu negócio</span>.</h2>
+  <p class="lead rv" style="max-width:720px">Mural de papel, cartaz impresso e recado no grupo de WhatsApp ficam velhos rápido, ninguém lê e custam caro pra refazer. Com telas digitais, a comunicação do seu estabelecimento fica viva, atualizada e impossível de ignorar.</p>
+  <p class="quote rv">A sua comunicação interna <span>também é a sua marca.</span></p>
+  <div class="bens">
+    <div class="bem rv"><div class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg></div><b>Atualiza em segundos</b><p>Mudou o preço, a promoção ou o aviso? Troca na hora, de qualquer lugar, sem imprimir nada.</p></div>
+    <div class="bem rv"><div class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><b>Todo mundo vê</b><p>Clientes e colaboradores olham pra tela. Informação no lugar certo, na hora certa.</p></div>
+    <div class="bem rv"><div class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div><b>Padrão em todas as unidades</b><p>Mesma mensagem, mesma identidade visual, em uma ou dez lojas.</p></div>
+    <div class="bem rv"><div class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div><b>Mais vendas no ponto</b><p>Cardápio digital, combos e lançamentos onde a decisão de compra acontece.</p></div>
+    <div class="bem rv"><div class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2 21c0-4 3-6.5 7-6.5s7 2.5 7 6.5"/><circle cx="17.5" cy="9" r="2.5"/><path d="M16 14.6c3.4.2 6 2.4 6 6.4"/></svg></div><b>Equipe mais engajada</b><p>Metas, aniversariantes, treinamentos e comunicados internos sem depender de e-mail ou papel.</p></div>
+    <div class="bem rv"><div class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 16-10-1 12-5 16-9 17z"/><path d="M4 21c3-6 7-9 11-11"/></svg></div><b>Economia e sustentabilidade</b><p>Adeus gasto com gráfica e impressão toda semana.</p></div>
+  </div>
+</div></section>
+
+<section id="projetos"><div class="wrap">
+  <div class="sec-k rv">Projetos</div>
+  <h2 class="rv">Alguns projetos <span>que já fizemos</span>.</h2>
+  <div class="pgrid">
+    <div class="pj rv"><img src="img/usimais.jpg" alt="Painel de LED na fachada da Farmácia Usimais" loading="lazy"><span class="chip">Painel de LED</span><div class="cap"><b>Farmácia Usimais</b><small>Painel de LED na fachada</small></div></div>
+    <div class="pj rv"><img src="img/trevo-br101.jpg" alt="Instalação de painel de LED próximo à BR-101" loading="lazy"><span class="chip">Painel de LED</span><div class="cap"><b>Trevo da BR-101</b><small>Painel de LED externo em totem</small></div></div>
+    <div class="pj rv"><img src="img/laco.jpg" alt="Painéis de LED no salão Laço" loading="lazy"><span class="chip">Corporativo</span><div class="cap"><b>Laço</b><small>Painéis de LED com a identidade do salão</small></div></div>
+    <div class="pj rv"><img src="img/jhowbatata.jpg" alt="Cardápio digital da Jhow Batata" loading="lazy"><span class="chip">Corporativo</span><div class="cap"><b>Jhow Batata</b><small>Cardápio digital com 3 telas</small></div></div>
+    <div class="pj rv"><img src="img/magnifico.jpg" alt="Cardápio digital do Magnífico" loading="lazy"><span class="chip">Corporativo</span><div class="cap"><b>Magnífico</b><small>Cardápio digital na praça de alimentação</small></div></div>
+    <div class="pj rv"><img src="img/bgmen.jpg" alt="Telas corporativas na BG Men" loading="lazy"><span class="chip">Corporativo</span><div class="cap"><b>BG Men</b><small>Telas verticais com conteúdo da marca</small></div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap dep">
+  <div class="vid rv" style="justify-self:start"><video src="depoimento-usimais.mp4" poster="img/poster-usimais.jpg" controls playsinline preload="metadata"></video><span class="vtag">Depoimento</span></div>
+  <div class="rv">
+    <div class="sec-k">Quem instalou, recomenda</div>
+    <blockquote>O LED chegou na nossa farmácia pra atender o cliente com inovação. Excelente qualidade, instalação fácil e simples de mexer.</blockquote>
+    <cite><b>Simoni</b> · Farmácia Usimais</cite>
+  </div>
+</div></section>
+
+<div class="wrap"><div class="cwrap" id="contato"><div class="cbg"></div><div class="cin">
+  <div class="kicker" style="background:#ffffff22;border-color:#ffffff40;color:#fff;box-shadow:none">Vamos conversar</div>
+  <h2>Vamos fazer o <span style="color:#fff;text-decoration:underline;text-decoration-color:#ffffff80;text-underline-offset:6px">seu projeto</span>?</h2>
+  <p>Conta o que você precisa: painel de LED, telas no seu estabelecimento ou os dois. A gente monta a proposta sob medida.</p>
+  <div class="cbtns" id="cbtns"></div>
+</div></div></div>
+
+<div class="foot">ADmídia · Tubarão/SC · <a href="../">Quer anunciar nos nossos pontos? Ver o mapa →</a></div>
+
+<script>
+const ZAP={ 'Comercial 1':'48991079940', 'Comercial 2':'48999292439' };   // Comercial 1 = Davi · Comercial 2 = Matheus
+const IC_WA='<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.23 8.23 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 5.83 2.42 8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48a.92.92 0 0 0-.67.31c-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.02 2.56.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.29Z"/></svg>';
+const MSG={orcamento:'Olá! Vim pelo site e quero um orçamento de painel de LED / telas corporativas pro meu negócio.',contato:'Olá! Vim pelo site e quero saber mais sobre painéis de LED e telas corporativas.'};
+function zap(n,tipo){const num=ZAP[n];window.open('https://wa.me/55'+num+'?text='+encodeURIComponent(MSG[tipo]||MSG.contato),'_blank');}
+document.getElementById('cbtns').innerHTML=Object.keys(ZAP).map(n=>'<a class="cb1" href="#" onclick="zap(\''+n+'\',\'contato\');return false">'+IC_WA+n+'</a>').join('')+'<a class="cb2" href="../">Ver pontos de mídia</a>';
+(function(){const els=[...document.querySelectorAll('.rv')];if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return;}
+  els.forEach(e=>{const sib=e.parentElement?[...e.parentElement.children].indexOf(e):0;if(e.matches('.bem,.pj,.st'))e.style.transitionDelay=(sib%3)*0.1+'s';});
+  const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(e=>io.observe(e));})();
+</script>
+</body>
+</html>
