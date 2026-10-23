@@ -37,8 +37,15 @@ section{padding:70px 0 10px}
 .hero::before{content:'';position:absolute;inset:0;z-index:-1;background:radial-gradient(45% 70% at 80% 55%,#0092ff4d,transparent 70%),radial-gradient(35% 50% at 100% 100%,#8fd0ff66,transparent 70%),radial-gradient(40% 50% at 0% 100%,#33a9ff2e,transparent 70%),var(--bg)}
 .hgrid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
 .ctas{display:flex;gap:10px;flex-wrap:wrap}
-.himg{justify-self:end;width:min(420px,100%);position:relative}
-.himg img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:28px;display:block;box-shadow:0 40px 90px #000e2930}
+.himg{justify-self:end;width:min(500px,100%);position:relative;aspect-ratio:1/1.08}
+.himg figure{position:absolute;margin:0}
+.himg figure img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:26px;display:block;box-shadow:0 40px 90px #000e2930}
+.himg .f1{right:0;top:0;width:66%}
+.himg .f2{left:0;bottom:0;width:50%;z-index:1}
+.himg .f2 img{border:6px solid #fff;border-radius:24px;box-shadow:0 30px 70px #000e2940}
+.himg .tag{left:12px;bottom:12px;right:12px;width:fit-content;max-width:calc(100% - 24px);font-size:12px;padding:7px 11px}
+.himg .f2 .tag{left:16px;bottom:16px}
+.himg .f1 .tag{bottom:14px;left:auto;right:14px;max-width:52%;text-align:right}
 .tag{position:absolute;left:16px;bottom:16px;background:#ffffffe6;color:var(--navy);font-size:13px;font-weight:600;padding:8px 13px;border-radius:999px;backdrop-filter:blur(6px)}
 /* faixa */
 .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}
@@ -189,7 +196,7 @@ section{padding:70px 0 10px}
     <p class="lead">Painéis de LED pra fachada, totem e interior, e telas corporativas com a comunicação da sua empresa. A gente cuida do projeto, da instalação e do conteúdo.</p>
     <div class="ctas"><a class="btn p" href="#" onclick="zap('Comercial 1','orcamento');return false">Quero um orçamento</a><a class="btn w" href="#projetos">Ver projetos</a></div>
   </div>
-  <div class="himg"><img src="img/primus-noite.jpg" alt="Totem de LED da ADmídia aceso à noite"><span class="tag">Totem de LED · Trevo dos Morrotes, Tubarão</span></div>
+  <div class="himg"><figure class="f1"><img src="img/primus-noite.jpg" alt="Totem de LED da ADmídia aceso à noite"><span class="tag">Totem de LED · Trevo dos Morrotes</span></figure><figure class="f2"><img src="img/academia-led.jpg" alt="Painel de LED na Academia Superação"><span class="tag">Academia Superação</span></figure></div>
 </div></section>
 
 <div class="strip"><div class="wrap">
@@ -262,13 +269,13 @@ section{padding:70px 0 10px}
   <div class="pgrid">
     <div class="pj rv"><img src="img/primus-instalacao.jpg" alt="Totem de LED no Trevo dos Morrotes, Tubarão" loading="lazy"><span class="chip">Painel de LED</span><div class="cap"><b>Trevo dos Morrotes</b><small>Totem de LED · Tubarão</small></div></div>
     <div class="pj rv"><img src="img/totem-instalacao.jpg" alt="Totem de LED da Chef Pizzaria, Capivari de Baixo" loading="lazy"><span class="chip">Painel de LED</span><div class="cap"><b>Chef Pizzaria</b><small>Totem de LED · Capivari de Baixo</small></div></div>
+    <div class="pj rv"><img src="img/academia-led.jpg" alt="Academia Superação · Painel de LED interno" loading="lazy"><span class="chip">Painel de LED</span><div class="cap"><b>Academia Superação</b><small>Painel de LED interno</small></div></div>
     <div class="pj rv"><img src="img/lubrafer.jpg" alt="Lubrafer · Videowall com 3 telas na loja" loading="lazy"><span class="chip">Corporativo</span><div class="cap"><b>Lubrafer</b><small>Videowall com 3 telas na loja</small></div></div>
     <div class="pj rv"><img src="img/laco.jpg" alt="Laço · Painéis de LED com a identidade do salão" loading="lazy"><span class="chip">Corporativo</span><div class="cap"><b>Laço</b><small>Painéis de LED com a identidade do salão</small></div></div>
     <div class="pj rv"><img src="img/sorveteria.jpg" alt="Sorveteria · Cardápio digital com 3 telas" loading="lazy"><span class="chip">Corporativo</span><div class="cap"><b>Sorveteria</b><small>Cardápio digital com 3 telas</small></div></div>
     <div class="pj rv"><img src="img/jhowbatata.jpg" alt="Jhow Batata · Cardápio digital com 3 telas" loading="lazy"><span class="chip">Corporativo</span><div class="cap"><b>Jhow Batata</b><small>Cardápio digital com 3 telas</small></div></div>
     <div class="pj rv"><img src="img/magnifico.jpg" alt="Magnífico · Cardápio digital na praça de alimentação" loading="lazy"><span class="chip">Corporativo</span><div class="cap"><b>Magnífico</b><small>Cardápio digital na praça de alimentação</small></div></div>
     <div class="pj rv"><img src="img/bgmen.jpg" alt="BG Men · Telas verticais com conteúdo da marca" loading="lazy"><span class="chip">Corporativo</span><div class="cap"><b>BG Men</b><small>Telas verticais com conteúdo da marca</small></div></div>
-    <div class="pj rv"><img src="img/academia-led.jpg" alt="Academia · Painel de LED interno" loading="lazy"><span class="chip">Painel de LED</span><div class="cap"><b>Academia</b><small>Painel de LED interno</small></div></div>
   </div>
 </div></section>
 
