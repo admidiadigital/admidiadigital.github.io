@@ -38,15 +38,11 @@ section{padding:70px 0 10px}
 .hero::before{content:'';position:absolute;inset:0;z-index:-1;background:radial-gradient(45% 70% at 80% 55%,#0092ff4d,transparent 70%),radial-gradient(35% 50% at 100% 100%,#8fd0ff66,transparent 70%),radial-gradient(40% 50% at 0% 100%,#33a9ff2e,transparent 70%),var(--bg)}
 .hgrid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
 .ctas{display:flex;gap:10px;flex-wrap:wrap}
-.himg{justify-self:end;width:min(500px,100%);position:relative;aspect-ratio:1/1.08}
-.himg figure{position:absolute;margin:0}
-.himg figure img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:26px;display:block;box-shadow:0 40px 90px #000e2930}
-.himg .f1{right:0;top:0;width:66%}
-.himg .f2{left:0;bottom:0;width:50%;z-index:1}
-.himg .f2 img{border:6px solid #fff;border-radius:24px;box-shadow:0 30px 70px #000e2940}
-.himg .tag{left:12px;bottom:12px;right:12px;width:fit-content;max-width:calc(100% - 24px);font-size:12px;padding:7px 11px}
-.himg .f2 .tag{left:16px;bottom:16px}
-.himg .f1 .tag{bottom:14px;left:auto;right:14px;max-width:52%;text-align:right}
+.himg{justify-self:end;width:min(540px,100%);display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.himg figure{position:relative;margin:0}
+.himg figure img{width:100%;aspect-ratio:3/4.4;object-fit:cover;border-radius:24px;display:block;box-shadow:0 30px 70px #000e2928}
+.himg .f2{margin-top:64px}
+.himg .tag{left:10px;bottom:10px;right:auto;max-width:calc(100% - 20px);font-size:11.5px;padding:6px 10px;line-height:1.25}
 .tag{position:absolute;left:16px;bottom:16px;background:#ffffffe6;color:var(--navy);font-size:13px;font-weight:600;padding:8px 13px;border-radius:999px;backdrop-filter:blur(6px)}
 /* faixa */
 .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}
@@ -179,7 +175,7 @@ section{padding:70px 0 10px}
 /* revelar ao rolar */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}.rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
-@media(max-width:900px){.nav{display:none}.hgrid,.split,.dep{grid-template-columns:1fr;gap:34px}.himg{justify-self:center;width:min(380px,100%)}.bens,.pgrid{grid-template-columns:1fr 1fr}.strip .wrap{grid-template-columns:1fr 1fr}.si:nth-child(2){border-right:0}}
+@media(max-width:900px){.nav{display:none}.hgrid,.split,.dep{grid-template-columns:1fr;gap:34px}.himg{justify-self:center;width:min(460px,100%);gap:12px}.himg .f2{margin-top:44px}.bens,.pgrid{grid-template-columns:1fr 1fr}.strip .wrap{grid-template-columns:1fr 1fr}.si:nth-child(2){border-right:0}}
 @media(max-width:600px){.top{padding:12px 14px}.logo img{height:24px}.bens,.pgrid{grid-template-columns:1fr}.hero{padding:40px 0 40px}section{padding:54px 0 6px}.pill .t{display:none}}
 </style>
 </head>
@@ -197,7 +193,7 @@ section{padding:70px 0 10px}
     <p class="lead">Painéis de LED pra fachada, totem e interior, e telas corporativas com a comunicação da sua empresa. A gente cuida do projeto, da instalação e do conteúdo.</p>
     <div class="ctas"><a class="btn p" href="#" onclick="zap('Comercial 1','orcamento');return false">Quero um orçamento</a><a class="btn w" href="#projetos">Ver projetos</a></div>
   </div>
-  <div class="himg"><figure class="f1"><img src="img/primus-noite.jpg" alt="Totem de LED da ADmídia aceso à noite"><span class="tag">Totem de LED · Trevo dos Morrotes</span></figure><figure class="f2"><img src="img/academia-led.jpg" alt="Painel de LED na Academia Superação"><span class="tag">Academia Superação</span></figure></div>
+  <div class="himg"><figure class="f1"><img src="img/primus-noite.jpg" alt="Totem de LED da ADmídia aceso à noite"><span class="tag">Trevo dos Morrotes</span></figure><figure class="f2"><img src="img/academia-led.jpg" alt="Painel de LED na Academia Superação"><span class="tag">Academia Superação</span></figure></div>
 </div></section>
 
 <div class="strip"><div class="wrap">
