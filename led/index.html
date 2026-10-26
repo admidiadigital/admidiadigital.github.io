@@ -173,6 +173,27 @@ section{padding:70px 0 10px}
 .foot{text-align:center;color:var(--faint);font-size:12.5px;padding:10px 20px 40px}
 .foot a{color:var(--blue);text-decoration:none;font-weight:600}
 /* revelar ao rolar */
+/* segmentos (ref. Azul Light) */
+.segs{margin-top:34px;border-top:1px solid #e3ebf5}
+.sg{display:grid;grid-template-columns:300px 220px 1fr 46px;gap:34px;align-items:center;padding:26px 14px;border-bottom:1px solid #e3ebf5;text-decoration:none;color:inherit;transition:background .25s;border-radius:4px}
+.sg:hover{background:#fff}
+.sg .ph{overflow:hidden;border-radius:20px;box-shadow:0 18px 40px #000e2918}
+.sg .ph img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.sg:hover .ph img{transform:scale(1.05)}
+.sg h3{margin:0;font-size:23px;font-weight:700;letter-spacing:.01em;text-transform:uppercase;color:var(--navy);line-height:1.15}
+.sg p{margin:0 0 10px;color:var(--muted);font-size:15px;line-height:1.6}
+.sg .lk{color:var(--blue);font-weight:600;font-size:14.5px}
+.sg .ar{width:46px;height:46px;border-radius:50%;border:1px solid #dbe5f1;display:flex;align-items:center;justify-content:center;color:var(--navy);transition:.25s}
+.sg .ar svg{width:18px;height:18px}
+.sg:hover .ar{background:var(--navy);border-color:var(--navy);color:#fff}
+/* sobre */
+.sobre{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
+.sobre p{color:var(--muted);font-size:16.5px;line-height:1.7;margin:0 0 16px}
+.sobre p b{color:var(--navy)}
+.fatos{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.fatos span{background:#fff;border:1px solid #e3ebf5;border-radius:999px;padding:9px 15px;font-size:13.5px;font-weight:600;color:var(--navy);box-shadow:0 1px 2px #000e290a}
+.sobre .ph img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:26px;display:block;box-shadow:0 40px 90px #000e2930}
+@media(max-width:900px){.sg{grid-template-columns:1fr;gap:14px;padding:24px 0}.sg .ar{display:none}.sg h3{font-size:21px}.sobre{grid-template-columns:1fr;gap:30px}}
 .rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}.rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
 @media(max-width:900px){.nav{display:none}.hgrid,.split,.dep{grid-template-columns:1fr;gap:34px}.himg{justify-self:center;width:min(460px,100%);gap:12px}.himg .f2{margin-top:44px}.bens,.pgrid{grid-template-columns:1fr 1fr}.strip .wrap{grid-template-columns:1fr 1fr}.si:nth-child(2){border-right:0}}
@@ -202,6 +223,18 @@ section{padding:70px 0 10px}
   <div class="si"><b>Conteúdo gerenciado</b><span>troca de arte de qualquer lugar</span></div>
   <div class="si"><b>Suporte local</b><span>equipe aqui em Tubarão</span></div>
 </div></div>
+
+<section id="segmentos"><div class="wrap">
+  <div class="sec-k rv">Para cada negócio</div>
+  <h2 class="rv">Um painel de LED <span>pro seu tipo de negócio</span>.</h2>
+  <div class="segs">
+    <a class="sg rv" href="#" onclick="zapSeg('fachada');return false"><div class="ph"><img src="../capa.jpg" alt="Painel de LED na fachada de loja" loading="lazy"></div><h3>Comércio e fachadas</h3><div><p>Sua fachada vira vitrine digital, vista por quem passa de carro e a pé, de dia e de noite.</p><p>Troca de arte em minutos, sem custo de impressão e sem troca de lona.</p><span class="lk">Quero para o meu comércio →</span></div><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+    <a class="sg rv" href="#" onclick="zapSeg('academia');return false"><div class="ph"><img src="img/academia-led.jpg" alt="Painel de LED na Academia Superação" loading="lazy"></div><h3>Academias</h3><div><p>Telão com aulas, avisos e campanhas, trocados à distância.</p><p>O espaço também pode ser vendido para parceiros e anunciantes, e virar receita.</p><span class="lk">Quero para a minha academia →</span></div><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+    <a class="sg rv" href="#" onclick="zapSeg('gastronomia');return false"><div class="ph"><img src="img/magnifico.jpg" alt="Cardápio digital no Magnífico" loading="lazy"></div><h3>Gastronomia</h3><div><p>Cardápio digital que muda preço e promoção na hora, sem reimprimir nada.</p><p>Destaque o que você mais quer vender e aumente o ticket.</p><span class="lk">Quero para o meu restaurante →</span></div><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+    <a class="sg rv" href="#" onclick="zapSeg('totem');return false"><div class="ph"><img src="../fotos/44b.jpg" alt="Painel de LED com anúncio de O Boticário" loading="lazy"></div><h3>Totens e mídia</h3><div><p>Totem de LED na frente do negócio ou em ponto de grande fluxo.</p><p>Use para a sua marca e venda espaço para anunciantes. O painel se paga.</p><span class="lk">Quero um totem de LED →</span></div><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+    <a class="sg rv" href="#" onclick="zapSeg('corporativo');return false"><div class="ph"><img src="img/lubrafer.jpg" alt="Videowall na Lubrafer" loading="lazy"></div><h3>Corporativo</h3><div><p>Telas internas com avisos, metas, campanhas e produtos da empresa.</p><p>Comunicação interna digital, sem pendrive e sem papel no mural.</p><span class="lk">Quero para a minha empresa →</span></div><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+  </div>
+</div></section>
 
 <section id="led"><div class="wrap split">
   <div>
@@ -277,6 +310,17 @@ section{padding:70px 0 10px}
 </div></section>
 
 
+<section id="sobre"><div class="wrap sobre">
+  <div class="rv">
+    <div class="sec-k">Quem somos</div>
+    <h2>Somos a <span>ADmídia</span>.</h2>
+    <p>Somos uma empresa de <b>mídia e tecnologia de Tubarão, SC</b>. Cuidamos de tudo no seu projeto de LED: projeto, estrutura, instalação, conteúdo e suporte, com equipe aqui da região.</p>
+    <p>Além de instalar painéis, temos a nossa <b>própria rede de mídia</b>. Então sabemos na prática o que faz uma tela chamar atenção e vender.</p>
+    <div class="fatos"><span>Tubarão · SC</span><span>46 pontos de mídia na região</span><span>Projeto, instalação e conteúdo</span></div>
+  </div>
+  <div class="ph rv"><img src="../formatos/premium_v2.jpg" alt="Ambiente com telas da ADmídia" loading="lazy"></div>
+</div></section>
+
 <div class="wrap"><div class="cwrap" id="contato"><div class="cbg"></div><div class="cin">
   <div class="kicker" style="background:#ffffff22;border-color:#ffffff40;color:#fff;box-shadow:none">Vamos conversar</div>
   <h2>Vamos fazer o <span style="color:#fff;text-decoration:underline;text-decoration-color:#ffffff80;text-underline-offset:6px">seu projeto</span>?</h2>
@@ -292,6 +336,8 @@ const IC_WA='<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="
 const MSG={orcamento:'Olá! Vim pelo site e quero um orçamento de painel de LED / telas corporativas pro meu negócio.',contato:'Olá! Vim pelo site e quero saber mais sobre painéis de LED e telas corporativas.'};
 function filtroPj(b,c){document.querySelectorAll('.pf button').forEach(x=>x.classList.toggle('on',x===b));document.querySelectorAll('.pj').forEach(p=>p.classList.toggle('hide',!!c&&p.querySelector('.chip').textContent!==c));}
 function videoCompleto(){const v=document.getElementById('vled');v.loop=false;v.muted=false;v.src='instalacao-led.mp4';v.controls=true;v.play();const b=document.querySelector('.vfull');if(b)b.remove();}
+const SEG={fachada:'painel de LED pra fachada do meu comércio',academia:'painel de LED pra minha academia',gastronomia:'cardápio digital / painel de LED pro meu restaurante',totem:'totem de LED',corporativo:'telas corporativas pra minha empresa'};
+function zapSeg(k){window.open('https://wa.me/55'+ZAP['Comercial 1']+'?text='+encodeURIComponent('Olá! Vim pelo site e quero um orçamento de '+(SEG[k]||'painel de LED')+'.'),'_blank');}
 function zap(n,tipo){const num=ZAP[n];window.open('https://wa.me/55'+num+'?text='+encodeURIComponent(MSG[tipo]||MSG.contato),'_blank');}
 document.getElementById('cbtns').innerHTML=Object.keys(ZAP).map(n=>'<a class="cb1" href="#" onclick="zap(\''+n+'\',\'contato\');return false">'+IC_WA+n+'</a>').join('')+'<a class="cb2" href="../">Ver pontos de mídia</a>';
 (function(){const els=[...document.querySelectorAll('.rv')];if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return;}
