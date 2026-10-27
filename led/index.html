@@ -188,6 +188,7 @@ section{padding:70px 0 10px}
 .sg:hover{background:#fff}
 .sg .ph{overflow:hidden;border-radius:20px;box-shadow:0 18px 40px #000e2918}
 .sg .ph img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.sg .ph.wh{background:#fff;border:1px solid #e3ebf5}
 .sg:hover .ph img{transform:scale(1.05)}
 .sg h3{margin:0;font-size:23px;font-weight:700;letter-spacing:.01em;text-transform:uppercase;color:var(--navy);line-height:1.15}
 .sg p{margin:0 0 10px;color:var(--muted);font-size:15px;line-height:1.6}
@@ -248,6 +249,7 @@ section{padding:70px 0 10px}
     <a class="sg rv" href="#" onclick="zapSeg('gastronomia');return false"><div class="ph"><img src="img/magnifico.jpg" alt="Cardápio digital no Magnífico" loading="lazy"></div><h3>Gastronomia</h3><div><p>Cardápio digital que muda preço e promoção na hora, sem reimprimir nada.</p><p>Destaque o que você mais quer vender e aumente o ticket.</p><span class="lk">Quero para o meu restaurante →</span></div><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
     <a class="sg rv" href="#" onclick="zapSeg('totem');return false"><div class="ph"><img src="../fotos/44b.jpg" alt="Painel de LED com anúncio de O Boticário" loading="lazy"></div><h3>Totens e mídia</h3><div><p>Totem de LED na frente do negócio ou em ponto de grande fluxo.</p><p>Use para a sua marca e venda espaço para anunciantes. O painel se paga.</p><span class="lk">Quero um totem de LED →</span></div><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
     <a class="sg rv" href="#" onclick="zapSeg('corporativo');return false"><div class="ph"><img src="img/lubrafer.jpg" alt="Videowall na Lubrafer" loading="lazy"></div><h3>Corporativo</h3><div><p>Telas internas com avisos, metas, campanhas e produtos da empresa.</p><p>Comunicação interna digital, sem pendrive e sem papel no mural.</p><span class="lk">Quero para a minha empresa →</span></div><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+    <a class="sg rv" href="#" onclick="zapSeg('videowall');return false"><div class="ph wh"><img src="img/videowall.jpg" alt="Video wall com várias telas formando uma imagem só" loading="lazy"></div><h3>Video wall</h3><div><p>Várias telas juntas formando uma imagem gigante, com bordas finas quase invisíveis.</p><p>Ideal para recepções, lojas, showrooms, eventos e salas de controle. Impacto de cinema no seu espaço.</p><span class="lk">Quero um video wall →</span></div><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
   </div>
 </div></section>
 
@@ -352,7 +354,7 @@ const IC_WA='<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="
 const MSG={orcamento:'Olá! Vim pelo site e quero um orçamento de painel de LED / telas corporativas pro meu negócio.',contato:'Olá! Vim pelo site e quero saber mais sobre painéis de LED e telas corporativas.'};
 function filtroPj(b,c){document.querySelectorAll('.pf button').forEach(x=>x.classList.toggle('on',x===b));document.querySelectorAll('.pj').forEach(p=>p.classList.toggle('hide',!!c&&p.querySelector('.chip').textContent!==c));}
 function videoCompleto(){const v=document.getElementById('vled');v.loop=false;v.muted=false;v.src='instalacao-led.mp4';v.controls=true;v.play();const b=document.querySelector('.vfull');if(b)b.remove();}
-const SEG={fachada:'painel de LED pra fachada do meu comércio',academia:'painel de LED pra minha academia',gastronomia:'cardápio digital / painel de LED pro meu restaurante',totem:'totem de LED',corporativo:'telas corporativas pra minha empresa'};
+const SEG={fachada:'painel de LED pra fachada do meu comércio',academia:'painel de LED pra minha academia',gastronomia:'cardápio digital / painel de LED pro meu restaurante',totem:'totem de LED',corporativo:'telas corporativas pra minha empresa',videowall:'video wall'};
 function zapSeg(k){window.open('https://wa.me/55'+ZAP['Comercial 1']+'?text='+encodeURIComponent('Olá! Vim pelo site e quero um orçamento de '+(SEG[k]||'painel de LED')+'.'),'_blank');}
 function zap(n,tipo){const num=ZAP[n];window.open('https://wa.me/55'+num+'?text='+encodeURIComponent(MSG[tipo]||MSG.contato),'_blank');}
 document.getElementById('cbtns').innerHTML=Object.keys(ZAP).map(n=>'<a class="cb1" href="#" onclick="zap(\''+n+'\',\'contato\');return false">'+IC_WA+n+'</a>').join('')+'<a class="cb2" href="../">Ver pontos de mídia</a>';
