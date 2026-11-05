@@ -69,10 +69,9 @@ section{padding:70px 0 10px}
 .vfull{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);display:inline-flex;align-items:center;gap:7px;border:0;border-radius:999px;background:#ffffffe6;color:var(--navy);font-family:var(--f);font-weight:600;font-size:13px;padding:9px 14px;cursor:pointer;box-shadow:0 8px 20px #000e2933;white-space:nowrap}.vfull svg{width:14px;height:14px}
 .vtag{position:absolute;left:14px;top:14px;background:#000e29cc;color:#fff;font-size:12px;font-weight:600;padding:6px 11px;border-radius:999px}
 /* totem (imagem) */
-.totem{position:relative;width:min(340px,100%);aspect-ratio:535/1064}
-.totem .tv-scr{position:absolute;left:3.74%;top:1.79%;width:92.71%;height:96.24%;overflow:hidden;background:#000}
+.totem{position:relative;width:min(340px,100%);padding:9px;border-radius:32px;background:linear-gradient(160deg,#1c2d4d,#000E29);box-shadow:0 40px 90px #000e2940,inset 0 0 0 1px #ffffff1f}
+.totem .tv-scr{position:relative;aspect-ratio:9/16;overflow:hidden;border-radius:24px;background:#000}
 .totem video{width:100%!important;height:100%!important;aspect-ratio:auto!important;object-fit:cover;border-radius:0!important;box-shadow:none!important}
-.totem .tv-frame{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;filter:drop-shadow(0 30px 40px #000e2930)}
 .totem .vtag{left:12px;top:12px}.totem .vfull{bottom:12px;font-size:12px}
 /* moldura de totem de LED (antiga) */
 .ledtot{width:min(380px,100%)}
@@ -294,11 +293,11 @@ section{padding:70px 0 10px}
       <div class="st rv"><i>4</i><div><b>Suporte</b><p>Acompanhamento depois da instalação, com equipe local.</p></div></div>
     </div>
   </div>
-  <div class="vid totem rv"><div class="tv-scr"><video id="vled" src="instalacao-destaques.mp4" poster="img/poster-instalacao.jpg" autoplay muted loop playsinline preload="auto"></video><span class="vtag">Bastidores de uma instalação</span><button class="vfull" onclick="videoCompleto()"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Ver vídeo completo com som</button></div><img class="tv-frame" src="img/totem-frame2.png" alt="" aria-hidden="true"></div>
+  <div class="vid totem rv"><div class="tv-scr"><video id="vled" src="instalacao-destaques.mp4" poster="img/poster-instalacao.jpg" autoplay muted loop playsinline preload="auto"></video><span class="vtag">Bastidores de uma instalação</span><button class="vfull" onclick="videoCompleto()"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Ver vídeo completo com som</button></div></div>
 </div></section>
 
 <section><div class="wrap dep">
-  <div class="vid totem rv" style="justify-self:start"><div class="tv-scr"><video src="depoimento-usimais.mp4" poster="img/poster-usimais.jpg" controls playsinline preload="metadata"></video><span class="vtag">Depoimento</span></div><img class="tv-frame" src="img/totem-frame2.png" alt="" aria-hidden="true"></div>
+  <div class="vid totem rv" style="justify-self:start"><div class="tv-scr"><video src="depoimento-usimais.mp4" poster="img/poster-usimais.jpg" controls playsinline preload="metadata"></video><span class="vtag">Depoimento</span></div></div>
   <div class="rv">
     <div class="sec-k">Quem instalou, recomenda</div>
     <blockquote>O LED chegou na nossa farmácia pra atender o cliente com inovação. Excelente qualidade, instalação fácil e simples de mexer.</blockquote>
