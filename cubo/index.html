@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="../favicon_navy.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon_navy.png">
+<meta property="og:title" content="O CUBO · ADmídia 4 anos">
+<meta property="og:description" content="O CUBO de LED no centro de Tubarão. Lançamento 25/03/2027.">
+<style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>O CUBO · ADmídia 4 anos</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap">
+<style>
+/* Layout: one dark column; city video hero, then the ADmídia video, then short sections separated by thin rules */
+:root{
+  --bg:#020b1f; --bg2:#06142f; --line:#18325e;
+  --fg:#ffffff; --muted:#9fb3d1; --blue:#3fa2ee;
+  --sans:"Inter","Helvetica Neue",Helvetica,Arial,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-weight:400;margin:0;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+header.top{position:absolute;inset:0 0 auto;z-index:3;padding-top:calc(28px + env(safe-area-inset-top,0px))}
+header.top img{height:30px;display:block}
+.hero{position:relative;overflow:hidden;min-height:620px;display:flex;align-items:flex-end;background:var(--bg)}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#020b1fcc 0%,#020b1f66 40%,#020b1f 100%)}
+.hero .cred{position:absolute;z-index:2;right:max(24px,env(safe-area-inset-right,0px));bottom:18px;margin:0;font-size:12px;color:var(--muted)}
+.hero video{opacity:.7}
+.hero .wrap{position:relative;z-index:2;padding-block:140px 72px;width:100%}
+.lead{font-size:clamp(26px,4.2vw,46px);line-height:1.12;font-weight:400;letter-spacing:-.01em;margin:0;max-width:16em;text-wrap:balance}
+.lead b{font-weight:800}
+.big{font-size:clamp(96px,22vw,250px);font-weight:900;color:var(--blue);line-height:.86;letter-spacing:-.04em;margin:10px 0 0}
+.meta{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:30px;font-size:16px;color:var(--muted)}
+.meta b{color:var(--fg);font-weight:600}
+section{padding-block:88px;border-top:1px solid var(--line)}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin:0 0 18px}
+h2{font-size:clamp(34px,5.4vw,60px);line-height:1.04;font-weight:400;letter-spacing:-.02em;margin:0;text-wrap:balance;max-width:14em}
+h2 b{font-weight:800}
+h2 .b{color:var(--blue);font-weight:800}
+p.t{font-size:19px;line-height:1.65;color:var(--muted);max-width:36em;margin:22px 0 0}
+p.t b{color:var(--fg);font-weight:600}
+.player{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:48px;align-items:center}
+.player video{width:100%;max-width:100%;aspect-ratio:9/16;border-radius:18px;background:#000;display:block;border:1px solid var(--line)}
+figure.ref{margin:0;min-width:0}
+figure.ref figcaption{font-size:13px;color:var(--muted);margin-top:12px;line-height:1.5}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:56px}
+.stats div{border-top:1px solid var(--line);padding-top:20px}
+.stats b{display:block;font-size:48px;font-weight:300;letter-spacing:-.02em}
+.stats span{display:block;color:var(--muted);font-size:15px;margin-top:6px;line-height:1.5}
+ul.list{list-style:none;padding:0;margin:44px 0 0;max-width:720px}
+ul.list li{font-size:20px;padding:20px 0;border-bottom:1px solid var(--line);font-weight:400}
+ul.list li span{color:var(--blue);font-weight:600;margin-right:14px;font-variant-numeric:tabular-nums}
+.cotas{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:52px}
+.cota{border:1px solid var(--line);border-radius:14px;padding:22px 18px;background:var(--bg2)}
+.cota small{display:block;font-size:12px;letter-spacing:.24em;color:var(--muted);font-weight:600}
+.cota b{display:block;font-size:56px;font-weight:300;line-height:1;margin:10px 0 16px}
+.cota .pr{font-size:20px;font-weight:600}
+.cota .pm{font-size:13px;color:var(--muted);margin-top:4px}
+.cota .st{display:inline-block;margin-top:14px;font-size:11px;letter-spacing:.2em;font-weight:600;color:var(--blue)}
+.preco{margin-top:28px;font-size:18px;color:var(--muted)}
+.preco b{color:var(--fg);font-weight:600}
+.why{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px;margin-top:44px}
+.why div{border-top:1px solid var(--line);padding:24px 0}
+.why b{display:block;font-size:24px;font-weight:600}
+.why span{display:block;color:var(--muted);font-size:16px;margin-top:6px;line-height:1.55}
+footer{border-top:1px solid var(--line);padding-block:56px 72px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer img{height:26px}
+footer p{margin:0;color:var(--muted);font-size:15px}
+footer p b{color:var(--fg);font-weight:600}
+@media (max-width:760px){
+  .player{grid-template-columns:minmax(0,1fr)}
+  .player video{max-width:340px;margin:0 auto}
+  .stats b{font-size:36px}
+  .cotas{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .why{grid-template-columns:minmax(0,1fr)}
+  .hero{min-height:560px}
+}
+@media (prefers-reduced-motion:reduce){.hero video{display:none}}
+
+.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:64px}
+.nums div{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:26px 26px 24px;display:flex;align-items:center;gap:18px}
+.nums b{font-size:58px;font-weight:900;color:var(--blue);letter-spacing:-.03em;line-height:1}
+.nums span{color:var(--muted);font-size:15px;line-height:1.4}
+.band{position:relative;overflow:hidden;border-top:0;padding-block:120px}
+.bandimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 50%}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#020b1f 0%,#020b1ff2 45%,#020b1fb0 66%,#020b1f40 100%)}
+.band .cred{position:absolute;z-index:2;right:max(24px,env(safe-area-inset-right,0px));top:16px;margin:0;font-size:12px;color:var(--muted)}
+.bandin{position:relative;z-index:2}
+.feat{display:grid;grid-template-columns:repeat(2,minmax(0,280px));gap:34px 48px;margin-top:48px}
+.feat small{display:block;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);font-weight:600}
+.feat b{display:block;font-size:22px;font-weight:800;margin-top:10px;line-height:1.25}
+.feat span{display:block;color:var(--muted);font-size:15px;line-height:1.55;margin-top:6px}
+.glow{background:radial-gradient(900px 420px at 80% 0%,#0b3a7a 0%,var(--bg) 70%)}
+.exhead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:end}
+.exhead p.t{margin:0}
+.cotas{gap:16px;margin-top:56px}
+.cota{background:linear-gradient(var(--bg2),var(--bg2)) padding-box,linear-gradient(160deg,#3fa2ee,#18325e 55%) border-box;border:1px solid transparent;border-radius:18px;padding:26px 22px}
+.cota small{text-transform:uppercase}
+.cota b{font-size:64px;font-weight:900;color:var(--blue);letter-spacing:-.03em;margin:8px 0 18px}
+.cota .pr{font-size:24px;font-weight:800}
+.cota .st{display:flex;align-items:center;gap:8px;margin-top:18px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#cfe3ff}
+.cota .st i{width:8px;height:8px;border-radius:50%;background:#35d07f;box-shadow:0 0 0 4px #35d07f22}
+.why{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.why div{border:1px solid var(--line);border-radius:18px;padding:26px;background:var(--bg2)}
+.why svg{width:30px;height:30px;fill:none;stroke:var(--blue);stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round;display:block;margin-bottom:22px}
+.why b{font-size:22px;font-weight:800}
+.final{position:relative;overflow:hidden;text-align:center;padding-block:140px}
+.final video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35}
+.final::after{content:"";position:absolute;inset:0;background:radial-gradient(closest-side,#020b1f88,#020b1f)}
+.final .wrap{position:relative;z-index:2}
+.final .date{font-size:clamp(64px,13vw,170px);font-weight:900;color:var(--blue);letter-spacing:-.04em;line-height:.9;margin:6px 0 0}
+.final .where{font-size:20px;color:var(--fg);margin:22px 0 0}
+.final .flogo{height:34px;margin-top:56px}
+@media (max-width:860px){
+  .nums{grid-template-columns:minmax(0,1fr)}
+  .feat{grid-template-columns:minmax(0,1fr)}
+  .exhead{grid-template-columns:minmax(0,1fr);gap:20px}
+  .why{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .band::after{background:linear-gradient(180deg,#020b1fdd,#020b1fcc)}
+}
+@media (prefers-reduced-motion:reduce){.final video{display:none}}
+
+.acao{padding-block:88px}
+figure.ref.wide{margin-top:40px}
+figure.ref.wide video{width:100%;max-width:100%;aspect-ratio:16/9;border-radius:20px;border:1px solid var(--line);background:#000;display:block}
+.slots{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:56px}
+.slot{border-top:3px solid var(--line);padding-top:16px}
+.slot small{display:block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.slot b{display:block;font-size:20px;font-weight:600;margin-top:8px;color:var(--muted)}
+.slot.on{border-top-color:var(--blue)}
+.slot.on small{color:var(--blue)}
+.slot.on b{color:var(--fg);font-weight:800}
+.note{margin:32px 0 0;font-size:19px;line-height:1.6;color:var(--muted);max-width:40em}
+.note b{color:var(--fg);font-weight:700}
+@media (max-width:760px){.slots{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.cidade{padding-block:96px}
+.gain{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:52px}
+.gain div{border:1px solid var(--line);border-radius:18px;padding:28px 26px;background:var(--bg2)}
+.gain svg{width:30px;height:30px;fill:none;stroke:var(--blue);stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round;display:block;margin-bottom:22px}
+.gain b{display:block;font-size:21px;font-weight:800;line-height:1.25}
+.gain span{display:block;color:var(--muted);font-size:15px;line-height:1.6;margin-top:8px}
+@media (max-width:860px){.gain{grid-template-columns:minmax(0,1fr)}}
+
+.imag{padding-block:88px}
+figure.ref.wide img{width:100%;max-width:100%;display:block;border-radius:20px;border:1px solid var(--line);aspect-ratio:985/800;object-fit:cover}
+
+/* ---- interações ---- */
+.gain{display:block;margin-top:44px;border-bottom:1px solid var(--line)}
+.gain div{position:relative;display:grid;grid-template-columns:56px minmax(0,1fr) minmax(0,1.3fr);align-items:center;gap:28px;border:0;border-top:1px solid var(--line);border-radius:0;background:none;padding:30px 8px;overflow:hidden;cursor:default;transition:padding .35s ease}
+.gain div::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0b3a7a 0%,#06142f 70%);transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.2,.7,.2,1);z-index:0}
+.gain div>*{position:relative;z-index:1}
+.gain svg{margin:0;width:34px;height:34px;transition:transform .45s cubic-bezier(.2,.7,.2,1),stroke .3s}
+.gain b{font-size:26px;font-weight:800;letter-spacing:-.01em;transition:color .3s,transform .45s cubic-bezier(.2,.7,.2,1)}
+.gain span{margin:0;font-size:16px;transition:color .3s}
+.gain div:hover{padding-left:24px}
+.gain div:hover::before{transform:scaleX(1)}
+.gain div:hover svg{transform:scale(1.18) rotate(-8deg);stroke:#fff}
+.gain div:hover b{color:var(--blue)}
+.gain div:hover span{color:#dbe7f8}
+.spot{position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .3s}
+.spot::after{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),#3fa2ee30,transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none}
+.spot:hover{transform:translateY(-6px);border-color:#3fa2ee}
+.spot:hover::after{opacity:1}
+.why svg{transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.why div:hover svg{transform:translateY(-3px) scale(1.15)}
+.slot{transition:border-color .3s,transform .3s}
+.slot:hover{border-top-color:var(--blue);transform:translateY(-4px)}
+.slot:hover b{color:var(--fg)}
+figure.ref video,figure.ref img{transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
+figure.ref:hover video,figure.ref:hover img{transform:scale(1.012);box-shadow:0 30px 80px -30px #3fa2ee66}
+.feat div{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.feat div:hover{transform:translateX(8px)}
+.feat div:hover b{color:var(--blue)}
+.big{background:linear-gradient(100deg,var(--blue) 0%,var(--blue) 40%,#bfe2ff 50%,var(--blue) 60%,var(--blue) 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 6s ease-in-out infinite}
+@keyframes sheen{0%,55%{background-position:100% 0}85%,100%{background-position:0 0}}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (max-width:860px){.gain div{grid-template-columns:40px minmax(0,1fr);gap:8px 16px}.gain span{grid-column:2}}
+@media (prefers-reduced-motion:reduce){.big{animation:none;color:var(--blue);background:none}.rv{opacity:1;transform:none}.spot:hover,.slot:hover{transform:none}}
+
+.camp{padding-block:96px;background:radial-gradient(800px 380px at 10% 0%,#0b3a7a 0%,var(--bg) 70%)}
+
+.cidade2{padding:0;border-top:0}
+.cg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);background:#0a1530}
+.cg-left{display:flex;flex-direction:column;justify-content:center;padding-block:80px;padding-left:max(48px,env(safe-area-inset-left,0px));padding-right:48px}
+.cg-left p.t{max-width:30em}
+.cg-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.tile{margin:0;aspect-ratio:1/1;max-width:100%;position:relative;overflow:hidden}
+.tile.tx{background:#f3f7fd;color:#0a1530;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px;transition:background .35s}
+.tile.tx b{font-size:clamp(26px,3.2vw,44px);font-weight:800;letter-spacing:-.02em;transition:color .35s,transform .45s cubic-bezier(.2,.7,.2,1)}
+.tile.tx span{font-size:14px;color:#4a5a78;margin-top:8px;line-height:1.45;max-width:14em;transition:color .35s}
+.tile.tx:hover{background:#0092FF}
+.tile.tx:hover b{color:#fff;transform:scale(1.08)}
+.tile.tx:hover span{color:#e8f3ff}
+.tile.im img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .5s;filter:saturate(.9)}
+.tile.im:hover img{transform:scale(1.08);filter:saturate(1.15)}
+.tile.im figcaption{position:absolute;left:10px;bottom:8px;font-size:11px;color:#fff;background:#020b1fb0;padding:3px 8px;border-radius:99px;opacity:.85}
+.tile.lg{background:#f3f7fd;display:flex;align-items:center;justify-content:center}
+.tile.lg img{width:46%;filter:brightness(0) saturate(100%) invert(14%) sepia(37%) saturate(3000%) hue-rotate(205deg) brightness(70%);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.tile.lg:hover img{transform:rotate(-6deg) scale(1.08)}
+@media (max-width:960px){.cg{grid-template-columns:minmax(0,1fr)}.cg-left{padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}}
+
+.mq-wrap{margin-top:52px}
+.mq-lab{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 18px}
+.mq{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mq-track{display:flex;width:max-content;list-style:none;margin:0;padding:0;animation:mq 38s linear infinite}
+.mq:hover .mq-track{animation-play-state:paused}
+.mq-track li{font-size:clamp(26px,3.4vw,42px);font-weight:800;letter-spacing:-.02em;color:#ffffff38;padding:0 34px;white-space:nowrap;display:flex;align-items:center;gap:12px;transition:color .3s}
+.mq-track li:hover{color:#fff}
+.mq-track li.on{color:#fff}
+.mq-track li em{font-style:normal;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#020b1f;background:var(--blue);border-radius:99px;padding:5px 10px}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.mq-track{animation:none;flex-wrap:wrap;width:auto}.mq-track li[aria-hidden]{display:none}}
+
+.mq-track li{padding:0 8px;font-size:0}
+.mq-track li img{display:block;height:84px;width:190px;object-fit:contain;background:#fff;border-radius:16px;padding:16px 22px;box-sizing:border-box;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s;filter:grayscale(.15)}
+.mq-track li:hover img{transform:translateY(-5px) scale(1.04);box-shadow:0 18px 40px -16px #3fa2ee88;filter:none}
+.mq-track li.on{position:relative}
+.mq-track li.on img{outline:3px solid var(--blue);outline-offset:3px}
+.mq-track li em{position:absolute;left:50%;top:-10px;transform:translateX(-50%);font-size:10px;padding:4px 9px;white-space:nowrap}
+.mq{padding-top:14px;padding-bottom:10px}
+
+.ev{padding-block:96px}
+.evs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:52px}
+.evc{position:relative;border-radius:20px;padding:26px 22px 28px;min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:var(--bg2);border:1px solid var(--line);transition:transform .4s cubic-bezier(.2,.7,.2,1),border-color .3s}
+.evc::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 70% at 50% 0%,var(--c) 0%,transparent 65%);opacity:.45;transition:opacity .4s}
+.evc>*{position:relative}
+.evc small{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--c)}
+.evc b{font-size:22px;font-weight:800;line-height:1.2;margin-top:10px}
+.evc span{color:var(--muted);font-size:14.5px;line-height:1.55;margin-top:10px}
+.evc:hover{transform:translateY(-8px);border-color:var(--c)}
+.evc:hover::before{opacity:.85}
+.c1{--c:#3fa2ee}.c2{--c:#8b7bff}.c3{--c:#35d0b0}.c4{--c:#5fb4ff}.c5{--c:#ff5a5f}
+@media (max-width:1000px){.evs{grid-template-columns:repeat(2,minmax(0,1fr))}.evc{min-height:220px}}
+@media (max-width:560px){.evs{grid-template-columns:minmax(0,1fr)}}
+
+.adm{padding-block:96px}
+.adm .nums{margin-top:48px}
+.prods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:16px}
+.prod{margin:0;position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/5;max-width:100%;border:1px solid var(--line)}
+.prod img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.prod::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,#020b1fe6 88%)}
+.prod figcaption{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:22px 22px 24px;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.prod small{display:block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--blue)}
+.prod b{display:block;font-size:26px;font-weight:800;margin-top:6px}
+.prod span{display:block;color:#c9d6ea;font-size:14.5px;line-height:1.5;margin-top:6px;max-height:0;opacity:0;overflow:hidden;transition:max-height .45s,opacity .45s}
+.prod:hover img{transform:scale(1.07)}
+.prod:hover span{max-height:80px;opacity:1}
+@media (hover:none){.prod span{max-height:none;opacity:1}}
+.mapa{margin:16px 0 0;position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line)}
+.mapa img{width:100%;max-width:100%;display:block;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.mapa:hover img{transform:scale(1.03)}
+.mapa figcaption{position:absolute;left:16px;right:16px;bottom:14px;display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:13px;color:#dbe6f6}
+.mapa figcaption span{display:flex;align-items:center;gap:8px;background:#020b1fcc;padding:6px 12px;border-radius:99px}
+.mapa i{width:10px;height:10px;border-radius:50%;display:block}
+.lg1 i{background:var(--blue);box-shadow:0 0 0 4px #3fa2ee44}
+.lg2 i{background:#fff}
+.mapa .osm{margin-left:auto;font-size:11px;color:var(--muted)}
+@media (max-width:760px){.prods{grid-template-columns:minmax(0,1fr)}.prod{aspect-ratio:4/4}}
+
+.adm{padding-block:88px}
+.admg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:56px;align-items:center}
+.adm h2{font-size:clamp(32px,4.2vw,48px)}
+.adm p.t{margin-top:14px}
+.kpis{display:flex;gap:0;margin-top:30px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kpis div{flex:1;padding:16px 0}
+.kpis div+div{border-left:1px solid var(--line);padding-left:20px}
+.kpis b{display:block;font-size:30px;font-weight:800;color:var(--blue);letter-spacing:-.02em;line-height:1}
+.kpis span{display:block;font-size:13px;color:var(--muted);margin-top:6px}
+.plist{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:10px}
+.plist li{display:flex;align-items:center;gap:14px;padding:8px;border-radius:14px;transition:background .3s}
+.plist li:hover{background:var(--bg2)}
+.plist img{width:52px;height:52px;border-radius:10px;object-fit:cover;flex:none;transition:transform .4s}
+.plist li:hover img{transform:scale(1.08)}
+.plist b{display:block;font-size:16px;font-weight:700}
+.plist span{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+.mapa{margin:0}
+@media (max-width:900px){.admg{grid-template-columns:minmax(0,1fr);gap:32px}}
+
+.evpics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:48px}
+.evp{margin:0;position:relative;border-radius:20px;overflow:hidden;aspect-ratio:16/9;max-width:100%;border:1px solid var(--line)}
+.evp img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.evp::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,#020b1fd9 100%)}
+.evp figcaption{position:absolute;left:22px;bottom:18px;z-index:1}
+.evp small{display:block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--blue)}
+.evp b{display:block;font-size:24px;font-weight:800;margin-top:4px}
+.evp .sim{position:absolute;top:12px;right:12px;z-index:1;font-size:11px;color:#dbe6f6;background:#020b1fb0;padding:4px 10px;border-radius:99px}
+.evp:hover img{transform:scale(1.06)}
+.evs{margin-top:16px}
+@media (max-width:760px){.evpics{grid-template-columns:minmax(0,1fr)}}
+
+.svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:26px}
+.svc figure{margin:0;min-width:0}
+.svc .ph{aspect-ratio:1/1;max-width:100%;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.svc img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.svc figure:hover img{transform:scale(1.08)}
+.svc figcaption{margin-top:10px}
+.svc b{display:block;font-size:15px;font-weight:700;transition:color .3s}
+.svc figure:hover b{color:var(--blue)}
+.svc span{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
+.admg .svc{max-width:460px}
+</style>
+
+</head>
+<body>
+<header class="top"><div class="wrap"><img src="logo.png" alt="ADmídia"></div></header>
+
+<div class="hero">
+  <video src="cubo_bg.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+  <p class="cred">Imagem de referência: CUBO da RZK Digital, São Paulo</p>
+  <div class="wrap">
+    <p class="lead">A ADmídia completa 4 anos e traz <b>um novo formato para o centro de Tubarão:</b></p>
+    <p class="big">CUBO</p>
+    <div class="meta"><span>Lançamento <b>25/03/2027</b></span><span>Av. Marcolino Martins Cabral</span><span><b>5 cotas</b> · 1 marca por segmento</span></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap player">
+    <div>
+      <p class="eyebrow">O formato</p>
+      <h2>O formato que já funciona em São Paulo, <b>agora no centro de Tubarão.</b></h2>
+      <p class="t">O CUBO de LED já é usado por grandes marcas nas capitais. Nos 4 anos da ADmídia, o formato chega à região. Hoje a ADmídia é a <b>maior rede de telas digitais da região</b>: painéis de LED nas principais vias e telas em academias, supermercados, postos, padarias e salões.</p>
+    </div>
+    <figure class="ref">
+      <video src="referencia.mp4" poster="poster_ref.jpg" controls playsinline preload="metadata"></video>
+      <figcaption>Referência do formato: CUBO da RZK Digital em São Paulo. Vídeo original da RZK Digital.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="adm">
+  <div class="wrap admg">
+    <div class="adm-l">
+      <p class="eyebrow">Quem é a ADmídia</p>
+      <h2>A maior rede de <span class="b">telas digitais</span> da região.</h2>
+      <p class="t">Há 4 anos levando marcas para a rotina de Tubarão.</p>
+      <div class="kpis">
+        <div><b>4</b><span>anos</span></div>
+        <div><b>+40</b><span>pontos</span></div>
+        <div><b>4</b><span>painéis de LED</span></div>
+      </div>
+      <div class="svc">
+        <figure><div class="ph"><img src="p_led.jpg" alt="Painel de LED"></div><figcaption><b>Painéis de LED</b><span>Nas principais vias</span></figcaption></figure>
+        <figure><div class="ph"><img src="p_indoor.jpg" alt="Telas internas"></div><figcaption><b>Telas internas</b><span>Mercados, academias e mais</span></figcaption></figure>
+        <figure><div class="ph"><img src="p_edif.jpg" alt="Edifícios"></div><figcaption><b>Edifícios</b><span>Edifícios comerciais</span></figcaption></figure>
+      </div>
+    </div>
+    <figure class="mapa">
+      <img src="mapa_pontos.jpg" alt="Mapa de Tubarão com os pontos da ADmídia">
+      <figcaption><span class="lg1"><i></i>LED</span><span class="lg2"><i></i>Indoor e edifícios</span><span class="osm">© OpenStreetMap</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+
+<section class="acao">
+  <div class="wrap">
+    <p class="eyebrow">O CUBO em ação</p>
+    <h2>Presença que <span class="b">para o olhar.</span></h2>
+    <figure class="ref wide">
+      <video src="cubo_acao.mp4" poster="poster_acao.jpg" controls playsinline preload="metadata"></video>
+      <figcaption>Referência do formato: CUBO da RZK Digital em São Paulo.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="band">
+  <img class="bandimg" src="still_cubo.jpg" alt="">
+  <p class="cred">Imagem de referência: CUBO da RZK Digital, São Paulo</p>
+  <div class="wrap bandin">
+    <p class="eyebrow">O projeto</p>
+    <h2>Impossível <span class="b">não ver.</span></h2>
+    <div class="feat">
+      <div><small>LED</small><b>Grande formato</b><span>Visível de vários ângulos, de dia e de noite.</span></div>
+      <div><small>Local</small><b>Av. Marcolino Martins Cabral</b><span>No centro, onde a cidade passa todos os dias.</span></div>
+      <div><small>Conteúdo</small><b>Vídeo e imagem</b><span>A campanha da sua marca em movimento.</span></div>
+      <div><small>Apoio</small><b>Prefeitura</b><span>Apoia o projeto porque o CUBO vai virar um marco da cidade, único na região.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="camp">
+  <div class="wrap">
+    <div class="exhead">
+      <div>
+        <p class="eyebrow">Campanhas</p>
+        <h2>Pronto para campanhas <span class="b">nacionais e internacionais.</span></h2>
+      </div>
+      <p class="t">O CUBO segue o mesmo formato usado nas capitais. A marca pode trazer para Tubarão a mesma campanha que roda em São Paulo, no Brasil inteiro ou fora do país.</p>
+    </div>
+    <div class="mq-wrap">
+      <p class="mq-lab">Marcas que investem em mídia digital urbana nas capitais</p>
+      <div class="mq"><ul class="mq-track"><li><img src="logos/mercadolivre.svg" alt="Mercado Livre"></li><li class="on"><img src="logos/boticario.svg" alt="O Boticário"><em>no CUBO</em></li><li><img src="logos/renner.svg" alt="Renner"></li><li><img src="logos/havan.svg" alt="Havan"></li><li><img src="logos/magalu.svg" alt="Magalu"></li><li><img src="logos/natura.svg" alt="Natura"></li><li><img src="logos/ifood.svg" alt="iFood"></li><li><img src="logos/cocacola.svg" alt="Coca-Cola"></li><li><img src="logos/itau.svg" alt="Itaú"></li><li><img src="logos/nubank.svg" alt="Nubank"></li><li><img src="logos/samsung.svg" alt="Samsung"></li><li><img src="logos/mcdonalds.svg" alt="McDonald's"></li><li><img src="logos/havaianas.svg" alt="Havaianas"></li><li><img src="logos/vivo.svg" alt="Vivo"></li><li><img src="logos/heineken.svg" alt="Heineken"></li><li><img src="logos/riachuelo.svg" alt="Riachuelo"></li><li aria-hidden="true"><img src="logos/mercadolivre.svg" alt="Mercado Livre"></li><li class="on" aria-hidden="true"><img src="logos/boticario.svg" alt="O Boticário"><em>no CUBO</em></li><li aria-hidden="true"><img src="logos/renner.svg" alt="Renner"></li><li aria-hidden="true"><img src="logos/havan.svg" alt="Havan"></li><li aria-hidden="true"><img src="logos/magalu.svg" alt="Magalu"></li><li aria-hidden="true"><img src="logos/natura.svg" alt="Natura"></li><li aria-hidden="true"><img src="logos/ifood.svg" alt="iFood"></li><li aria-hidden="true"><img src="logos/cocacola.svg" alt="Coca-Cola"></li><li aria-hidden="true"><img src="logos/itau.svg" alt="Itaú"></li><li aria-hidden="true"><img src="logos/nubank.svg" alt="Nubank"></li><li aria-hidden="true"><img src="logos/samsung.svg" alt="Samsung"></li><li aria-hidden="true"><img src="logos/mcdonalds.svg" alt="McDonald's"></li><li aria-hidden="true"><img src="logos/havaianas.svg" alt="Havaianas"></li><li aria-hidden="true"><img src="logos/vivo.svg" alt="Vivo"></li><li aria-hidden="true"><img src="logos/heineken.svg" alt="Heineken"></li><li aria-hidden="true"><img src="logos/riachuelo.svg" alt="Riachuelo"></li></ul></div>
+    </div>
+    <div class="gain">
+      <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg><b>Do mundo para o centro</b><span>Marcas nacionais e internacionais falando com Tubarão e região, no coração da cidade.</span></div>
+      <div><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M10 9l4 2-4 2z"/><path d="M8 21h8"/></svg><b>O mesmo criativo das capitais</b><span>A campanha que a agência já produziu se adapta ao CUBO com facilidade, em vídeo ou imagem.</span></div>
+      <div><svg viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 7L12 17.6 5.8 21.1l1.4-7L2 9.3l7-.8z"/></svg><b>Grandes marcas já estão</b><span>O Boticário já garantiu a cota de perfumaria. Os outros segmentos estão abertos para marcas do mesmo porte.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="ev">
+  <div class="wrap">
+    <p class="eyebrow">Acontecimentos</p>
+    <h2>O CUBO no centro dos <span class="b">acontecimentos da cidade.</span></h2>
+    <p class="t">Com grandes marcas e conteúdo de qualidade, o CUBO vira parte da vida de Tubarão. O que acontece na cidade passa por ele, e as pessoas se acostumam a olhar.</p>
+    <div class="evpics">
+      <figure class="evp"><img src="ev_largada.jpg" alt="Largada de corrida em volta do CUBO da ADmídia"><figcaption><small>Esporte</small><b>Largada no CUBO</b></figcaption><span class="sim">Simulação</span></figure>
+      <figure class="evp"><img src="ev_natal.jpg" alt="Natal com Papai Noel ao lado do CUBO da ADmídia"><figcaption><small>Natal</small><b>Natal no CUBO</b></figcaption><span class="sim">Simulação</span></figure>
+    </div>
+    <div class="evs">
+      <article class="evc c1"><small>Esporte</small><b>Largada no CUBO</b><span>Corridas e eventos saindo do CUBO, com a marca patrocinadora na tela.</span></article>
+      <article class="evc c2"><small>Marcas</small><b>Ativação de marca</b><span>Ações presenciais em volta do CUBO: amostras, brindes e experiências.</span></article>
+      <article class="evc c3"><small>Cidade</small><b>Aniversário de Tubarão</b><span>A festa da cidade passando na tela, no coração do centro.</span></article>
+      <article class="evc c4"><small>Saúde</small><b>Novembro Azul e Outubro Rosa</b><span>Campanhas de saúde que todo mundo vê ao passar pelo centro.</span></article>
+      <article class="evc c5"><small>Natal</small><b>Natal no CUBO</b><span>Papai Noel, decoração e fotos das famílias ao lado do CUBO.</span></article>
+    </div>
+  </div>
+</section>
+
+<section class="cidade2">
+  <div class="cg">
+    <div class="cg-left">
+      <p class="eyebrow">Para a cidade</p>
+      <h2>O que <span class="b">Tubarão ganha</span> com o CUBO.</h2>
+      <p class="t">A Prefeitura apoia o projeto porque o CUBO vai virar um <b>marco do centro</b>, um patrimônio da cidade. Mais atenção para quem tem loja e serviço por perto, e um espaço para eventos e campanhas de interesse da população.</p>
+    </div>
+    <div class="cg-grid">
+      <div class="tile tx"><b>Marco</b><span>um novo símbolo do centro de Tubarão</span></div>
+      <figure class="tile im"><img src="g_marco.jpg" alt="CUBO de LED em praça à noite"><figcaption>Referência: RZK Digital</figcaption></figure>
+      <div class="tile tx"><b>Noite</b><span>luz e movimento no centro depois que o comércio fecha</span></div>
+      <figure class="tile im"><img src="g_cidade.jpg" alt="Centro de Tubarão visto do alto ao entardecer"><figcaption>Tubarão</figcaption></figure>
+      <div class="tile lg"><img src="logo_v.png" alt="ADmídia"></div>
+      <figure class="tile im"><img src="g_sp.jpg" alt="CUBO de LED em São Paulo"><figcaption>Referência: RZK Digital, SP</figcaption></figure>
+      <div class="tile tx"><b>Inédito</b><span>formato das capitais, o primeiro da região</span></div>
+      <figure class="tile im"><img src="g_boti.jpg" alt="O Boticário em painel de LED da ADmídia"><figcaption>O Boticário no LED da ADmídia</figcaption></figure>
+      <div class="tile tx"><b>Marcas</b><span>grandes marcas investindo no centro da cidade</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="glow">
+  <div class="wrap">
+    <div class="exhead">
+      <div>
+        <p class="eyebrow">Exclusividade</p>
+        <h2>São <span class="b">5 cotas.</span><br>Uma por segmento.</h2>
+      </div>
+      <p class="t">Quem entra no CUBO não divide espaço com o concorrente. Cada segmento tem <b>uma única marca</b>. Quando as 5 cotas forem fechadas, o CUBO está completo.</p>
+    </div>
+    <div class="slots">
+      <div class="slot on"><small>Perfumaria</small><b>O Boticário</b></div>
+      <div class="slot"><small>Banco</small><b>Disponível</b></div>
+      <div class="slot"><small>Construtora</small><b>Disponível</b></div>
+      <div class="slot"><small>Alimentação</small><b>Disponível</b></div>
+      <div class="slot"><small>Automotivo</small><b>Disponível</b></div>
+    </div>
+    <p class="note"><b>O Boticário já está no CUBO</b>, com a cota de perfumaria. Banco, construtora, alimentação e automotivo ainda estão disponíveis.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Por que estar no CUBO</p>
+    <h2>A sua marca no <span class="b">marco</span> dos 4 anos.</h2>
+    <div class="why" data-spot>
+      <div><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg><b>Exclusivo</b><span>Só uma marca do seu segmento no CUBO.</span></div>
+      <div><svg viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><b>Destaque</b><span>Visto por quem passa de carro e a pé no centro.</span></div>
+      <div><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><b>Lançamento</b><span>Sua marca no evento de 4 anos da ADmídia.</span></div>
+      <div><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg><b>Prefeitura</b><span>Apoio a um projeto único na região.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <video src="cubo_bg.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+  <div class="wrap">
+    <p class="eyebrow">Lançamento</p>
+    <p class="date">25/03/2027</p>
+    <p class="where">Av. Marcolino Martins Cabral · Tubarão</p>
+    <img src="logo.png" alt="ADmídia" class="flogo">
+  </div>
+</section>
+<script>
+(function(){
+  document.querySelectorAll('[data-spot]>div').forEach(function(el){
+    el.classList.add('spot');
+    el.addEventListener('pointermove',function(e){var r=el.getBoundingClientRect();el.style.setProperty('--mx',(e.clientX-r.left)+'px');el.style.setProperty('--my',(e.clientY-r.top)+'px');});
+  });
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;
+  var items=document.querySelectorAll('section .eyebrow, section h2, section p.t, .nums>div, .gain>div, .tile, .evp, .prod, .mapa, .evc, .why>div, .slot, figure.ref, .feat>div, .note');
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  var vh=window.innerHeight;
+  items.forEach(function(el,i){
+    if(el.getBoundingClientRect().top<vh*0.9)return;
+    el.classList.add('rv');
+    var sib=el.parentElement?Array.prototype.indexOf.call(el.parentElement.children,el):0;
+    el.style.transitionDelay=(Math.min(sib,5)*70)+'ms';
+    io.observe(el);
+  });
+})();
+</script>
+
+</body></html>
