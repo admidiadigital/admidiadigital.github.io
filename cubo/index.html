@@ -189,6 +189,7 @@ figure.ref:hover video,figure.ref:hover img{transform:scale(1.012);box-shadow:0 
 .cg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);background:#0a1530}
 .cg-left{display:flex;flex-direction:column;justify-content:center;padding-block:80px;padding-left:max(48px,env(safe-area-inset-left,0px));padding-right:48px}
 .cg-left p.t{max-width:30em}
+.cg-cred{font-size:12px;color:var(--muted);margin-top:28px;opacity:.75}
 .cg-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
 .tile{margin:0;aspect-ratio:1/1;max-width:100%;position:relative;overflow:hidden}
 .tile.tx{background:#f3f7fd;color:#0a1530;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px;transition:background .35s}
@@ -197,8 +198,8 @@ figure.ref:hover video,figure.ref:hover img{transform:scale(1.012);box-shadow:0 
 .tile.tx:hover{background:#0092FF}
 .tile.tx:hover b{color:#fff;transform:scale(1.08)}
 .tile.tx:hover span{color:#e8f3ff}
-.tile.im img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .5s;filter:saturate(.9)}
-.tile.im:hover img{transform:scale(1.08);filter:saturate(1.15)}
+.tile.im img{width:100%;height:100%;object-fit:cover;display:block;transition:filter .5s;filter:saturate(.92) brightness(.94)}
+.tile.im:hover img{filter:saturate(1.12) brightness(1.04)}
 .tile.im figcaption{position:absolute;left:10px;bottom:8px;font-size:11px;color:#fff;background:#020b1fb0;padding:3px 8px;border-radius:99px;opacity:.85}
 .tile.lg{background:#f3f7fd;display:flex;align-items:center;justify-content:center}
 .tile.lg img{width:46%;filter:brightness(0) saturate(100%) invert(14%) sepia(37%) saturate(3000%) hue-rotate(205deg) brightness(70%);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
@@ -431,16 +432,17 @@ figure.ref:hover video,figure.ref:hover img{transform:scale(1.012);box-shadow:0 
       <p class="eyebrow">Para a cidade</p>
       <h2>O que <span class="b">Tubarão ganha</span> com o CUBO.</h2>
       <p class="t">A Prefeitura apoia o projeto porque o CUBO vai virar um <b>marco do centro</b>, um patrimônio da cidade. Mais atenção para quem tem loja e serviço por perto, e um espaço para eventos e campanhas de interesse da população.</p>
+      <p class="cg-cred">Fotos do cubo: referência RZK Digital, São Paulo. Demais fotos: painéis da ADmídia em Tubarão.</p>
     </div>
     <div class="cg-grid">
       <div class="tile tx"><b>Marco</b><span>um novo símbolo do centro de Tubarão</span></div>
-      <figure class="tile im"><img src="g_marco.jpg" alt="CUBO de LED em praça à noite"><figcaption>Referência: RZK Digital</figcaption></figure>
+      <figure class="tile im"><img src="g_marco.jpg" alt="CUBO de LED em praça à noite"></figure>
       <div class="tile tx"><b>Noite</b><span>luz e movimento no centro depois que o comércio fecha</span></div>
-      <figure class="tile im"><img src="g_cidade.jpg" alt="Centro de Tubarão visto do alto ao entardecer"><figcaption>Tubarão · painel de LED da ADmídia</figcaption></figure>
+      <figure class="tile im"><img src="g_cidade.jpg?v=3" alt="Painel de LED da ADmídia em Tubarão"></figure>
       <div class="tile lg"><img src="logo_v.png" alt="ADmídia"></div>
-      <figure class="tile im"><img src="g_sp.jpg" alt="CUBO de LED em São Paulo"><figcaption>Referência: RZK Digital, SP</figcaption></figure>
+      <figure class="tile im"><img src="g_sp.jpg?v=3" alt="CUBO de LED em São Paulo"></figure>
       <div class="tile tx"><b>Inédito</b><span>formato das capitais, o primeiro da região</span></div>
-      <figure class="tile im"><img src="g_boti.jpg" alt="O Boticário em painel de LED da ADmídia"><figcaption>O Boticário no LED da ADmídia</figcaption></figure>
+      <figure class="tile im"><img src="g_boti.jpg?v=3" alt="O Boticário em painel de LED da ADmídia"></figure>
       <div class="tile tx"><b>Marcas</b><span>grandes marcas investindo no centro da cidade</span></div>
     </div>
   </div>
