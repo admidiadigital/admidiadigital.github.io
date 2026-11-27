@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Canal Digital · Prefeitura de Tubarão · Proposta ADmídia</title>
+<meta name="description" content="Proposta da ADmídia para a Prefeitura de Tubarão: 15 telas de comunicação com o cidadão, sem custo para o município.">
+<meta property="og:title" content="Canal Digital para a Prefeitura de Tubarão · ADmídia">
+<meta property="og:description" content="15 telas em pontos de atendimento, sem custo para o município, para a Prefeitura conhecer o trabalho na prática.">
+<link rel="icon" href="../favicon_ad.png"><link rel="apple-touch-icon" href="../apple-touch-icon_ad.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#000E29;--navy2:#071c45;--blue:#0092FF;--blue2:#e8f4ff;--ink:#0b1b3a;--mut:#56627a;--line:#e3e9f2;--bg:#f6f8fc;--card:#fff;--green:#12a37a}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Montserrat,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.k{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+h1,h2,h3{letter-spacing:-.03em;line-height:1.12;text-wrap:balance}
+h2{font-size:clamp(28px,4vw,42px);font-weight:700;margin-top:10px}
+h2 span,h1 span{color:var(--blue)}
+.lead{font-size:clamp(16px,1.6vw,18px);color:var(--mut);max-width:40em;margin-top:14px}
+section{padding-block:clamp(64px,9vw,104px)}
+
+/* topo */
+.top{position:sticky;top:0;z-index:30;background:rgba(0,14,41,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #ffffff14}
+.top .wrap{display:flex;align-items:center;gap:16px;height:64px}
+.top .ad{height:26px}
+.top .x{color:#ffffff59;font-size:13px}
+.top .para{font-size:12px;color:#c9d6ee;margin-left:auto;display:flex;align-items:center;gap:10px}
+.top .para span{white-space:nowrap}
+.chip-pmt{background:#fff;border-radius:9px;padding:6px 10px;display:flex}
+.chip-pmt img{height:22px;width:auto}
+.top .cta{background:var(--blue);color:#fff;text-decoration:none;font-weight:700;font-size:13px;padding:10px 16px;border-radius:99px;white-space:nowrap}
+
+/* hero */
+.hero{background:radial-gradient(900px 480px at 85% -10%,#0b3f8c 0%,transparent 60%),radial-gradient(700px 400px at 0% 110%,#06306b 0%,transparent 60%),var(--navy);color:#fff;padding-block:clamp(56px,8vw,96px) clamp(64px,8vw,100px);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:56px;align-items:center}
+.hero h1{font-size:clamp(34px,5vw,56px);font-weight:800;margin-top:16px}
+.hero .lead{color:#c3d1ea}
+.badge{display:inline-flex;align-items:center;gap:10px;background:#ffffff12;border:1px solid #ffffff26;border-radius:99px;padding:8px 14px 8px 8px;font-size:13px;font-weight:600;color:#e4ecfa}
+.badge b{background:var(--blue);color:#fff;border-radius:99px;padding:4px 10px;font-size:12px}
+.hero .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:15px;padding:14px 22px;border-radius:99px;transition:transform .15s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.p{background:var(--blue);color:#fff;box-shadow:0 10px 30px -10px #0092ffaa}
+.btn.g{border:1px solid #ffffff40;color:#fff}
+.hero .note{margin-top:22px;font-size:12.5px;color:#8ea3c7}
+
+/* TV com slides */
+.tvw{position:relative}
+.tv{position:relative;background:#05070c;border-radius:16px;padding:12px;box-shadow:0 40px 80px -30px #000,0 0 0 1px #ffffff1a}
+.scr{position:relative;aspect-ratio:16/9;border-radius:6px;overflow:hidden;background:#0b1b3a}
+.sl{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:6% 7%;opacity:0;animation:sl 24s infinite}
+.sl:nth-child(2){animation-delay:4s}.sl:nth-child(3){animation-delay:8s}.sl:nth-child(4){animation-delay:12s}.sl:nth-child(5){animation-delay:16s}.sl:nth-child(6){animation-delay:20s}
+@keyframes sl{0%{opacity:0;transform:scale(1.03)}3%{opacity:1;transform:scale(1)}16%{opacity:1}19%{opacity:0}100%{opacity:0}}
+.sl .who{font-size:clamp(9px,1.1vw,12px);font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+.sl .t{font-size:clamp(20px,3vw,36px);font-weight:800;line-height:1.05;letter-spacing:-.03em}
+.sl .s{font-size:clamp(11px,1.3vw,15px);font-weight:500;opacity:.92;margin-top:6px;max-width:26em}
+.sl .bar{height:4px;border-radius:9px;background:currentColor;opacity:.35;width:34%}
+.s1{background:linear-gradient(135deg,#0a2a6b,#0092ff);color:#fff}
+.s2{background:radial-gradient(circle at 80% 20%,#f4c04a33,transparent 40%),linear-gradient(135deg,#5c0d16,#a8182b);color:#fff3d6}
+.s3{background:linear-gradient(135deg,#e9fbf4,#bff0dc);color:#063d2c}
+.s4{background:linear-gradient(135deg,#0e5a35,#1f9d55);color:#fff}
+.s5{background:linear-gradient(135deg,#fff4cc,#ffd34d);color:#3b2a00}
+.s6{background:linear-gradient(135deg,#000e29,#14306b);color:#fff}
+.tv .stand{width:22%;height:16px;margin:0 auto;background:linear-gradient(#1a1d24,#0b0d12);border-radius:0 0 8px 8px}
+.simtag{position:absolute;z-index:3;top:-12px;right:18px;background:#fff;color:var(--navy);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:99px;box-shadow:0 8px 20px -8px #000a}
+.dots{display:flex;gap:6px;justify-content:center;margin-top:16px}
+.dots i{width:6px;height:6px;border-radius:9px;background:#ffffff40}
+
+/* hoje x com a ADmídia */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:40px}
+.vs>div{border-radius:20px;padding:28px}
+.vs .hj{background:#fff;border:1px solid var(--line)}
+.vs .cm{background:var(--navy);color:#fff}
+.vs h3{font-size:20px;font-weight:700;display:flex;align-items:center;gap:10px}
+.vs ul{list-style:none;margin-top:18px;display:grid;gap:14px}
+.vs li{display:flex;gap:12px;font-size:15px}
+.vs li i{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:800;margin-top:1px}
+.vs .hj li i{background:#fdecec;color:#c62828}
+.vs .cm li i{background:#0092ff33;color:#5fc0ff}
+.vs .cm li{color:#d7e2f5}
+
+/* benefícios */
+.ben{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:40px}
+.bn{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.bn:hover{transform:translateY(-4px);box-shadow:0 18px 40px -22px #0b1b3a55;border-color:#cfe3ff}
+.bn .ic{width:44px;height:44px;border-radius:12px;background:var(--blue2);display:grid;place-items:center}
+.bn .ic svg{width:22px;height:22px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bn h3{font-size:17px;font-weight:700;margin-top:16px}
+.bn p{font-size:14px;color:var(--mut);margin-top:6px}
+
+/* o que passa */
+.temas{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.temas span{background:#fff;border:1px solid var(--line);border-radius:99px;padding:9px 15px;font-size:14px;font-weight:600}
+.temas span b{color:var(--blue);margin-right:6px}
+
+/* onde */
+.onde{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:36px}
+.od{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}
+.od b{display:block;font-size:15px}
+.od span{font-size:13px;color:var(--mut)}
+.od .n{font-size:12px;font-weight:800;color:var(--blue);letter-spacing:.06em}
+
+/* piloto */
+.piloto{background:var(--navy);color:#fff}
+.piloto .lead{color:#b9c8e4}
+.passos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:40px;counter-reset:p}
+.ps{background:#ffffff0d;border:1px solid #ffffff1f;border-radius:18px;padding:24px;position:relative}
+.ps:before{counter-increment:p;content:counter(p);display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--blue);font-weight:800}
+.ps h3{font-size:17px;font-weight:700;margin-top:16px}
+.ps p{font-size:14px;color:#b9c8e4;margin-top:6px}
+.free{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:28px;background:linear-gradient(90deg,#0092ff26,transparent);border:1px solid #0092ff55;border-radius:16px;padding:18px 22px}
+.free b{font-size:26px;font-weight:800;letter-spacing:-.02em}
+.free span{color:#cfe0fb;font-size:14.5px;max-width:46em}
+
+/* galeria */
+.gal{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-auto-rows:220px;gap:14px;margin-top:36px}
+.gal figure{position:relative;border-radius:16px;overflow:hidden;background:#dfe6f0}
+.gal figure:first-child{grid-row:span 2}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.gal figure:hover img{transform:scale(1.05)}
+.gal figcaption{position:absolute;left:12px;bottom:12px;background:#000e29cc;color:#fff;font-size:12px;font-weight:600;padding:5px 10px;border-radius:99px}
+
+/* sistema */
+.sis{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:48px;align-items:center}
+.sis ul{list-style:none;margin-top:22px;display:grid;gap:12px}
+.sis li{display:flex;gap:12px;font-size:15px}
+.sis li:before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--blue);margin-top:9px}
+.sis img{border-radius:18px;box-shadow:0 30px 60px -30px #0b1b3a77}
+
+/* clientes */
+.logos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:32px}
+.lg{background:#fff;border:1px solid var(--line);border-radius:16px;height:110px;display:grid;place-items:center;padding:18px}
+.lg img{max-height:70px;width:auto;object-fit:contain}
+.lg.t{font-weight:800;font-size:18px;color:#6a768e;text-align:center;letter-spacing:-.01em}
+.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:14px}
+.nums div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}
+.nums b{display:block;font-size:30px;font-weight:800;color:var(--blue);letter-spacing:-.03em}
+.nums span{font-size:13.5px;color:var(--mut)}
+
+/* final */
+.fim{background:radial-gradient(700px 360px at 50% 0%,#0b3f8c,transparent 70%),var(--navy);color:#fff;text-align:center}
+.fim h2{font-size:clamp(30px,4.6vw,48px)}
+.fim .lead{color:#c3d1ea;margin-left:auto;margin-right:auto}
+.fim .acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.fim .tel{margin-top:18px;color:#8ea3c7;font-size:14px}
+.fim .tel b{color:#fff;user-select:all}
+footer{background:var(--navy);color:#6f84a8;font-size:12px;text-align:center;padding:26px 20px calc(26px + env(safe-area-inset-bottom,0px));border-top:1px solid #ffffff12}
+footer img{height:22px;margin:0 auto 10px;opacity:.8}
+
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s cubic-bezier(.2,.7,.2,1)}.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.sl{animation:none}.sl:first-child{opacity:1}}
+
+@media(max-width:980px){
+ .hero .wrap,.sis{grid-template-columns:1fr;gap:40px}
+ .ben{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .onde,.passos,.logos{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .gal{grid-template-columns:1fr 1fr;grid-auto-rows:180px}
+ .top .para span{display:none}
+}
+@media(max-width:640px){
+ .vs,.ben,.nums{grid-template-columns:1fr}
+ .top .ad{height:22px}.top .cta{display:none}.chip-pmt img{height:18px}
+ .gal{grid-template-columns:1fr;grid-auto-rows:200px}.gal figure:first-child{grid-row:auto}
+ .free b{font-size:22px}
+ .vs>div,.bn,.ps{padding:20px}
+}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="wrap">
+  <img class="ad" src="img/logo.png" alt="ADmídia">
+  <div class="para"><span>Proposta para</span><div class="chip-pmt"><img src="img/pmt.png" alt="Prefeitura de Tubarão"></div></div>
+  <a class="cta" href="#contato">Falar com a ADmídia</a>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div>
+    <span class="badge"><b>15 locais</b>sem custo para o município</span>
+    <h1>As TVs da Prefeitura estão desligadas. Vamos transformar em um <span>canal com o cidadão.</span></h1>
+    <p class="lead">Telas nos pontos de atendimento mostrando o que a Prefeitura está fazendo, campanhas de saúde, serviços e avisos importantes. Tudo trocado à distância, em minutos, por quem cuida da comunicação.</p>
+    <div class="acts"><a class="btn p" href="#piloto">Ver como funciona o piloto</a><a class="btn g" href="#beneficios">Benefícios</a></div>
+    <p class="note">Proposta da ADmídia Publicidade Digital · Tubarão/SC</p>
+  </div>
+  <div class="tvw rv">
+    <span class="simtag">Simulação</span>
+    <div class="tv"><div class="scr">
+      <div class="sl s1"><div class="who">Prefeitura de Tubarão</div><div><div class="t">IPTU 2027</div><div class="s">Informações e boletos no site da Prefeitura.</div></div><div class="bar"></div></div>
+      <div class="sl s2"><div class="who">Prefeitura de Tubarão</div><div><div class="t">Natal Tubarão Luz 2026</div><div class="s">Confira a programação de Natal na cidade.</div></div><div class="bar"></div></div>
+      <div class="sl s3"><div class="who">Saúde · Prefeitura de Tubarão</div><div><div class="t">Vacinação em dia</div><div class="s">Veja as unidades com sala de vacina perto de você.</div></div><div class="bar"></div></div>
+      <div class="sl s4"><div class="who">Meio ambiente · Prefeitura de Tubarão</div><div><div class="t">Coleta seletiva</div><div class="s">Confira o cronograma de coleta do seu bairro.</div></div><div class="bar"></div></div>
+      <div class="sl s5"><div class="who">Utilidade pública</div><div><div class="t">Nível do Rio Tubarão</div><div class="s">Acompanhe as atualizações pelos canais oficiais.</div></div><div class="bar"></div></div>
+      <div class="sl s6"><div class="who">Prefeitura de Tubarão</div><div><div class="t">Concursos e editais</div><div class="s">Oportunidades abertas e resultados publicados.</div></div><div class="bar"></div></div>
+    </div></div>
+    <div class="stand"></div>
+    <div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="k">Hoje e com a ADmídia</div>
+  <h2>O cidadão já está na Prefeitura. <span>Só falta falar com ele.</span></h2>
+  <p class="lead">Todos os dias, centenas de pessoas esperam atendimento nas unidades do município. É o melhor momento para informar, e hoje ele passa em branco.</p>
+  <div class="vs">
+    <div class="hj rv"><h3>Hoje</h3><ul>
+      <li><i>✕</i>TVs desligadas nas recepções e salas de espera</li>
+      <li><i>✕</i>Avisos em papel e mural, que desatualizam rápido</li>
+      <li><i>✕</i>Sem um canal próprio para mostrar o que a Prefeitura está fazendo</li>
+      <li><i>✕</i>Campanha nova depende de imprimir e distribuir</li>
+    </ul></div>
+    <div class="cm rv"><h3>Com a ADmídia</h3><ul>
+      <li><i>✓</i>Telas ligadas, com conteúdo da Prefeitura o dia todo</li>
+      <li><i>✓</i>Aviso atualizado em todas as unidades em minutos</li>
+      <li><i>✓</i>Ações, obras e serviços mostrados para quem usa o serviço público</li>
+      <li><i>✓</i>Menos impressão, mais alcance</li>
+    </ul></div>
+  </div>
+</div></section>
+
+<section id="beneficios" style="padding-top:0"><div class="wrap">
+  <div class="k">Benefícios para o município</div>
+  <h2>O que a Prefeitura <span>ganha</span> com um canal próprio.</h2>
+  <div class="ben">
+    <div class="bn rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg></div><h3>Mostrar o que está sendo feito</h3><p>Obras, entregas, serviços e programas apresentados para quem é atendido pela Prefeitura.</p></div>
+    <div class="bn rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 6.5-7 11-7 11z"/></svg></div><h3>Campanhas de saúde que chegam</h3><p>Vacinação, dengue, Outubro Rosa, Novembro Azul: na tela da sala de espera, na hora certa.</p></div>
+    <div class="bn rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></div><h3>Alertas em minutos</h3><p>Chuva, nível do rio, mudança de horário ou feriado: um aviso publicado em todas as telas de uma vez.</p></div>
+    <div class="bn rv"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div><h3>Tudo de um só lugar</h3><p>A Comunicação controla o conteúdo de todas as unidades pelo computador ou celular, sem pendrive e sem ir até o local.</p></div>
+    <div class="bn rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></div><h3>Menos papel, menos custo</h3><p>Cartaz, mural e impressão trocados por tela. O conteúdo muda quantas vezes for preciso, sem custo de gráfica.</p></div>
+    <div class="bn rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 12h4l3-8 4 16 3-8h2"/></svg></div><h3>Espera melhor</h3><p>Informação útil enquanto o cidadão aguarda deixa o atendimento mais organizado e a espera menos cansativa.</p></div>
+  </div>
+
+  <div class="k" style="margin-top:64px">O que pode passar nas telas</div>
+  <div class="temas">
+    <span><b>•</b>IPTU e prazos</span><span><b>•</b>Campanhas de vacinação</span><span><b>•</b>Programação de Natal e eventos</span><span><b>•</b>Coleta seletiva por bairro</span><span><b>•</b>Concursos e editais</span><span><b>•</b>Obras e entregas</span><span><b>•</b>Alertas da Defesa Civil</span><span><b>•</b>Horários e feriados</span><span><b>•</b>Serviços online da Prefeitura</span><span><b>•</b>Aniversário da cidade</span>
+  </div>
+</div></section>
+
+<section style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+  <div class="k">Onde instalar</div>
+  <h2>Onde o cidadão <span>espera atendimento.</span></h2>
+  <p class="lead">Sugestão de pontos para as 15 primeiras telas. A Prefeitura escolhe os locais.</p>
+  <div class="onde">
+    <div class="od rv"><span class="n">ATENDIMENTO</span><b>Recepção do Paço Municipal</b><span>Quem vem resolver IPTU, alvará e documentos</span></div>
+    <div class="od rv"><span class="n">SAÚDE</span><b>Unidades de saúde</b><span>Salas de espera das UBS e postos</span></div>
+    <div class="od rv"><span class="n">SAÚDE</span><b>Farmácia municipal</b><span>Fila de retirada de medicamentos</span></div>
+    <div class="od rv"><span class="n">ASSISTÊNCIA</span><b>CRAS e assistência social</b><span>Atendimento às famílias</span></div>
+    <div class="od rv"><span class="n">EDUCAÇÃO</span><b>Escolas e creches</b><span>Recados para pais e responsáveis</span></div>
+    <div class="od rv"><span class="n">SERVIÇOS</span><b>Secretarias com atendimento</b><span>Onde há fila ou sala de espera</span></div>
+    <div class="od rv"><span class="n">ESPORTE E CULTURA</span><b>Ginásios e espaços culturais</b><span>Eventos e programação da cidade</span></div>
+    <div class="od rv"><span class="n">A DEFINIR</span><b>Outros pontos</b><span>Indicados pela Prefeitura</span></div>
+  </div>
+</div></section>
+
+<section class="piloto" id="piloto"><div class="wrap">
+  <div class="k">Projeto piloto</div>
+  <h2>Começamos com <span>15 locais, sem custo</span> para o município.</h2>
+  <p class="lead">A ideia é simples: a Prefeitura conhece o trabalho funcionando, nas próprias unidades, antes de qualquer decisão.</p>
+  <div class="passos">
+    <div class="ps rv"><h3>Escolha dos locais</h3><p>A Prefeitura indica os 15 pontos com mais atendimento.</p></div>
+    <div class="ps rv"><h3>Telas funcionando</h3><p>A ADmídia instala, configura e coloca as telas no ar com o sistema de gestão.</p></div>
+    <div class="ps rv"><h3>Conteúdo junto</h3><p>Montamos a programação com a equipe de Comunicação, a partir do que a Prefeitura quer mostrar.</p></div>
+    <div class="ps rv"><h3>Avaliação</h3><p>Ao fim do período, avaliamos juntos os resultados e os próximos passos.</p></div>
+  </div>
+  <div class="free rv"><b>R$ 0</b><span>para o município durante o piloto nos 15 locais. Prazo do piloto e formalização definidos em conjunto com a Prefeitura.</span></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="k">Formatos</div>
+  <h2>Uma tela na recepção ou <span>um videowall</span> no saguão.</h2>
+  <p class="lead">Telas simples, várias telas lado a lado ou videowall: o formato acompanha o espaço de cada unidade.</p>
+  <div class="gal">
+    <figure class="rv"><img src="img/videowall.jpg" alt="Videowall e telas em grade" loading="lazy"><figcaption>Videowall · referência de formato</figcaption></figure>
+    <figure class="rv"><img src="img/lubrafer.jpg" alt="Videowall instalado pela ADmídia na Lubrafer" loading="lazy"><figcaption>Videowall · Lubrafer</figcaption></figure>
+    <figure class="rv"><img src="img/jhow-3telas.jpg" alt="Três telas lado a lado instaladas pela ADmídia" loading="lazy"><figcaption>3 telas lado a lado · Jhow Batata</figcaption></figure>
+    <figure class="rv"><img src="img/signage.jpg" alt="Telas horizontais e barras de LED" loading="lazy"><figcaption>Telas e barras · referência de formato</figcaption></figure>
+    <figure class="rv"><img src="img/magnifico.jpg" alt="Cardápio digital instalado pela ADmídia no Magnífico" loading="lazy" style="object-position:50% 64%"><figcaption>Cardápio digital · Magnífico</figcaption></figure>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap sis">
+  <div>
+    <div class="k">Sistema de gestão</div>
+    <h2>Tudo à distância. <span>Sem pendrive.</span></h2>
+    <p class="lead">A equipe da Prefeitura troca o conteúdo pelo computador ou celular e vê na hora quais telas estão online.</p>
+    <ul>
+      <li>Publica em todas as telas ou só em uma unidade</li>
+      <li>Agenda campanhas com data para começar e terminar</li>
+      <li>Imagem, vídeo e avisos rápidos</li>
+      <li>Suporte da ADmídia, aqui em Tubarão</li>
+    </ul>
+  </div>
+  <img class="rv" src="img/sistema-mac.jpg" alt="Painel de gestão das telas da ADmídia" loading="lazy">
+</div></section>
+
+<section style="background:#fff;border-top:1px solid var(--line)"><div class="wrap">
+  <div class="k">Quem já usa</div>
+  <h2>Empresas da região que já têm <span>canal corporativo</span> com a ADmídia.</h2>
+  <div class="logos" id="logos">
+    <div class="lg t rv">Rede de Postos Premier</div>
+    <div class="lg t rv">Posto Michells</div>
+    <div class="lg t rv">Fluss Haus Land</div>
+    <div class="lg t rv">ibis Hotels</div>
+  </div>
+  <div class="nums">
+    <div class="rv"><b>4 anos</b><span>de ADmídia em Tubarão</span></div>
+    <div class="rv"><b>+40</b><span>pontos com telas digitais na região</span></div>
+    <div class="rv"><b>Local</b><span>instalação e suporte com equipe da cidade</span></div>
+  </div>
+</div></section>
+
+<section class="fim" id="contato"><div class="wrap">
+  <h2>Vamos ligar as <span>15 primeiras telas?</span></h2>
+  <p class="lead">Marcamos uma conversa com a equipe de Comunicação e mostramos o sistema funcionando.</p>
+  <div class="acts"><a class="btn p" href="https://wa.me/5548991079940?text=Ol%C3%A1!%20Vi%20a%20proposta%20do%20canal%20digital%20para%20a%20Prefeitura%20de%20Tubar%C3%A3o%20e%20quero%20conversar." target="_blank" rel="noopener">Conversar pelo WhatsApp</a></div>
+  <p class="tel">WhatsApp: <b>(48) 99107-9940</b></p>
+</div></section>
+<footer><img src="img/logo.png" alt="ADmídia">ADmídia Publicidade Digital · CNPJ 48.910.896/0001-72 · Tubarão/SC<br>Proposta comercial. As telas mostradas como "Simulação" são exemplos de conteúdo.</footer>
+
+<script>
+(function(){if(!('IntersectionObserver' in window)){document.querySelectorAll('.rv').forEach(e=>e.classList.add('in'));return;}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach((e,i)=>{e.style.transitionDelay=(i%4)*60+'ms';io.observe(e);});})();
+</script>
+</body>
+</html>
