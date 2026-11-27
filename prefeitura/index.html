@@ -235,6 +235,12 @@ footer img{height:22px;margin:0 auto 10px;opacity:.8}
 .custo p{font-size:15px;color:#5b3a12}
 .custo p strong{color:#3b2208}
 
+.hoje{margin-top:18px;background:var(--navy);color:#fff;border-radius:20px;padding:28px;display:grid;gap:20px}
+.hoje small{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#5fc0ff}
+.hoje h3{font-size:clamp(20px,2.4vw,26px);font-weight:700;margin-top:8px}.hoje h3 span{color:#ff8a8a}
+.hoje p{color:#c3d1ea;font-size:15px;margin-top:10px;max-width:46em}
+.hoje img{border-radius:14px;width:100%;max-height:520px;object-fit:cover}
+@media(min-width:900px){.hoje.foto{grid-template-columns:minmax(0,1fr) minmax(0,.8fr);align-items:center}}
 /* unidades */
 .un{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:36px}
 .u{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}
@@ -302,6 +308,7 @@ footer img{height:22px;margin:0 auto 10px;opacity:.8}
     <div class="fo rv"><small>Campanha fora</small><h3>Paga para alcançar a cidade inteira</h3><p>Rádio, redes sociais e mídia externa falam com todo mundo, inclusive com quem nem usa o serviço público.</p></div>
     <div class="de rv"><small>TV da Prefeitura</small><h3>Fala com quem está usando o serviço</h3><p>Na sala de espera, na fila da farmácia, na entrada da escola: a mensagem certa, para a pessoa certa, na hora em que ela está ali.</p></div>
   </div>
+  <div class="hoje rv" id="hoje"><div class="ht"><small>Como é hoje</small><h3>Na sala de espera da vacina, uma TV chama a senha. <span>A do lado fica apagada.</span></h3><p>O cidadão fica ali sentado esperando, e a única coisa que a tela mostra é o número da senha. Nenhuma campanha, nenhum aviso, nada do que a Prefeitura está fazendo.</p></div></div>
   <div class="custo rv"><b>R$ 105 mil<small>EM TVs PARADAS (ESTIMATIVA)</small></b><p><strong>TV desligada também custa.</strong> São telas compradas com dinheiro público, paradas, perdendo valor e ficando defasadas sem cumprir função nenhuma. Ligar é aproveitar o que já foi pago.</p></div>
 </div></section>
 
