@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
-<title>Canal Digital · Prefeitura de Tubarão · Proposta ADmídia</title>
-<meta name="description" content="Proposta da ADmídia para a Prefeitura de Tubarão: 15 telas de comunicação com o cidadão, sem custo para o município.">
-<meta property="og:title" content="Canal Digital para a Prefeitura de Tubarão · ADmídia">
-<meta property="og:description" content="15 telas em pontos de atendimento, sem custo para o município, para a Prefeitura conhecer o trabalho na prática.">
+<title>TV da Prefeitura · Tubarão · Proposta ADmídia</title>
+<meta name="description" content="Proposta da ADmídia: ligar as TVs paradas das unidades da Prefeitura de Tubarão e transformá-las em um canal de comunicação com o cidadão. Piloto em 15 unidades sem custo.">
+<meta property="og:title" content="TV da Prefeitura de Tubarão · Proposta ADmídia">
+<meta property="og:description" content="As TVs das unidades já existem. A ADmídia coloca player, sistema e gestão do conteúdo. Piloto em 15 unidades sem custo.">
 <link rel="icon" href="../favicon_ad.png"><link rel="apple-touch-icon" href="../apple-touch-icon_ad.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -171,6 +171,83 @@ footer img{height:22px;margin:0 auto 10px;opacity:.8}
  .free b{font-size:22px}
  .vs>div,.bn,.ps{padding:20px}
 }
+
+/* TV corporativa: conteúdo + clima/hora + notícias */
+.scr.tvc{display:grid;grid-template-columns:minmax(0,1fr) 27%;grid-template-rows:minmax(0,1fr) 13%;background:#000e29}
+.tvc .main{position:relative;overflow:hidden;grid-row:1}
+.tvc .side{grid-row:1;grid-column:2;display:grid;grid-template-rows:auto 1fr;gap:6%;padding:7% 8%;background:linear-gradient(180deg,#0a2350,#06173a);color:#fff}
+.tvc .clk b{display:block;font-size:clamp(18px,2.6vw,30px);font-weight:800;letter-spacing:-.02em;line-height:1}
+.tvc .clk span{font-size:clamp(8px,.95vw,11px);color:#9fb4d8;font-weight:600}
+.tvc .wx{background:#ffffff12;border-radius:10px;padding:10% 10%;display:flex;flex-direction:column;justify-content:center}
+.tvc .wx small{font-size:clamp(8px,.9vw,10.5px);color:#9fb4d8;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.tvc .wx b{font-size:clamp(20px,3vw,34px);font-weight:800;line-height:1.1}
+.tvc .wx span{font-size:clamp(8px,.95vw,11px);color:#cfdcf2}
+.tvc .tick{grid-column:1/3;grid-row:2;background:#0092ff;color:#fff;display:flex;align-items:center;overflow:hidden;font-size:clamp(9px,1.05vw,12.5px);font-weight:700;white-space:nowrap}
+.tvc .tick em{flex:none;font-style:normal;background:#000e29;height:100%;display:flex;align-items:center;padding:0 3%;font-size:.85em;letter-spacing:.08em;text-transform:uppercase}
+.tvc .tick div{display:inline-block;padding-left:2%;animation:tk 40s linear infinite}
+.tvc .tick div span{padding-right:4em}
+@keyframes tk{to{transform:translateX(-50%)}}
+.tvc .sl{padding:7% 8%}
+.tvc .sl .t{font-size:clamp(18px,2.6vw,32px)}
+.vidtag{display:inline-flex;align-items:center;gap:6px;font-size:clamp(8px,.95vw,11px);font-weight:800;background:#ffffff26;border-radius:99px;padding:3px 9px;letter-spacing:.06em;text-transform:uppercase}
+.vidtag:before{content:"";width:0;height:0;border-left:7px solid currentColor;border-top:4.5px solid transparent;border-bottom:4.5px solid transparent}
+
+/* números */
+.stripe{background:#fff;border-bottom:1px solid var(--line)}
+.stripe .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.stripe div.n{padding:26px 20px;border-left:1px solid var(--line)}
+.stripe div.n:first-child{border-left:0;padding-left:0}
+.stripe b{display:block;font-size:clamp(26px,3vw,34px);font-weight:800;color:var(--navy);letter-spacing:-.03em;line-height:1.1}
+.stripe b em{font-style:normal;color:var(--blue)}
+.stripe span{font-size:13px;color:var(--mut)}
+.stripe small{display:block;font-size:11px;color:#8a95ab;margin-top:2px}
+
+/* o que colocamos */
+.put{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:36px}
+.pu{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;position:relative;overflow:hidden}
+.pu .tag{font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--blue)}
+.pu h3{font-size:21px;font-weight:700;margin-top:8px}
+.pu p{font-size:14.5px;color:var(--mut);margin-top:8px}
+.pu ul{list-style:none;margin-top:14px;display:grid;gap:8px;font-size:14px}
+.pu li{display:flex;gap:10px}.pu li:before{content:"✓";color:var(--green);font-weight:800}
+.keep{margin-top:18px;display:flex;gap:12px;align-items:center;background:var(--blue2);border:1px solid #cfe5ff;border-radius:14px;padding:14px 18px;font-size:14.5px}
+.keep b{color:var(--navy)}
+
+/* recursos da tela */
+.feat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:32px}
+.ft{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}
+.ft .ic{flex:none;width:42px;height:42px;border-radius:12px;background:var(--navy);display:grid;place-items:center}
+.ft .ic svg{width:21px;height:21px;stroke:#5fc0ff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ft b{display:block;font-size:15.5px}.ft span{font-size:13.5px;color:var(--mut)}
+.aprov{margin-top:16px;font-size:14px;color:var(--mut)}.aprov b{color:var(--ink)}
+
+/* fora x dentro */
+.fd{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px}
+.fd>div{border-radius:20px;padding:28px}
+.fd .fo{background:#fff;border:1px solid var(--line)}
+.fd .de{background:linear-gradient(135deg,#0a2a6b,#0b4fb3);color:#fff}
+.fd small{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.fd h3{font-size:22px;font-weight:700;margin-top:8px}
+.fd p{font-size:15px;margin-top:10px;opacity:.85}
+.custo{margin-top:18px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;background:#fff7ed;border:1px solid #fbd5a5;border-radius:20px;padding:24px 28px}
+.custo b{font-size:clamp(30px,4vw,44px);font-weight:800;color:#b45309;letter-spacing:-.03em;line-height:1}
+.custo b small{display:block;font-size:12px;font-weight:700;color:#b45309;letter-spacing:.04em;margin-top:6px}
+.custo p{font-size:15px;color:#5b3a12}
+.custo p strong{color:#3b2208}
+
+/* unidades */
+.un{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:36px}
+.u{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}
+.u .ic{width:46px;height:46px;border-radius:13px;background:var(--blue2);display:grid;place-items:center}
+.u .ic svg{width:23px;height:23px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.u b{display:block;font-size:17px;margin-top:14px}.u span{font-size:13.5px;color:var(--mut)}
+.flow{display:flex;align-items:center;gap:14px;margin-top:22px;flex-wrap:wrap;font-weight:700}
+.flow span{background:#fff;border:1px solid var(--line);border-radius:99px;padding:10px 16px}
+.flow span.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.flow i{font-style:normal;color:var(--blue)}
+
+@media(max-width:980px){.stripe .wrap,.un{grid-template-columns:repeat(2,minmax(0,1fr))}.stripe div.n:nth-child(3){border-left:0;padding-left:0}.put,.feat{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.keep{display:block}.stripe div.n{padding:18px 12px}.put,.feat,.fd{grid-template-columns:1fr}.custo{grid-template-columns:1fr;gap:10px}.pu,.fd>div{padding:22px}}
 </style>
 </head>
 <body>
@@ -183,98 +260,116 @@ footer img{height:22px;margin:0 auto 10px;opacity:.8}
 
 <section class="hero"><div class="wrap">
   <div>
-    <span class="badge"><b>15 locais</b>sem custo para o município</span>
-    <h1>As TVs da Prefeitura estão desligadas. Vamos transformar em um <span>canal com o cidadão.</span></h1>
-    <p class="lead">Telas nos pontos de atendimento mostrando o que a Prefeitura está fazendo, campanhas de saúde, serviços e avisos importantes. Tudo trocado à distância, em minutos, por quem cuida da comunicação.</p>
-    <div class="acts"><a class="btn p" href="#piloto">Ver como funciona o piloto</a><a class="btn g" href="#beneficios">Benefícios</a></div>
+    <span class="badge"><b>Piloto</b>15 unidades sem custo para o município</span>
+    <h1>A Prefeitura já tem as telas. <span>Só falta ligar.</span></h1>
+    <p class="lead">Nas escolas, UPA, farmácias e postos de saúde de Tubarão, as TVs ficam desligadas. A ADmídia conecta o nosso player, o sistema e a gestão do conteúdo, e essas telas viram a TV da Prefeitura para quem usa o serviço público.</p>
+    <div class="acts"><a class="btn p" href="#como">Como funciona</a><a class="btn g" href="#piloto">O piloto</a></div>
     <p class="note">Proposta da ADmídia Publicidade Digital · Tubarão/SC</p>
   </div>
   <div class="tvw rv">
     <span class="simtag">Simulação</span>
-    <div class="tv"><div class="scr">
-      <div class="sl s1"><div class="who">Prefeitura de Tubarão</div><div><div class="t">IPTU 2027</div><div class="s">Informações e boletos no site da Prefeitura.</div></div><div class="bar"></div></div>
-      <div class="sl s2"><div class="who">Prefeitura de Tubarão</div><div><div class="t">Natal Tubarão Luz 2026</div><div class="s">Confira a programação de Natal na cidade.</div></div><div class="bar"></div></div>
-      <div class="sl s3"><div class="who">Saúde · Prefeitura de Tubarão</div><div><div class="t">Vacinação em dia</div><div class="s">Veja as unidades com sala de vacina perto de você.</div></div><div class="bar"></div></div>
-      <div class="sl s4"><div class="who">Meio ambiente · Prefeitura de Tubarão</div><div><div class="t">Coleta seletiva</div><div class="s">Confira o cronograma de coleta do seu bairro.</div></div><div class="bar"></div></div>
-      <div class="sl s5"><div class="who">Utilidade pública</div><div><div class="t">Nível do Rio Tubarão</div><div class="s">Acompanhe as atualizações pelos canais oficiais.</div></div><div class="bar"></div></div>
-      <div class="sl s6"><div class="who">Prefeitura de Tubarão</div><div><div class="t">Concursos e editais</div><div class="s">Oportunidades abertas e resultados publicados.</div></div><div class="bar"></div></div>
+    <div class="tv"><div class="scr tvc">
+      <div class="main">
+        <div class="sl s1"><div class="who">Prefeitura de Tubarão</div><div><div class="t">IPTU 2027</div><div class="s">Informações e boletos no site da Prefeitura.</div></div><div class="bar"></div></div>
+        <div class="sl s3"><div class="who">Saúde</div><div><div class="t">Vacinação em dia</div><div class="s">Veja as unidades com sala de vacina perto de você.</div></div><div class="bar"></div></div>
+        <div class="sl s6"><div class="who">Vídeo institucional</div><div><span class="vidtag">Vídeo</span><div class="t" style="margin-top:8px">O que a Prefeitura está fazendo</div><div class="s">Obras, entregas e serviços da cidade.</div></div><div class="bar"></div></div>
+        <div class="sl s2"><div class="who">Eventos</div><div><div class="t">Natal Tubarão Luz 2026</div><div class="s">Confira a programação de Natal na cidade.</div></div><div class="bar"></div></div>
+        <div class="sl s4"><div class="who">Meio ambiente</div><div><div class="t">Coleta seletiva</div><div class="s">Confira o cronograma do seu bairro.</div></div><div class="bar"></div></div>
+        <div class="sl s5"><div class="who">Aviso</div><div><div class="t">Horário de atendimento</div><div class="s">Avisos da unidade atualizados na hora.</div></div><div class="bar"></div></div>
+      </div>
+      <div class="side">
+        <div class="clk"><b id="hr">09:41</b><span id="dt">quarta, 27 nov</span></div>
+        <div class="wx"><small>Tubarão</small><b>☀ 26°</b><span>Previsão do tempo</span></div>
+      </div>
+      <div class="tick"><em>Notícias</em><div><span>Prefeitura de Tubarão · IPTU 2027: informações no site da Prefeitura · Vacinação: confira as unidades com sala de vacina · Natal Tubarão Luz 2026 · Coleta seletiva: veja o cronograma do seu bairro · Concursos e editais abertos no site oficial</span><span>Prefeitura de Tubarão · IPTU 2027: informações no site da Prefeitura · Vacinação: confira as unidades com sala de vacina · Natal Tubarão Luz 2026 · Coleta seletiva: veja o cronograma do seu bairro · Concursos e editais abertos no site oficial</span></div></div>
     </div></div>
     <div class="stand"></div>
-    <div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
 </div></section>
+
+<div class="stripe"><div class="wrap">
+  <div class="n"><b>~<em>70</em></b><span>unidades com TV</span><small>escolas, UPA, farmácias e postos</small></div>
+  <div class="n"><b>R$ <em>105</em> mil</b><span>em TVs paradas</span><small>estimativa: 70 × R$ 1.500</small></div>
+  <div class="n"><b><em>15</em></b><span>unidades no piloto</span><small>sem custo para o município</small></div>
+  <div class="n"><b><em>1</em> painel</b><span>para todas as telas</span><small>gestão à distância</small></div>
+</div></div>
 
 <section><div class="wrap">
-  <div class="k">Hoje e com a ADmídia</div>
-  <h2>O cidadão já está na Prefeitura. <span>Só falta falar com ele.</span></h2>
-  <p class="lead">Todos os dias, centenas de pessoas esperam atendimento nas unidades do município. É o melhor momento para informar, e hoje ele passa em branco.</p>
-  <div class="vs">
-    <div class="hj rv"><h3>Hoje</h3><ul>
-      <li><i>✕</i>TVs desligadas nas recepções e salas de espera</li>
-      <li><i>✕</i>Avisos em papel e mural, que desatualizam rápido</li>
-      <li><i>✕</i>Sem um canal próprio para mostrar o que a Prefeitura está fazendo</li>
-      <li><i>✕</i>Campanha nova depende de imprimir e distribuir</li>
-    </ul></div>
-    <div class="cm rv"><h3>Com a ADmídia</h3><ul>
-      <li><i>✓</i>Telas ligadas, com conteúdo da Prefeitura o dia todo</li>
-      <li><i>✓</i>Aviso atualizado em todas as unidades em minutos</li>
-      <li><i>✓</i>Ações, obras e serviços mostrados para quem usa o serviço público</li>
-      <li><i>✓</i>Menos impressão, mais alcance</li>
-    </ul></div>
+  <div class="k">A conta que não fecha</div>
+  <h2>A Prefeitura investe em campanha fora. <span>E quem está dentro das unidades?</span></h2>
+  <p class="lead">Quem usa a UPA, o posto de saúde, a farmácia municipal e a escola é exatamente o público das campanhas da Prefeitura. E essas pessoas passam o tempo de espera na frente de uma TV desligada.</p>
+  <div class="fd">
+    <div class="fo rv"><small>Campanha fora</small><h3>Paga para alcançar a cidade inteira</h3><p>Rádio, redes sociais e mídia externa falam com todo mundo, inclusive com quem nem usa o serviço público.</p></div>
+    <div class="de rv"><small>TV da Prefeitura</small><h3>Fala com quem está usando o serviço</h3><p>Na sala de espera, na fila da farmácia, na entrada da escola: a mensagem certa, para a pessoa certa, na hora em que ela está ali.</p></div>
   </div>
+  <div class="custo rv"><b>R$ 105 mil<small>EM TVs PARADAS (ESTIMATIVA)</small></b><p><strong>TV desligada também custa.</strong> São telas compradas com dinheiro público, paradas, perdendo valor e ficando defasadas sem cumprir função nenhuma. Ligar é aproveitar o que já foi pago.</p></div>
 </div></section>
 
-<section id="beneficios" style="padding-top:0"><div class="wrap">
-  <div class="k">Benefícios para o município</div>
-  <h2>O que a Prefeitura <span>ganha</span> com um canal próprio.</h2>
-  <div class="ben">
-    <div class="bn rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg></div><h3>Mostrar o que está sendo feito</h3><p>Obras, entregas, serviços e programas apresentados para quem é atendido pela Prefeitura.</p></div>
-    <div class="bn rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 6.5-7 11-7 11z"/></svg></div><h3>Campanhas de saúde que chegam</h3><p>Vacinação, dengue, Outubro Rosa, Novembro Azul: na tela da sala de espera, na hora certa.</p></div>
-    <div class="bn rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></div><h3>Alertas em minutos</h3><p>Chuva, nível do rio, mudança de horário ou feriado: um aviso publicado em todas as telas de uma vez.</p></div>
-    <div class="bn rv"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div><h3>Tudo de um só lugar</h3><p>A Comunicação controla o conteúdo de todas as unidades pelo computador ou celular, sem pendrive e sem ir até o local.</p></div>
-    <div class="bn rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></div><h3>Menos papel, menos custo</h3><p>Cartaz, mural e impressão trocados por tela. O conteúdo muda quantas vezes for preciso, sem custo de gráfica.</p></div>
-    <div class="bn rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 12h4l3-8 4 16 3-8h2"/></svg></div><h3>Espera melhor</h3><p>Informação útil enquanto o cidadão aguarda deixa o atendimento mais organizado e a espera menos cansativa.</p></div>
+<section id="como" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+  <div class="k">Como funciona</div>
+  <h2>Em cada TV parada, a ADmídia coloca <span>três coisas.</span></h2>
+  <div class="put">
+    <div class="pu rv"><div class="tag">01 · HARDWARE</div><h3>Player ligado à TV</h3><p>Um aparelho pequeno conectado na TV que já está na unidade.</p><ul><li>Instalação pela equipe da ADmídia</li><li>Funciona com a TV existente</li><li>Liga e desliga no horário da unidade</li></ul></div>
+    <div class="pu rv"><div class="tag">02 · SISTEMA</div><h3>Plataforma de gestão</h3><p>O conteúdo de todas as telas controlado de um lugar só, pelo computador ou celular.</p><ul><li>Publica em todas ou por unidade</li><li>Agenda início e fim das campanhas</li><li>Mostra quais telas estão online</li></ul></div>
+    <div class="pu rv"><div class="tag">03 · GERENCIAMENTO</div><h3>A ADmídia cuida do dia a dia</h3><p>Montamos e mantemos a programação junto com a Comunicação da Prefeitura.</p><ul><li>Programação sempre atualizada</li><li>Suporte técnico aqui em Tubarão</li><li>Só passa o que a Prefeitura aprovar</li></ul></div>
   </div>
+  <div class="keep rv"><b>A TV continua sendo da Prefeitura.</b> A gente só faz ela trabalhar.</div>
 
-  <div class="k" style="margin-top:64px">O que pode passar nas telas</div>
-  <div class="temas">
-    <span><b>•</b>IPTU e prazos</span><span><b>•</b>Campanhas de vacinação</span><span><b>•</b>Programação de Natal e eventos</span><span><b>•</b>Coleta seletiva por bairro</span><span><b>•</b>Concursos e editais</span><span><b>•</b>Obras e entregas</span><span><b>•</b>Alertas da Defesa Civil</span><span><b>•</b>Horários e feriados</span><span><b>•</b>Serviços online da Prefeitura</span><span><b>•</b>Aniversário da cidade</span>
+  <div class="k" style="margin-top:64px">O que passa nas telas</div>
+  <div class="feat">
+    <div class="ft rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 5h16v10H8l-4 4z"/></svg></div><div><b>Avisos</b><span>Horários, feriados, mudanças no atendimento de cada unidade.</span></div></div>
+    <div class="ft rv"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z"/></svg></div><div><b>Vídeos</b><span>Campanhas, vídeos institucionais e o que a Prefeitura está fazendo.</span></div></div>
+    <div class="ft rv"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg></div><div><b>Previsão do tempo</b><span>Clima de Tubarão atualizado automaticamente na tela.</span></div></div>
+    <div class="ft rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h12v16H6a2 2 0 0 1-2-2z"/><path d="M16 8h4v10a2 2 0 0 1-2 2"/><path d="M8 8h4M8 12h4M8 16h4"/></svg></div><div><b>Notícias da cidade</b><span>As notícias que a Prefeitura escolher, rodando na faixa da tela.</span></div></div>
+    <div class="ft rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 6.5-7 11-7 11z"/></svg></div><div><b>Campanhas de saúde</b><span>Vacinação, dengue, Outubro Rosa, Novembro Azul.</span></div></div>
+    <div class="ft rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></div><div><b>Alertas</b><span>Defesa Civil, chuva e nível do rio, com prioridade em todas as telas.</span></div></div>
+  </div>
+  <p class="aprov rv"><b>A Prefeitura decide o que passa.</b> Nada vai ao ar sem aprovação da Comunicação.</p>
+</div></section>
+
+<section id="beneficios"><div class="wrap">
+  <div class="k">Benefícios para o município</div>
+  <h2>O que a Prefeitura <span>ganha</span> com a própria TV.</h2>
+  <div class="ben">
+    <div class="bn rv"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14.8c1.9.7 3.1 2.4 3.5 5.2"/></svg></div><h3>Fala com quem usa o serviço</h3><p>O público mais certo das campanhas da Prefeitura, todos os dias, nas próprias unidades.</p></div>
+    <div class="bn rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg></div><h3>Mostra o que está sendo feito</h3><p>Obras, entregas e programas da Prefeitura apresentados para o cidadão.</p></div>
+    <div class="bn rv"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div><h3>Aproveita o que já foi comprado</h3><p>As TVs que estão paradas voltam a ter função, sem comprar tela nova.</p></div>
+    <div class="bn rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></div><h3>Alertas em minutos</h3><p>Um aviso publicado nas unidades de uma vez, sem depender de cartaz.</p></div>
+    <div class="bn rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></div><h3>Menos papel e impressão</h3><p>Mural e cartaz trocados por tela, com conteúdo que muda quantas vezes precisar.</p></div>
+    <div class="bn rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 12h4l3-8 4 16 3-8h2"/></svg></div><h3>Espera mais organizada</h3><p>Informação útil na sala de espera deixa o atendimento mais tranquilo.</p></div>
   </div>
 </div></section>
 
 <section style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
-  <div class="k">Onde instalar</div>
-  <h2>Onde o cidadão <span>espera atendimento.</span></h2>
-  <p class="lead">Sugestão de pontos para as 15 primeiras telas. A Prefeitura escolhe os locais.</p>
-  <div class="onde">
-    <div class="od rv"><span class="n">ATENDIMENTO</span><b>Recepção do Paço Municipal</b><span>Quem vem resolver IPTU, alvará e documentos</span></div>
-    <div class="od rv"><span class="n">SAÚDE</span><b>Unidades de saúde</b><span>Salas de espera das UBS e postos</span></div>
-    <div class="od rv"><span class="n">SAÚDE</span><b>Farmácia municipal</b><span>Fila de retirada de medicamentos</span></div>
-    <div class="od rv"><span class="n">ASSISTÊNCIA</span><b>CRAS e assistência social</b><span>Atendimento às famílias</span></div>
-    <div class="od rv"><span class="n">EDUCAÇÃO</span><b>Escolas e creches</b><span>Recados para pais e responsáveis</span></div>
-    <div class="od rv"><span class="n">SERVIÇOS</span><b>Secretarias com atendimento</b><span>Onde há fila ou sala de espera</span></div>
-    <div class="od rv"><span class="n">ESPORTE E CULTURA</span><b>Ginásios e espaços culturais</b><span>Eventos e programação da cidade</span></div>
-    <div class="od rv"><span class="n">A DEFINIR</span><b>Outros pontos</b><span>Indicados pela Prefeitura</span></div>
+  <div class="k">As unidades</div>
+  <h2>Cerca de 70 unidades. <span>Uma rede inteira.</span></h2>
+  <p class="lead">Ligadas ao mesmo sistema, todas as unidades viram um só canal: um aviso pode ir para todas, ou só para as escolas, ou só para a saúde.</p>
+  <div class="un">
+    <div class="u rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 10l9-6 9 6-9 6z"/><path d="M7 12.5V17c3 2 7 2 10 0v-4.5"/></svg></div><b>Escolas</b><span>Pais e responsáveis na entrada e na secretaria</span></div>
+    <div class="u rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 21V7l8-4 8 4v14"/><path d="M12 9v6M9 12h6"/></svg></div><b>UPA</b><span>Sala de espera com movimento o dia todo</span></div>
+    <div class="u rv"><div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M9 8V5h6v3M12 11v6M9 14h6"/></svg></div><b>Farmácias</b><span>Fila de retirada de medicamentos</span></div>
+    <div class="u rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 6.5-7 11-7 11z"/></svg></div><b>Postos de saúde</b><span>Consultas, vacinas e atendimento básico</span></div>
   </div>
 </div></section>
 
 <section class="piloto" id="piloto"><div class="wrap">
   <div class="k">Projeto piloto</div>
-  <h2>Começamos com <span>15 locais, sem custo</span> para o município.</h2>
-  <p class="lead">A ideia é simples: a Prefeitura conhece o trabalho funcionando, nas próprias unidades, antes de qualquer decisão.</p>
+  <h2>Começamos com <span>15 unidades, sem custo.</span></h2>
+  <p class="lead">A Prefeitura vê a TV funcionando nas próprias unidades antes de qualquer decisão sobre as demais.</p>
   <div class="passos">
-    <div class="ps rv"><h3>Escolha dos locais</h3><p>A Prefeitura indica os 15 pontos com mais atendimento.</p></div>
-    <div class="ps rv"><h3>Telas funcionando</h3><p>A ADmídia instala, configura e coloca as telas no ar com o sistema de gestão.</p></div>
-    <div class="ps rv"><h3>Conteúdo junto</h3><p>Montamos a programação com a equipe de Comunicação, a partir do que a Prefeitura quer mostrar.</p></div>
-    <div class="ps rv"><h3>Avaliação</h3><p>Ao fim do período, avaliamos juntos os resultados e os próximos passos.</p></div>
+    <div class="ps rv"><h3>Escolha das 15</h3><p>A Prefeitura indica as unidades com mais movimento.</p></div>
+    <div class="ps rv"><h3>Telas no ar</h3><p>A ADmídia instala o player nas TVs existentes e coloca o sistema funcionando.</p></div>
+    <div class="ps rv"><h3>Programação</h3><p>Avisos, vídeos, clima e notícias montados com a Comunicação da Prefeitura.</p></div>
+    <div class="ps rv"><h3>Avaliação</h3><p>Analisamos juntos o resultado e o caminho para as demais unidades.</p></div>
   </div>
-  <div class="free rv"><b>R$ 0</b><span>para o município durante o piloto nos 15 locais. Prazo do piloto e formalização definidos em conjunto com a Prefeitura.</span></div>
+  <div class="flow rv"><span class="on">15 unidades · piloto</span><i>→</i><span>Avaliação</span><i>→</i><span>~70 unidades</span></div>
+  <div class="free rv"><b>R$ 0</b><span>no piloto das 15 unidades: player, instalação, sistema e gerenciamento por conta da ADmídia. Prazo do piloto e formalização definidos com a Prefeitura.</span></div>
 </div></section>
 
 <section><div class="wrap">
   <div class="k">Formatos</div>
-  <h2>Uma tela na recepção ou <span>um videowall</span> no saguão.</h2>
-  <p class="lead">Telas simples, várias telas lado a lado ou videowall: o formato acompanha o espaço de cada unidade.</p>
+  <h2>Onde fizer sentido, <span>mais do que uma TV.</span></h2>
+  <p class="lead">Além das TVs existentes, espaços maiores podem receber várias telas lado a lado ou videowall.</p>
   <div class="gal">
     <figure class="rv"><img src="img/videowall.jpg" alt="Videowall e telas em grade" loading="lazy"><figcaption>Videowall · referência de formato</figcaption></figure>
     <figure class="rv"><img src="img/lubrafer.jpg" alt="Videowall instalado pela ADmídia na Lubrafer" loading="lazy"><figcaption>Videowall · Lubrafer</figcaption></figure>
@@ -288,12 +383,12 @@ footer img{height:22px;margin:0 auto 10px;opacity:.8}
   <div>
     <div class="k">Sistema de gestão</div>
     <h2>Tudo à distância. <span>Sem pendrive.</span></h2>
-    <p class="lead">A equipe da Prefeitura troca o conteúdo pelo computador ou celular e vê na hora quais telas estão online.</p>
+    <p class="lead">A Comunicação da Prefeitura acompanha e aprova tudo pelo painel, e vê na hora quais telas estão no ar.</p>
     <ul>
-      <li>Publica em todas as telas ou só em uma unidade</li>
+      <li>Publica em todas as unidades ou só em um grupo</li>
       <li>Agenda campanhas com data para começar e terminar</li>
-      <li>Imagem, vídeo e avisos rápidos</li>
-      <li>Suporte da ADmídia, aqui em Tubarão</li>
+      <li>Imagem, vídeo, clima, notícias e avisos rápidos</li>
+      <li>Alerta com prioridade em todas as telas</li>
     </ul>
   </div>
   <img class="rv" src="img/sistema-mac.jpg" alt="Painel de gestão das telas da ADmídia" loading="lazy">
@@ -301,7 +396,7 @@ footer img{height:22px;margin:0 auto 10px;opacity:.8}
 
 <section style="background:#fff;border-top:1px solid var(--line)"><div class="wrap">
   <div class="k">Quem já usa</div>
-  <h2>Empresas da região que já têm <span>canal corporativo</span> com a ADmídia.</h2>
+  <h2>Empresas da região com <span>TV corporativa</span> da ADmídia.</h2>
   <div class="logos" id="logos">
     <div class="lg t rv">Rede de Postos Premier</div>
     <div class="lg t rv">Posto Michells</div>
@@ -316,17 +411,19 @@ footer img{height:22px;margin:0 auto 10px;opacity:.8}
 </div></section>
 
 <section class="fim" id="contato"><div class="wrap">
-  <h2>Vamos ligar as <span>15 primeiras telas?</span></h2>
-  <p class="lead">Marcamos uma conversa com a equipe de Comunicação e mostramos o sistema funcionando.</p>
-  <div class="acts"><a class="btn p" href="https://wa.me/5548991079940?text=Ol%C3%A1!%20Vi%20a%20proposta%20do%20canal%20digital%20para%20a%20Prefeitura%20de%20Tubar%C3%A3o%20e%20quero%20conversar." target="_blank" rel="noopener">Conversar pelo WhatsApp</a></div>
+  <h2>Vamos ligar as <span>primeiras 15?</span></h2>
+  <p class="lead">Marcamos uma conversa com a Comunicação da Prefeitura e mostramos o sistema funcionando.</p>
+  <div class="acts"><a class="btn p" href="https://wa.me/5548991079940?text=Ol%C3%A1!%20Vi%20a%20proposta%20da%20TV%20da%20Prefeitura%20de%20Tubar%C3%A3o%20e%20quero%20conversar." target="_blank" rel="noopener">Conversar pelo WhatsApp</a></div>
   <p class="tel">WhatsApp: <b>(48) 99107-9940</b></p>
 </div></section>
-<footer><img src="img/logo.png" alt="ADmídia">ADmídia Publicidade Digital · CNPJ 48.910.896/0001-72 · Tubarão/SC<br>Proposta comercial. As telas mostradas como "Simulação" são exemplos de conteúdo.</footer>
+<footer><img src="img/logo.png" alt="ADmídia">ADmídia Publicidade Digital · CNPJ 48.910.896/0001-72 · Tubarão/SC<br>Proposta comercial. A tela marcada como "Simulação" é um exemplo de layout e conteúdo. Valor das TVs paradas é estimativa.</footer>
 
 <script>
-(function(){if(!('IntersectionObserver' in window)){document.querySelectorAll('.rv').forEach(e=>e.classList.add('in'));return;}
+(function(){if(!('IntersectionObserver' in window)){document.querySelectorAll('.rv').forEach(e=>e.classList.add('in'));}else{
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
-document.querySelectorAll('.rv').forEach((e,i)=>{e.style.transitionDelay=(i%4)*60+'ms';io.observe(e);});})();
+document.querySelectorAll('.rv').forEach((e,i)=>{e.style.transitionDelay=(i%4)*60+'ms';io.observe(e);});}
+function clk(){const d=new Date(),h=document.getElementById('hr'),t=document.getElementById('dt');if(h)h.textContent=String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');if(t){let x=d.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'short'}).replace('-feira','').replace('.','');t.textContent=x.charAt(0).toUpperCase()+x.slice(1);}}
+clk();setInterval(clk,20000);})();
 </script>
 </body>
 </html>
