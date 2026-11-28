@@ -2,443 +2,592 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="robots" content="noindex">
-<title>TV da Prefeitura · Tubarão · Proposta ADmídia</title>
-<meta name="description" content="Proposta da ADmídia: ligar as TVs paradas das unidades da Prefeitura de Tubarão e transformá-las em um canal de comunicação com o cidadão. Piloto em 15 unidades sem custo.">
-<meta property="og:title" content="TV da Prefeitura de Tubarão · Proposta ADmídia">
-<meta property="og:description" content="As TVs das unidades já existem. A ADmídia coloca player, sistema e gestão do conteúdo. Piloto em 15 unidades sem custo.">
-<link rel="icon" href="../favicon_tb.png?v=1"><link rel="apple-touch-icon" href="../apple-touch-icon_tb.png?v=1">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" href="../favicon_tb.png?v=1">
+<link rel="apple-touch-icon" href="../apple-touch-icon_tb.png?v=1">
+<title>Tubarão Informa</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap">
 <style>
-:root{--navy:#000E29;--navy2:#071c45;--blue:#0092FF;--blue2:#e8f4ff;--ink:#0b1b3a;--mut:#56627a;--line:#e3e9f2;--bg:#f6f8fc;--card:#fff;--green:#12a37a}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Montserrat,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+/* Mesma linguagem do site do CUBO: coluna escura, Inter, títulos leves com partes em negrito, seções separadas por linha fina */
+:root{
+  --bg:#020b1f; --bg2:#06142f; --line:#18325e;
+  --fg:#ffffff; --muted:#9fb3d1; --blue:#3fa2ee; --red:#ff5a5f;
+  --sans:"Inter","Helvetica Neue",Helvetica,Arial,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-weight:400;margin:0;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{max-width:100%;display:block}
-a{color:inherit}
-.wrap{max-width:1160px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
-.k{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
-h1,h2,h3{letter-spacing:-.03em;line-height:1.12;text-wrap:balance}
-h2{font-size:clamp(28px,4vw,42px);font-weight:700;margin-top:10px}
-h2 span,h1 span{color:var(--blue)}
-.lead{font-size:clamp(16px,1.6vw,18px);color:var(--mut);max-width:40em;margin-top:14px}
-section{padding-block:clamp(64px,9vw,104px)}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
 
-/* topo */
-.top{position:sticky;top:0;z-index:30;background:rgba(0,14,41,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #ffffff14}
-.top .wrap{display:flex;align-items:center;gap:16px;height:64px}
-.top .ad{height:26px}
-.top .x{color:#ffffff59;font-size:13px}
-.top .para{font-size:12px;color:#c9d6ee;margin-left:auto;display:flex;align-items:center;gap:10px}
-.top .para span{white-space:nowrap}
-.chip-pmt{background:#fff;border-radius:9px;padding:6px 10px;display:flex}
-.chip-pmt img{height:22px;width:auto}
-.top .cta{background:var(--blue);color:#fff;text-decoration:none;font-weight:700;font-size:13px;padding:10px 16px;border-radius:99px;white-space:nowrap}
+/* entrada */
+header.top{position:absolute;inset:0 0 auto;z-index:3;padding-top:calc(28px + env(safe-area-inset-top,0px))}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+header.top img.ad{height:30px;width:auto}
+header.top .para{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600}
+header.top .para em{font-style:normal}
+header.top .para span{background:#fff;border-radius:6px;padding:5px 8px;display:inline-flex}
+header.top .para img{height:20px;width:auto}
+.hero{position:relative;overflow:hidden;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;background:var(--bg)}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.15) brightness(.95)}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:#1f6fe0;mix-blend-mode:multiply;opacity:.95}
+.hero::after{z-index:1;content:"";position:absolute;inset:0;background:linear-gradient(180deg,#020b1fd9 0%,#020b1f40 30%,#020b1f55 55%,#020b1f 96%)}
+.hero .cred{position:absolute;z-index:2;right:max(24px,env(safe-area-inset-right,0px));bottom:18px;margin:0;font-size:12px;color:var(--muted)}
+.hero .wrap{position:relative;z-index:2;padding-block:140px 80px;width:100%}
+.lead{font-size:clamp(24px,3.8vw,42px);line-height:1.14;font-weight:400;letter-spacing:-.01em;margin:0;max-width:17em;text-wrap:balance}
+.lead b{font-weight:800}
+.big{font-size:clamp(56px,13vw,164px);font-weight:900;color:var(--blue);line-height:.9;letter-spacing:-.045em;margin:14px 0 0}
+.locais{margin:26px 0 0;font-size:clamp(15px,1.7vw,20px);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--fg)}
+.locais i{font-style:normal;color:var(--blue);margin:0 .5em;font-weight:400}
+.meta{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:30px;font-size:16px;color:var(--muted)}
+.meta b{color:var(--fg);font-weight:600}
 
-/* hero */
-.hero{background:radial-gradient(900px 480px at 85% -10%,#0b3f8c 0%,transparent 60%),radial-gradient(700px 400px at 0% 110%,#06306b 0%,transparent 60%),var(--navy);color:#fff;padding-block:clamp(56px,8vw,96px) clamp(64px,8vw,100px);overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:56px;align-items:center}
-.hero h1{font-size:clamp(34px,5vw,56px);font-weight:800;margin-top:16px}
-.hero .lead{color:#c3d1ea}
-.badge{display:inline-flex;align-items:center;gap:10px;background:#ffffff12;border:1px solid #ffffff26;border-radius:99px;padding:8px 14px 8px 8px;font-size:13px;font-weight:600;color:#e4ecfa}
-.badge b{background:var(--blue);color:#fff;border-radius:99px;padding:4px 10px;font-size:12px}
-.hero .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:15px;padding:14px 22px;border-radius:99px;transition:transform .15s,box-shadow .2s}
-.btn:hover{transform:translateY(-2px)}
-.btn.p{background:var(--blue);color:#fff;box-shadow:0 10px 30px -10px #0092ffaa}
-.btn.g{border:1px solid #ffffff40;color:#fff}
-.hero .note{margin-top:22px;font-size:12.5px;color:#8ea3c7}
+/* seções */
+section{padding-block:96px;border-top:1px solid var(--line);position:relative}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin:0 0 18px}
+h2{font-size:clamp(32px,5.2vw,58px);line-height:1.05;font-weight:400;letter-spacing:-.02em;margin:0;text-wrap:balance;max-width:15em}
+h2 b{font-weight:800}
+h2 .b{color:var(--blue);font-weight:800}
+p.t{font-size:19px;line-height:1.65;color:var(--muted);max-width:36em;margin:22px 0 0}
+p.t b{color:var(--fg);font-weight:600}
+.glow{background:radial-gradient(900px 420px at 80% 0%,#0b3a7a 0%,var(--bg) 70%)}
 
-/* TV com slides */
-.tvw{position:relative}
-.tv{position:relative;background:#05070c;border-radius:16px;padding:12px;box-shadow:0 40px 80px -30px #000,0 0 0 1px #ffffff1a}
-.scr{position:relative;aspect-ratio:16/9;border-radius:6px;overflow:hidden;background:#0b1b3a}
-.sl{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:6% 7%;opacity:0;animation:sl 24s infinite}
-.sl:nth-child(2){animation-delay:4s}.sl:nth-child(3){animation-delay:8s}.sl:nth-child(4){animation-delay:12s}.sl:nth-child(5){animation-delay:16s}.sl:nth-child(6){animation-delay:20s}
-@keyframes sl{0%{opacity:0;transform:scale(1.03)}3%{opacity:1;transform:scale(1)}16%{opacity:1}19%{opacity:0}100%{opacity:0}}
-.sl .who{font-size:clamp(9px,1.1vw,12px);font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
-.sl .t{font-size:clamp(20px,3vw,36px);font-weight:800;line-height:1.05;letter-spacing:-.03em}
-.sl .s{font-size:clamp(11px,1.3vw,15px);font-weight:500;opacity:.92;margin-top:6px;max-width:26em}
-.sl .bar{height:4px;border-radius:9px;background:currentColor;opacity:.35;width:34%}
-.s1{background:linear-gradient(135deg,#0a2a6b,#0092ff);color:#fff}
-.s2{background:radial-gradient(circle at 80% 20%,#f4c04a33,transparent 40%),linear-gradient(135deg,#5c0d16,#a8182b);color:#fff3d6}
-.s3{background:linear-gradient(135deg,#e9fbf4,#bff0dc);color:#063d2c}
-.s4{background:linear-gradient(135deg,#0e5a35,#1f9d55);color:#fff}
-.s5{background:linear-gradient(135deg,#fff4cc,#ffd34d);color:#3b2a00}
-.s6{background:linear-gradient(135deg,#000e29,#14306b);color:#fff}
-.tv .stand{width:22%;height:16px;margin:0 auto;background:linear-gradient(#1a1d24,#0b0d12);border-radius:0 0 8px 8px}
-.simtag{position:absolute;z-index:3;top:-12px;right:18px;background:#fff;color:var(--navy);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:99px;box-shadow:0 8px 20px -8px #000a}
-.dots{display:flex;gap:6px;justify-content:center;margin-top:16px}
-.dots i{width:6px;height:6px;border-radius:9px;background:#ffffff40}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
 
-/* hoje x com a ADmídia */
-.vs{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:40px}
-.vs>div{border-radius:20px;padding:28px}
-.vs .hj{background:#fff;border:1px solid var(--line)}
-.vs .cm{background:var(--navy);color:#fff}
-.vs h3{font-size:20px;font-weight:700;display:flex;align-items:center;gap:10px}
-.vs ul{list-style:none;margin-top:18px;display:grid;gap:14px}
-.vs li{display:flex;gap:12px;font-size:15px}
-.vs li i{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:800;margin-top:1px}
-.vs .hj li i{background:#fdecec;color:#c62828}
-.vs .cm li i{background:#0092ff33;color:#5fc0ff}
-.vs .cm li{color:#d7e2f5}
+/* 01 foto */
+.duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:56px;align-items:center}
+figure.ph{margin:0;min-width:0;position:relative}
+figure.ph .phin{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+figure.ph img{width:100%;height:auto;aspect-ratio:3/4}
+figure.ph .mk{position:absolute;left:21.8%;top:35.8%;width:29.2%;height:14.2%;border:2px solid var(--red);border-radius:4px}
+figure.ph .mk span{position:absolute;top:calc(100% + 8px);left:-2px;font-size:10px;letter-spacing:.2em;font-weight:600;color:#fff;background:var(--red);padding:4px 8px;border-radius:3px;white-space:nowrap}
+figure.ph figcaption{font-size:13px;color:var(--muted);margin-top:12px;line-height:1.5}
+.quote{font-size:clamp(20px,2.2vw,26px);line-height:1.4;font-weight:300;margin:34px 0 0;padding-left:20px;border-left:2px solid var(--blue);max-width:22em}
+.quote b{font-weight:600}
 
-/* benefícios */
-.ben{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:40px}
-.bn{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;transition:transform .2s,box-shadow .2s,border-color .2s}
-.bn:hover{transform:translateY(-4px);box-shadow:0 18px 40px -22px #0b1b3a55;border-color:#cfe3ff}
-.bn .ic{width:44px;height:44px;border-radius:12px;background:var(--blue2);display:grid;place-items:center}
-.bn .ic svg{width:22px;height:22px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.bn h3{font-size:17px;font-weight:700;margin-top:16px}
-.bn p{font-size:14px;color:var(--mut);margin-top:6px}
+/* 02 conta */
+.money{font-size:clamp(68px,15vw,190px);font-weight:900;color:var(--blue);line-height:.86;letter-spacing:-.05em;margin:30px 0 0;font-variant-numeric:tabular-nums;white-space:nowrap}
+.money small{font-size:.3em;font-weight:600;letter-spacing:-.01em;vertical-align:top;position:relative;top:.3em;margin-right:.15em;color:var(--fg)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:56px}
+.stats div{border-top:1px solid var(--line);padding-top:20px}
+.stats b{display:block;font-size:42px;font-weight:300;letter-spacing:-.02em}
+.stats span{display:block;color:var(--muted);font-size:15px;margin-top:6px;line-height:1.5}
+.stats div.on{border-top:2px solid var(--blue)}
+.stats div.on b{font-weight:800;color:var(--blue)}
+#tvs{display:grid;grid-template-columns:repeat(14,minmax(0,1fr));gap:8px;margin-top:52px;max-width:700px}
+#tvs i{aspect-ratio:16/10;border-radius:3px;background:#0a1226;border:1px solid #23375f;position:relative;opacity:0;transform:scale(.7);transition:opacity .5s,transform .5s}
+#tvs i.on{opacity:1;transform:none}
+#tvs i.two{box-shadow:3px -3px 0 -1px #1a2b4d}
+.leg{display:flex;gap:24px;flex-wrap:wrap;margin-top:16px;font-size:13px;color:var(--muted)}
+.leg span{display:flex;align-items:center;gap:8px}
+.leg i{width:16px;height:10px;border-radius:2px;background:#0a1226;border:1px solid #23375f}
+.leg i.two{box-shadow:3px -3px 0 -1px #1a2b4d}
+.nota{font-size:13px;color:var(--muted);margin-top:22px;max-width:52em;line-height:1.6;opacity:.8}
 
-/* o que passa */
-.temas{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
-.temas span{background:#fff;border:1px solid var(--line);border-radius:99px;padding:9px 15px;font-size:14px;font-weight:600}
-.temas span b{color:var(--blue);margin-right:6px}
+.eq{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1.2fr);gap:18px;align-items:stretch;margin-top:52px}
+.eq .q{border:1px solid var(--line);border-radius:18px;padding:22px 24px;background:var(--bg2);display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+.eq .q b{font-size:clamp(30px,3.6vw,46px);font-weight:300;letter-spacing:-.02em;line-height:1}
+.eq .q span{color:var(--muted);font-size:14px;margin-top:8px}
+.eq .q.on{border-color:var(--blue);background:linear-gradient(160deg,#0b3a7a,#06142f)}
+.eq .q.on b{font-weight:900;color:var(--blue)}
+.eq .tvimg{width:64%;aspect-ratio:16/9;background:url(img/tv43.jpg) center/104% 106%;border-radius:4px;box-shadow:0 0 0 2px #56688f;margin-bottom:16px}
+.eq i{font-style:normal;align-self:center;font-size:38px;font-weight:300;color:var(--muted)}
+#tvs{grid-template-columns:repeat(10,minmax(0,1fr)) !important;gap:14px 12px !important;max-width:820px !important}
+#tvs i{background:url(img/tv43.jpg) center/106% 108% #05080f !important;border:0 !important;border-radius:3px !important;box-shadow:0 0 0 1.5px #56688f,0 6px 14px #0008;aspect-ratio:16/9.4 !important}
+#tvs i:after{content:"";position:absolute;left:40%;right:40%;bottom:-6px;height:4px;background:#56688f;border-radius:0 0 3px 3px}
+.leg i{background:url(img/tv43.jpg) center/106% 108% !important;border:0 !important;box-shadow:0 0 0 1.5px #56688f;width:22px !important;height:13px !important}
+.why-h{font-size:clamp(26px,3.2vw,38px);font-weight:400;letter-spacing:-.02em;margin:80px 0 0}
+.why-h b{font-weight:800;color:var(--blue)}
+.porque{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:28px}
+.porque div{border-top:1px solid var(--line);padding-top:18px}
+.porque span{color:var(--blue);font-weight:600;font-size:14px;letter-spacing:.1em}
+.porque b{display:block;font-size:21px;font-weight:800;margin-top:8px;line-height:1.25}
+.porque p{color:var(--muted);font-size:15px;line-height:1.6;margin:8px 0 0}
+.conclui{margin:36px 0 0;font-size:clamp(18px,1.8vw,22px);line-height:1.55;color:var(--muted);max-width:44em;padding:22px 26px;border-left:2px solid var(--blue);background:#0b3a7a33;border-radius:0 14px 14px 0}
+.conclui b{color:var(--fg);font-weight:700}
+.tvwrap{position:relative;max-width:820px;margin-top:52px;overflow:hidden;padding:6px 4px 14px}
+.tvwrap #tvs{margin-top:0 !important}
+.fita{position:absolute;left:-15%;right:-15%;top:50%;height:58px;transform:translateY(-50%) rotate(-9deg) scaleX(0);transform-origin:center;background:#e5484d;box-shadow:0 10px 30px #0009,0 0 0 2px #ff7a7d inset;display:flex;align-items:center;overflow:hidden;white-space:nowrap;transition:transform .7s cubic-bezier(.2,.8,.2,1) .9s;z-index:2}
+.fita.on{transform:translateY(-50%) rotate(-9deg) scaleX(1)}
+.fita span{flex:none;font-size:24px;font-weight:900;letter-spacing:.32em;color:#fff;padding-right:.32em;animation:fita 22s linear infinite}
+@keyframes fita{to{transform:translateX(-100%)}}
+@media (prefers-reduced-motion:reduce){.fita span{animation:none}}
+.eq .q.on{border-color:#e5484d !important;background:linear-gradient(160deg,#4a1220,#1a0b14) !important}
+.eq .q.on b{color:#ff5a5f !important}
+.money{color:#ff5a5f !important}
+/* 03 paradoxo */
+.why{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px;margin-top:48px}
+.why h3{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 4px}
+.why .us h3{color:var(--blue)}
+.why ul{list-style:none;margin:0;padding:0}
+.why li{border-top:1px solid var(--line);padding:20px 0;display:flex;justify-content:space-between;gap:20px;align-items:baseline}
+.why li b{font-size:20px;font-weight:400}
+.why li span{color:var(--muted);font-size:14px;text-align:right}
+.why .us li b{font-weight:600}
+.why .us li span{color:var(--blue)}
 
-/* onde */
-.onde{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:36px}
-.od{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}
-.od b{display:block;font-size:15px}
-.od span{font-size:13px;color:var(--mut)}
-.od .n{font-size:12px;font-weight:800;color:var(--blue);letter-spacing:.06em}
+.vs{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:18px;align-items:stretch;margin-top:48px}
+.vcard{border-radius:20px;padding:28px 28px 12px;border:1px solid var(--line)}
+.vcard.off{background:#060f24}
+.vcard.on{background:linear-gradient(160deg,#0b3a7a 0%,#06142f 70%);border-color:#3fa2ee88;box-shadow:0 30px 70px -30px #3fa2ee55}
+.vh{margin:0 0 10px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--muted)}
+.vcard.on .vh{color:var(--blue)}
+.vit{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-top:1px solid #ffffff12}
+.vit svg{width:40px;height:40px;flex:none;padding:9px;border-radius:12px;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.vcard.off .vit svg{stroke:#7d8aa6;background:#ffffff08}
+.vcard.on .vit svg{stroke:#fff;background:#3fa2ee}
+.vit b{display:block;font-size:18px;font-weight:600;line-height:1.3}
+.vcard.off .vit b{color:#c9d3e6;font-weight:400}
+.vit span{display:block;font-size:14px;color:var(--muted);line-height:1.5;margin-top:3px}
+.vcard.off .vit:last-child b{color:#ff8a8d;font-weight:600}
+.vmid{align-self:center;width:52px;height:52px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:14px;font-weight:800;letter-spacing:.1em;color:var(--muted);background:var(--bg)}
+/* 04 antes depois */
+.ba{position:relative;margin-top:44px;border-radius:20px;overflow:hidden;aspect-ratio:2.1/1;user-select:none;cursor:ew-resize;border:1px solid var(--line);touch-action:pan-y;background:#000}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.ba .after{clip-path:inset(0 0 0 36%)}
+.ba .hand{position:absolute;top:0;bottom:0;left:36%;width:2px;background:#fff}
+.ba .hand b{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:#fff;display:grid;place-items:center}
+.ba .hand b svg{width:22px;height:22px;stroke:var(--bg);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ba .lb{position:absolute;top:16px;font-size:11px;letter-spacing:.22em;font-weight:600;padding:6px 10px;border-radius:4px;background:#020b1fcc;color:#fff}
+.ba .lb.l{left:16px}.ba .lb.r{right:16px;background:var(--blue)}
+.hint{font-size:13px;color:var(--muted);margin-top:14px}
 
-/* piloto */
-.piloto{background:var(--navy);color:#fff}
-.piloto .lead{color:#b9c8e4}
-.passos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:40px;counter-reset:p}
-.ps{background:#ffffff0d;border:1px solid #ffffff1f;border-radius:18px;padding:24px;position:relative}
-.ps:before{counter-increment:p;content:counter(p);display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--blue);font-weight:800}
-.ps h3{font-size:17px;font-weight:700;margin-top:16px}
-.ps p{font-size:14px;color:#b9c8e4;margin-top:6px}
-.free{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:28px;background:linear-gradient(90deg,#0092ff26,transparent);border:1px solid #0092ff55;border-radius:16px;padding:18px 22px}
-.free b{font-size:26px;font-weight:800;letter-spacing:-.02em}
-.free span{color:#cfe0fb;font-size:14.5px;max-width:46em}
+/* 05 telas */
+.exlbl{font-size:13px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin:56px 0 0}
+.telas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:22px}
+.ex{min-width:0}
+.ex .tv{background:#000;padding:6px;border-radius:12px;border:1px solid var(--line);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.ex:hover .tv{transform:translateY(-6px)}
+.ex .tv img{border-radius:6px;width:100%;aspect-ratio:16/9;object-fit:cover}
+.ex small{display:block;margin-top:18px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--blue)}
+.ex p{font-size:17px;margin:6px 0 0;line-height:1.4}
+.exnote{font-size:15px;color:var(--muted);margin:24px 0 0}
+.tipos{margin:40px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 24px;max-width:900px}
+.tipos li{border-top:1px solid var(--line);padding:14px 0;font-size:16px;color:var(--fg)}
+.okline{margin:28px 0 0;font-size:17px;color:var(--fg)}
+.okline b{color:var(--blue);font-weight:600}
 
-/* galeria */
-.gal{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-auto-rows:220px;gap:14px;margin-top:36px}
-.gal figure{position:relative;border-radius:16px;overflow:hidden;background:#dfe6f0}
-.gal figure:first-child{grid-row:span 2}
-.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.gal figure:hover img{transform:scale(1.05)}
-.gal figcaption{position:absolute;left:12px;bottom:12px;background:#000e29cc;color:#fff;font-size:12px;font-weight:600;padding:5px 10px;border-radius:99px}
+/* 06 como */
+.gain{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:52px}
+.gain div.c{border:1px solid var(--line);border-radius:18px;padding:22px 22px 26px;background:var(--bg2);min-width:0}
+.gain .vis{height:150px;border-radius:12px;background:#eef2f8;display:grid;place-items:center;margin-bottom:22px}
+.gain .vis img{max-width:64%;max-height:58px;width:auto}
+.gain .vis img.pc{max-height:130px;max-width:80%;mix-blend-mode:multiply}
+.gain small{display:block;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);font-weight:600}
+.gain b{display:block;font-size:21px;font-weight:800;line-height:1.25;margin-top:8px}
+.gain span{display:block;color:var(--muted);font-size:15px;line-height:1.6;margin-top:8px}
+.gain span em{font-style:normal;color:var(--fg);font-weight:600}
+.note{margin:32px 0 0;font-size:19px;line-height:1.6;color:var(--muted);max-width:40em}
+.note b{color:var(--fg);font-weight:700}
 
+.rows{margin-top:56px;display:grid;gap:72px}
+.row{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:56px;align-items:center}
+.row:nth-child(even) .rt{order:2}
+.rt small{display:block;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);font-weight:600}
+.rt h3{font-size:clamp(26px,3vw,36px);font-weight:400;letter-spacing:-.02em;line-height:1.12;margin:14px 0 0}
+.rt h3 b{font-weight:800}
+.rt p{font-size:17px;line-height:1.65;color:var(--muted);margin:16px 0 0;max-width:30em}
+.rv-vis{min-width:0}
+.pcbox{background:#eef2f8;border-radius:20px;display:grid;place-items:center;aspect-ratio:16/10}
+.pcbox img{width:62%;mix-blend-mode:multiply}
+.gimg{width:100%;border-radius:20px;border:1px solid var(--line)}
+.rt .gcap{margin-top:24px}
+.base-t{margin-top:28px;border:1px solid var(--line);border-radius:18px;background:var(--bg2);overflow:hidden}
+.base-t img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.base-t div{padding:16px 20px 18px}
+.base-t small{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);font-weight:600}
+.base-t b{display:block;font-size:22px;font-weight:800;margin-top:6px}
+.base-t span{display:block;font-size:15px;color:var(--muted);line-height:1.55;margin-top:6px}
+.gwrap{position:relative}
+.gt{position:absolute;top:3.2%;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:6px 10px;border-radius:4px;background:#020b1fcc;color:#fff}
+.gt.l{left:2.4%}.gt.r{left:52.6%;background:#3fa2ee}
+@media (max-width:480px){.gt{font-size:9px;padding:4px 7px;letter-spacing:.14em}}
 /* sistema */
-.sis{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:48px;align-items:center}
-.sis ul{list-style:none;margin-top:22px;display:grid;gap:12px}
-.sis li{display:flex;gap:12px;font-size:15px}
-.sis li:before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--blue);margin-top:9px}
-.sis img{border-radius:18px;box-shadow:0 30px 60px -30px #0b1b3a77}
+.sis{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px;align-items:center;margin-top:56px}
+.sis h3{font-size:clamp(26px,3.2vw,38px);font-weight:400;letter-spacing:-.02em;line-height:1.1;margin:14px 0 0}
+.sis h3 b{font-weight:800;color:var(--blue)}
+.steps{list-style:none;padding:0;margin:28px 0 0}
+.steps li{border-top:1px solid var(--line);padding:14px 0;font-size:17px;display:flex;gap:14px}
+.steps li span{color:var(--blue);font-weight:600}
+.lap{min-width:0}
+.lap .bez{background:#0d0f14;border-radius:18px 18px 0 0;padding:2.4% 2.4% 3%;border:1px solid #2a3142;box-shadow:0 40px 80px -30px #000}
+.lap .scr{position:relative;aspect-ratio:16/10;background:#f3f6fb;border-radius:4px;overflow:hidden;container-type:inline-size;display:grid;grid-template-columns:22% 1fr;color:#0b1730;font-family:var(--sans)}
+.lap .base{height:14px;margin:0 -5%;background:linear-gradient(#c9ced8,#8f96a3);border-radius:0 0 14px 14px;position:relative}
+.lap .base:before{content:"";position:absolute;left:42%;right:42%;top:0;height:5px;background:#7d8491;border-radius:0 0 6px 6px}
+.scr aside{background:#0b1f4d;padding:5cqw 2.4cqw;color:#fff}
+.scr aside img{width:78%;filter:brightness(0) invert(1);opacity:.95}
+.scr aside ul{list-style:none;padding:0;margin:5cqw 0 0}
+.scr aside li{font-size:1.45cqw;padding:1.3cqw 1.2cqw;border-radius:1cqw;display:flex;align-items:center;gap:1cqw;color:#c9d6ef;white-space:nowrap}
+.scr aside li i{width:1cqw;height:1cqw;border-radius:50%;background:#35d07f;flex:none}
+.scr aside li.on{background:#ffffff1a;color:#fff;font-weight:600}
+.scr aside li.mut{color:#7f93bb}
+.scr main{padding:2.6cqw 3cqw;position:relative;min-width:0}
+.scr .hd{display:flex;justify-content:space-between;align-items:center}
+.scr .hd b{font-size:2.5cqw;font-weight:800;letter-spacing:-.02em}
+.scr .hd span{display:inline-flex;align-items:center;gap:.8cqw;margin-left:1.5cqw;font-size:1.5cqw;color:#1a9e5c;font-weight:600}
+.scr .hd span i{width:1cqw;height:1cqw;border-radius:50%;background:#35d07f}
+.scr em{font-style:normal}
+.scr .pub{background:#0092ff;color:#fff;font-size:1.5cqw;font-weight:700;padding:1.1cqw 2.2cqw;border-radius:1cqw}
+.scr .tools{display:flex;gap:1cqw;margin-top:2.4cqw;flex-wrap:wrap}
+.scr .tools em{font-size:1.35cqw;font-weight:600;padding:1cqw 1.6cqw;border-radius:5cqw;background:#fff;border:1px solid #dbe3ef;color:#33415f;white-space:nowrap}
+.scr .tools em.tw{background:#eaf5ff;border-color:#9fd2ff;color:#0068b8;animation:twk 7s infinite}
+.scr .gr{display:grid;grid-template-columns:1fr 1fr;gap:1.4cqw;margin-top:2cqw;width:84%}
+.scr figure{margin:0;background:#fff;border-radius:1.2cqw;padding:.8cqw;box-shadow:0 .4cqw 1.4cqw #0b17301a;position:relative}
+.scr figure img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:.7cqw}
+.scr figcaption{font-size:1.3cqw;font-weight:600;margin:.8cqw .3cqw .2cqw;display:flex;align-items:center;gap:.8cqw}
+.scr figcaption i{width:.9cqw;height:.9cqw;border-radius:50%;background:#35d07f}
+.scr figure.new{animation:pop 7s infinite}
+.scr figure.new b{position:absolute;top:1.6cqw;left:1.6cqw;background:#0092ff;color:#fff;font-size:1.1cqw;font-weight:700;padding:.4cqw 1cqw;border-radius:3cqw}
+.scr .toast{position:absolute;left:50%;bottom:2cqw;transform:translateX(-50%);background:#0b1730;color:#fff;font-size:1.45cqw;font-weight:600;padding:1.2cqw 2.4cqw;border-radius:1cqw;white-space:nowrap;animation:tst 7s infinite}
+.scr .cur{position:absolute;width:3.2cqw;height:3.2cqw;left:70%;top:75%;animation:cur 7s infinite;filter:drop-shadow(0 .3cqw .5cqw #0004)}
+@keyframes cur{0%{left:70%;top:75%}25%{left:37%;top:21%}30%{left:37%;top:21%;transform:scale(.85)}34%{left:37%;top:21%;transform:scale(1)}60%{left:37%;top:21%}85%{left:70%;top:75%}100%{left:70%;top:75%}}
+@keyframes twk{0%,28%{box-shadow:none}31%{box-shadow:0 0 0 .8cqw #0092ff33}40%,100%{box-shadow:none}}
+@keyframes pop{0%,32%{opacity:0;transform:scale(.85)}38%{opacity:1;transform:scale(1.03)}42%,92%{opacity:1;transform:none}98%,100%{opacity:0}}
+@keyframes tst{0%,38%{opacity:0;transform:translate(-50%,40%)}43%,78%{opacity:1;transform:translate(-50%,0)}84%,100%{opacity:0;transform:translate(-50%,40%)}}
+@media (prefers-reduced-motion:reduce){.scr .cur{display:none}.scr figure.new,.scr .toast{animation:none}.scr .toast{opacity:0}}
+.gest{margin:64px 0 0}
+.gest img{width:100%;border-radius:20px;border:1px solid var(--line)}
+.gcap{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
+.gcap div{border-top:1px solid var(--line);padding-top:16px}
+.gcap div.on{border-top:2px solid var(--blue)}
+.gcap small{display:block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.gcap .on small{color:var(--blue)}
+.gcap b{display:block;font-size:22px;font-weight:800;margin-top:8px}
+.gcap span{display:block;color:var(--muted);font-size:15px;line-height:1.55;margin-top:6px}
+/* 07 quem usa */
+ul.list{list-style:none;padding:0;margin:40px 0 0}
+ul.list li{font-size:20px;padding:18px 0;border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:14px}
+ul.list li span{color:var(--blue);font-weight:600;font-variant-numeric:tabular-nums}
+ul.list li em{margin-left:auto;font-style:normal;font-size:13px;color:var(--muted);letter-spacing:.06em}
+figure.ref{margin:0;min-width:0}
+figure.ref img{width:100%;border-radius:18px;border:1px solid var(--line)}
+figure.ref figcaption{font-size:13px;color:var(--muted);margin-top:12px;line-height:1.5}
 
-/* clientes */
-.logos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:32px}
-.lg{background:#fff;border:1px solid var(--line);border-radius:16px;height:110px;display:grid;place-items:center;padding:18px}
-.lg img{max-height:70px;width:auto;object-fit:contain}
-.lg.t{font-weight:800;font-size:18px;color:#6a768e;text-align:center;letter-spacing:-.01em}
-.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:14px}
-.nums div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}
-.nums b{display:block;font-size:30px;font-weight:800;color:var(--blue);letter-spacing:-.03em}
-.nums span{font-size:13.5px;color:var(--mut)}
+.rede{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+.rnum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:36px}
+.rnum div{border-top:1px solid var(--line);padding-top:16px}
+.rnum div:first-child{border-top:2px solid var(--blue)}
+.rnum b{display:block;font-size:44px;font-weight:300;letter-spacing:-.02em}
+.rnum div:first-child b{font-weight:900;color:var(--blue)}
+.rnum span{display:block;color:var(--muted);font-size:14px;margin-top:4px}
+.mapa{margin:0;min-width:0}
+.mapa .br{width:100%;height:auto;display:block;max-height:560px}
+.mapa .uf path{fill:#0a1a3d;stroke:#2a4a85;stroke-width:1.2}
+.mapa .uf path.sc{fill:#123a7a;stroke:#3fa2ee}
+.mapa .pts circle{fill:#3fa2ee;filter:drop-shadow(0 0 6px #3fa2ee);animation:blink 3s ease-in-out infinite}
+.mapa .pts circle:nth-child(3n){animation-delay:-1s}.mapa .pts circle:nth-child(3n+1){animation-delay:-2s}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.45}}
+@media (prefers-reduced-motion:reduce){.mapa .pts circle{animation:none}}
+.mapa figcaption{font-size:13px;color:var(--muted);margin-top:10px;text-align:center}
+.mais{margin:22px 0 0;font-size:17px;color:var(--muted)}
+.mais b{color:var(--fg);font-weight:700}
+.logos5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:22px}
+.lg5 .tile{height:110px;background:#fff;border-radius:16px;display:grid;place-items:center;padding:14px 18px;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+.lg5:hover .tile{transform:translateY(-5px);box-shadow:0 18px 40px -16px #3fa2ee88}
+.lg5 .tile img{max-height:78px;max-width:100%;width:auto;object-fit:contain}
+.lg5 .tile img.wide{max-height:52px}
+.lg5 p{margin:12px 0 0;font-size:14px;color:var(--muted);text-align:center}
+.wm{color:#0b1730;text-align:center;line-height:1.05}
+.wm-aero{font-weight:900;font-size:22px;letter-spacing:-.02em}
+.wm-aero small{display:block;font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#5b6b84;margin-bottom:5px}
+.wm-fluss{font-weight:800;font-size:21px;letter-spacing:-.01em;color:#1e4d3a}
+.wm-fluss small{display:block;font-size:10px;font-weight:600;letter-spacing:.42em;text-transform:uppercase;margin-top:4px}
+/* 08 piloto */
+.slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:56px}
+.slot{border-top:3px solid var(--line);padding-top:18px}
+.slot small{display:block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.slot b{display:block;font-size:34px;font-weight:300;letter-spacing:-.02em;margin-top:10px}
+.slot span{display:block;color:var(--muted);font-size:15px;line-height:1.6;margin-top:8px}
+.slot.on{border-top-color:var(--blue)}
+.slot.on small{color:var(--blue)}
+.slot.on b{font-weight:800;color:var(--blue)}
 
 /* final */
-.fim{background:radial-gradient(700px 360px at 50% 0%,#0b3f8c,transparent 70%),var(--navy);color:#fff;text-align:center}
-.fim h2{font-size:clamp(30px,4.6vw,48px)}
-.fim .lead{color:#c3d1ea;margin-left:auto;margin-right:auto}
-.fim .acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
-.fim .tel{margin-top:18px;color:#8ea3c7;font-size:14px}
-.fim .tel b{color:#fff;user-select:all}
-footer{background:var(--navy);color:#6f84a8;font-size:12px;text-align:center;padding:26px 20px calc(26px + env(safe-area-inset-bottom,0px));border-top:1px solid #ffffff12}
-footer img{height:22px;margin:0 auto 10px;opacity:.8}
+.final{position:relative;overflow:hidden;text-align:center;padding-block:150px}
+.final video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.3}
+.final::after{content:"";position:absolute;inset:0;background:radial-gradient(closest-side,#020b1f99,#020b1f)}
+.final .wrap{position:relative;z-index:2}
+.final .lead{margin:0 auto}
+.final .date{font-size:clamp(52px,11vw,140px);font-weight:900;color:var(--blue);letter-spacing:-.045em;line-height:.9;margin:10px 0 0}
+.final .logos{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:56px;flex-wrap:wrap}
+.final .logos .pm{background:#fff;border-radius:8px;padding:8px 12px}
+.final .logos .pm img{height:28px;width:auto}
+.final .logos img.ad{height:30px;width:auto}
+.final .logos i{width:1px;height:28px;background:var(--line)}
+footer{border-top:1px solid var(--line);padding-block:40px 56px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer p{margin:0;color:var(--muted);font-size:14px}
+footer p b{color:var(--fg);font-weight:600}
 
-.rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s cubic-bezier(.2,.7,.2,1)}.rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.sl{animation:none}.sl:first-child{opacity:1}}
-
-@media(max-width:980px){
- .hero .wrap,.sis{grid-template-columns:1fr;gap:40px}
- .ben{grid-template-columns:repeat(2,minmax(0,1fr))}
- .onde,.passos,.logos{grid-template-columns:repeat(2,minmax(0,1fr))}
- .gal{grid-template-columns:1fr 1fr;grid-auto-rows:180px}
- .top .para span{display:none}
+@media (max-width:860px){
+  .duo{grid-template-columns:minmax(0,1fr);gap:36px}
+  figure.ph{max-width:420px}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .eq{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:12px}
+  .eq .q.on{grid-column:1/-1}
+  .eq i:nth-of-type(2){display:none}
+  .porque{grid-template-columns:minmax(0,1fr)}
+  .vs{grid-template-columns:minmax(0,1fr)}
+  .vmid{justify-self:center}
+  .rede{grid-template-columns:minmax(0,1fr);gap:28px}
+  .row{grid-template-columns:minmax(0,1fr);gap:24px}
+  .row:nth-child(even) .rt{order:0}
+  .rows{gap:56px}
+  .mapa{max-width:440px;margin:0 auto}
+  .telas,.gain,.slots,.sis{grid-template-columns:minmax(0,1fr)}
+  .sis{gap:36px}
+  .tipos{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #tvs{grid-template-columns:repeat(7,minmax(0,1fr)) !important;gap:12px 8px !important}
+  .fita{height:40px}
+  .fita span{font-size:16px}
+  .ba{aspect-ratio:4/3}
+  .logos5{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lg5:last-child{grid-column:1/-1}
+  header.top .para{font-size:10px;letter-spacing:.14em}
+  .stats b{font-size:32px}
+  .hero .cred{display:none}
 }
-@media(max-width:640px){
- .vs,.ben,.nums{grid-template-columns:1fr}
- .top .ad{height:22px}.top .cta{display:none}.chip-pmt img{height:18px}
- .gal{grid-template-columns:1fr;grid-auto-rows:200px}.gal figure:first-child{grid-row:auto}
- .free b{font-size:22px}
- .vs>div,.bn,.ps{padding:20px}
-}
-
-/* TV corporativa: conteúdo + clima/hora + notícias */
-.scr.tvc{display:grid;grid-template-columns:minmax(0,1fr) 27%;grid-template-rows:minmax(0,1fr) 13%;background:#000e29}
-.tvc .main{position:relative;overflow:hidden;grid-row:1}
-.tvc .side{grid-row:1;grid-column:2;display:grid;grid-template-rows:auto 1fr;gap:6%;padding:7% 8%;background:linear-gradient(180deg,#0a2350,#06173a);color:#fff}
-.tvc .clk b{display:block;font-size:clamp(18px,2.6vw,30px);font-weight:800;letter-spacing:-.02em;line-height:1}
-.tvc .clk span{font-size:clamp(8px,.95vw,11px);color:#9fb4d8;font-weight:600}
-.tvc .wx{background:#ffffff12;border-radius:10px;padding:10% 10%;display:flex;flex-direction:column;justify-content:center}
-.tvc .wx small{font-size:clamp(8px,.9vw,10.5px);color:#9fb4d8;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.tvc .wx b{font-size:clamp(20px,3vw,34px);font-weight:800;line-height:1.1}
-.tvc .wx span{font-size:clamp(8px,.95vw,11px);color:#cfdcf2}
-.tvc .tick{grid-column:1/3;grid-row:2;background:#0092ff;color:#fff;display:flex;align-items:center;overflow:hidden;font-size:clamp(9px,1.05vw,12.5px);font-weight:700;white-space:nowrap}
-.tvc .tick em{flex:none;font-style:normal;background:#000e29;height:100%;display:flex;align-items:center;padding:0 3%;font-size:.85em;letter-spacing:.08em;text-transform:uppercase}
-.tvc .tick div{display:inline-block;padding-left:2%;animation:tk 40s linear infinite}
-.tvc .tick div span{padding-right:4em}
-@keyframes tk{to{transform:translateX(-50%)}}
-.tvc .sl{padding:7% 8%}
-.tvc .sl .t{font-size:clamp(18px,2.6vw,32px)}
-.vidtag{display:inline-flex;align-items:center;gap:6px;font-size:clamp(8px,.95vw,11px);font-weight:800;background:#ffffff26;border-radius:99px;padding:3px 9px;letter-spacing:.06em;text-transform:uppercase}
-.vidtag:before{content:"";width:0;height:0;border-left:7px solid currentColor;border-top:4.5px solid transparent;border-bottom:4.5px solid transparent}
-
-.scr.rot{background:#000}
-.scr.rot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:rot 15s infinite}
-.scr.rot img:nth-child(2){animation-delay:5s}.scr.rot img:nth-child(3){animation-delay:10s}
-@keyframes rot{0%{opacity:0}4%{opacity:1}31%{opacity:1}36%{opacity:0}100%{opacity:0}}
-@media (prefers-reduced-motion:reduce){.scr.rot img{animation:none}.scr.rot img:first-child{opacity:1}}
-/* números */
-.stripe{background:#fff;border-bottom:1px solid var(--line)}
-.stripe .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
-.stripe div.n{padding:26px 20px;border-left:1px solid var(--line)}
-.stripe div.n:first-child{border-left:0;padding-left:0}
-.stripe b{display:block;font-size:clamp(26px,3vw,34px);font-weight:800;color:var(--navy);letter-spacing:-.03em;line-height:1.1}
-.stripe b em{font-style:normal;color:var(--blue)}
-.stripe span{font-size:13px;color:var(--mut)}
-.stripe small{display:block;font-size:11px;color:#8a95ab;margin-top:2px}
-
-/* o que colocamos */
-.put{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:36px}
-.pu{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;position:relative;overflow:hidden}
-.pu .tag{font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--blue)}
-.pu h3{font-size:21px;font-weight:700;margin-top:8px}
-.pu p{font-size:14.5px;color:var(--mut);margin-top:8px}
-.pu ul{list-style:none;margin-top:14px;display:grid;gap:8px;font-size:14px}
-.pu li{display:flex;gap:10px}.pu li:before{content:"✓";color:var(--green);font-weight:800}
-.keep{margin-top:18px;display:flex;gap:12px;align-items:center;background:var(--blue2);border:1px solid #cfe5ff;border-radius:14px;padding:14px 18px;font-size:14.5px}
-.keep b{color:var(--navy)}
-
-/* recursos da tela */
-.feat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:32px}
-.ft{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}
-.ft .ic{flex:none;width:42px;height:42px;border-radius:12px;background:var(--navy);display:grid;place-items:center}
-.ft .ic svg{width:21px;height:21px;stroke:#5fc0ff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.ft b{display:block;font-size:15.5px}.ft span{font-size:13.5px;color:var(--mut)}
-.aprov{margin-top:16px;font-size:14px;color:var(--mut)}.aprov b{color:var(--ink)}
-
-/* fora x dentro */
-.fd{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px}
-.fd>div{border-radius:20px;padding:28px}
-.fd .fo{background:#fff;border:1px solid var(--line)}
-.fd .de{background:linear-gradient(135deg,#0a2a6b,#0b4fb3);color:#fff}
-.fd small{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
-.fd h3{font-size:22px;font-weight:700;margin-top:8px}
-.fd p{font-size:15px;margin-top:10px;opacity:.85}
-.custo{margin-top:18px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;background:#fff7ed;border:1px solid #fbd5a5;border-radius:20px;padding:24px 28px}
-.custo b{font-size:clamp(30px,4vw,44px);font-weight:800;color:#b45309;letter-spacing:-.03em;line-height:1}
-.custo b small{display:block;font-size:12px;font-weight:700;color:#b45309;letter-spacing:.04em;margin-top:6px}
-.custo p{font-size:15px;color:#5b3a12}
-.custo p strong{color:#3b2208}
-
-.hoje{margin-top:18px;background:var(--navy);color:#fff;border-radius:20px;padding:28px;display:grid;gap:20px}
-.hoje small{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#5fc0ff}
-.hoje h3{font-size:clamp(20px,2.4vw,26px);font-weight:700;margin-top:8px}.hoje h3 span{color:#ff8a8a}
-.hoje p{color:#c3d1ea;font-size:15px;margin-top:10px;max-width:46em}
-.hoje img{border-radius:14px;width:100%;max-height:520px;object-fit:cover}
-@media(min-width:900px){.hoje.foto{grid-template-columns:minmax(0,1fr) minmax(0,.8fr);align-items:center}}
-.ex3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px}
-.ex3 figure{margin:0}
-.exf{background:#05070c;border-radius:12px;padding:8px;box-shadow:0 22px 44px -26px #0b1b3a99}
-.exf img{border-radius:5px;width:100%;aspect-ratio:16/9;object-fit:cover}
-.ex3 figcaption{font-size:14px;color:var(--mut);margin-top:10px}.ex3 figcaption b{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
-@media(max-width:820px){.ex3{grid-template-columns:1fr}}
-/* unidades */
-.un{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:36px}
-.u{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}
-.u .ic{width:46px;height:46px;border-radius:13px;background:var(--blue2);display:grid;place-items:center}
-.u .ic svg{width:23px;height:23px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.u b{display:block;font-size:17px;margin-top:14px}.u span{font-size:13.5px;color:var(--mut)}
-.flow{display:flex;align-items:center;gap:14px;margin-top:22px;flex-wrap:wrap;font-weight:700}
-.flow span{background:#fff;border:1px solid var(--line);border-radius:99px;padding:10px 16px}
-.flow span.on{background:var(--blue);color:#fff;border-color:var(--blue)}
-.flow i{font-style:normal;color:var(--blue)}
-
-@media(max-width:980px){.stripe .wrap,.un{grid-template-columns:repeat(2,minmax(0,1fr))}.stripe div.n:nth-child(3){border-left:0;padding-left:0}.put,.feat{grid-template-columns:1fr 1fr}}
-@media(max-width:640px){.keep{display:block}.stripe div.n{padding:18px 12px}.put,.feat,.fd{grid-template-columns:1fr}.custo{grid-template-columns:1fr;gap:10px}.pu,.fd>div{padding:22px}}
+@media (max-width:480px){header.top .para em{display:none}}
 </style>
 </head>
 <body>
 
+
 <header class="top"><div class="wrap">
   <img class="ad" src="img/logo.png" alt="ADmídia">
-  <div class="para"><span>Proposta para</span><div class="chip-pmt"><img src="img/pmt.png" alt="Prefeitura de Tubarão"></div></div>
-  <a class="cta" href="#contato">Falar com a ADmídia</a>
+  <div class="para"><em>Proposta para</em><span><img src="img/pmt.png" alt="Prefeitura de Tubarão"></span></div>
 </div></header>
 
-<section class="hero"><div class="wrap">
-  <div>
-    <span class="badge"><b>Piloto</b>15 unidades sem custo para o município</span>
-    <h1>A Prefeitura já tem as telas. <span>Só falta ligar.</span></h1>
-    <p class="lead">Nas escolas, UPA, farmácias e postos de saúde de Tubarão, as TVs ficam desligadas. A ADmídia conecta o nosso player, o sistema e a gestão do conteúdo, e essas telas viram a TV da Prefeitura para quem usa o serviço público.</p>
-    <div class="acts"><a class="btn p" href="#como">Como funciona</a><a class="btn g" href="#piloto">O piloto</a></div>
-    <p class="note">Proposta da ADmídia Publicidade Digital · Tubarão/SC</p>
+<div class="hero">
+  <video src="img/fundo.mp4" poster="img/fundo_poster.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+  <p class="cred">Telas gerenciadas pela ADmídia</p>
+  <div class="wrap">
+    <p class="lead rv">A Prefeitura já tem as telas em cerca de 70 unidades. <b>Elas só estão desligadas.</b></p>
+    <p class="big rv d1">Tubarão Informa</p>
+    <p class="locais rv d2">UPA <i>/</i> Farmácia <i>/</i> Posto de saúde <i>/</i> e outros</p>
+    <div class="meta rv d3"><span><b>~70 unidades</b> da Prefeitura</span><span>Piloto em <b>15 unidades</b></span><span><b>3 meses</b> sem custo</span></div>
   </div>
-  <div class="tvw rv">
-    <span class="simtag">Simulação</span>
-    <div class="tv"><div class="scr rot">
-      <img src="img/tela2.jpg?v=3" alt="Tela: o que está acontecendo na cidade">
-      <img src="img/tela1.jpg?v=2" alt="Tela: IPTU 2027">
-      <img src="img/tela3.jpg?v=3" alt="Tela: Feliz Natal da Prefeitura">
-    </div></div>
-    <div class="stand"></div>
-  </div>
-</div></section>
+</div>
 
-<div class="stripe"><div class="wrap">
-  <div class="n"><b>~<em>70</em></b><span>unidades com TV</span><small>escolas, UPA, farmácias e postos</small></div>
-  <div class="n"><b>R$ <em>105</em> mil</b><span>em TVs paradas</span><small>estimativa: 70 × R$ 1.500</small></div>
-  <div class="n"><b><em>15</em></b><span>unidades no piloto</span><small>sem custo para o município</small></div>
-  <div class="n"><b><em>1</em> painel</b><span>para todas as telas</span><small>gestão à distância</small></div>
-</div></div>
-
-<section><div class="wrap">
-  <div class="k">A conta que não fecha</div>
-  <h2>A Prefeitura investe em campanha fora. <span>E quem está dentro das unidades?</span></h2>
-  <p class="lead">Quem usa a UPA, o posto de saúde, a farmácia municipal e a escola é exatamente o público das campanhas da Prefeitura. E essas pessoas passam o tempo de espera na frente de uma TV desligada.</p>
-  <div class="fd">
-    <div class="fo rv"><small>Campanha fora</small><h3>Paga para alcançar a cidade inteira</h3><p>Rádio, redes sociais e mídia externa falam com todo mundo, inclusive com quem nem usa o serviço público.</p></div>
-    <div class="de rv"><small>TV da Prefeitura</small><h3>Fala com quem está usando o serviço</h3><p>Na sala de espera, na fila da farmácia, na entrada da escola: a mensagem certa, para a pessoa certa, na hora em que ela está ali.</p></div>
+<section>
+  <div class="wrap duo">
+    <div>
+      <p class="eyebrow rv">01 · O que vimos</p>
+      <h2 class="rv d1">Duas TVs na parede. <b>Uma chama a senha. A outra está apagada.</b></h2>
+      <p class="t rv d2">A cena se repete em UPA, farmácias, postos de saúde e outras unidades. A TV foi comprada, foi instalada e está na tomada. <b>Só não tem nada para mostrar.</b></p>
+      <p class="quote rv d3">E na frente dela tem gente sentada, esperando, <b>olhando para uma tela preta.</b></p>
+    </div>
+    <figure class="ph rv d1"><div class="phin"><img src="img/antes.jpg" alt="Sala de vacina com duas TVs, uma delas desligada"><div class="mk"><span>DESLIGADA</span></div></div><figcaption>Sala de vacina, unidade de saúde de Tubarão.</figcaption></figure>
   </div>
-  <div class="hoje rv" id="hoje"><div class="ht"><small>Como é hoje</small><h3>Na sala de espera da vacina, uma TV chama a senha. <span>A do lado fica apagada.</span></h3><p>O cidadão fica ali sentado esperando, e a única coisa que a tela mostra é o número da senha. Nenhuma campanha, nenhum aviso, nada do que a Prefeitura está fazendo.</p></div></div>
-  <div class="custo rv"><b>R$ 105 mil<small>EM TVs PARADAS (ESTIMATIVA)</small></b><p><strong>TV desligada também custa.</strong> São telas compradas com dinheiro público, paradas, perdendo valor e ficando defasadas sem cumprir função nenhuma. Ligar é aproveitar o que já foi pago.</p></div>
-</div></section>
+</section>
 
-<section id="como" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
-  <div class="k">Como funciona</div>
-  <h2>Em cada TV parada, a ADmídia coloca <span>três coisas.</span></h2>
-  <div class="put">
-    <div class="pu rv"><div class="tag">01 · HARDWARE</div><h3>Player ligado à TV</h3><p>Um aparelho pequeno conectado na TV que já está na unidade.</p><ul><li>Instalação pela equipe da ADmídia</li><li>Funciona com a TV existente</li><li>Liga e desliga no horário da unidade</li></ul></div>
-    <div class="pu rv"><div class="tag">02 · SISTEMA</div><h3>Plataforma de gestão</h3><p>O conteúdo de todas as telas controlado de um lugar só, pelo computador ou celular.</p><ul><li>Publica em todas ou por unidade</li><li>Agenda início e fim das campanhas</li><li>Mostra quais telas estão online</li></ul></div>
-    <div class="pu rv"><div class="tag">03 · GERENCIAMENTO</div><h3>A ADmídia cuida do dia a dia</h3><p>Montamos e mantemos a programação junto com a Comunicação da Prefeitura.</p><ul><li>Programação sempre atualizada</li><li>Suporte técnico aqui em Tubarão</li><li>Só passa o que a Prefeitura aprovar</li></ul></div>
-  </div>
-  <div class="keep rv"><b>A TV continua sendo da Prefeitura.</b> A gente só faz ela trabalhar.</div>
+<section class="glow" id="grana">
+  <div class="wrap">
+    <p class="eyebrow rv">02 · A conta</p>
+    <h2 class="rv d1">Dinheiro público <b>parado na parede.</b></h2>
+    <p class="money rv d2"><small>R$</small><span id="cnt">0</span></p>
+    <p class="t rv d2">É o que a Prefeitura já investiu em TVs que hoje ficam desligadas. <b>Equipamento comprado, perdendo valor todo mês, sem entregar nada para a cidade.</b></p>
+    <div class="eq rv d3">
+      <div class="q"><div class="tvimg"></div><b>70</b><span>TVs nas unidades</span></div>
+      <i>×</i>
+      <div class="q"><b>R$ 1.200</b><span>cada TV de 43"</span></div>
+      <i>=</i>
+      <div class="q on"><b>R$ 84.000</b><span>em TVs desligadas</span></div>
+    </div>
+    <div class="tvwrap"><div id="tvs" aria-hidden="true"></div><div class="fita" aria-hidden="true"><span>PARADA PARADA PARADA PARADA PARADA PARADA PARADA PARADA PARADA PARADA PARADA PARADA PARADA PARADA</span><span>PARADA PARADA PARADA PARADA PARADA PARADA PARADA PARADA PARADA PARADA PARADA PARADA PARADA PARADA</span></div></div>
+    <div class="leg"><span><i></i>1 TV de 43" desligada · R$ 1.200</span><span>70 unidades da Prefeitura</span></div>
+    <p class="nota">Estimativa conservadora: conta só uma TV por unidade. Algumas unidades têm duas telas, então o valor real é maior.</p>
 
-  <div class="k" style="margin-top:64px">O que passa nas telas</div>
-  <div class="feat">
-    <div class="ft rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 5h16v10H8l-4 4z"/></svg></div><div><b>Avisos</b><span>Horários, feriados, mudanças no atendimento de cada unidade.</span></div></div>
-    <div class="ft rv"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z"/></svg></div><div><b>Vídeos</b><span>Campanhas, vídeos institucionais e o que a Prefeitura está fazendo.</span></div></div>
-    <div class="ft rv"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg></div><div><b>Previsão do tempo</b><span>Clima de Tubarão atualizado automaticamente na tela.</span></div></div>
-    <div class="ft rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h12v16H6a2 2 0 0 1-2-2z"/><path d="M16 8h4v10a2 2 0 0 1-2 2"/><path d="M8 8h4M8 12h4M8 16h4"/></svg></div><div><b>Notícias da cidade</b><span>As notícias que a Prefeitura escolher, rodando na faixa da tela.</span></div></div>
-    <div class="ft rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 6.5-7 11-7 11z"/></svg></div><div><b>Campanhas de saúde</b><span>Vacinação, dengue, Outubro Rosa, Novembro Azul.</span></div></div>
-    <div class="ft rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></div><div><b>Alertas</b><span>Defesa Civil, chuva e nível do rio, com prioridade em todas as telas.</span></div></div>
+    <h3 class="why-h rv">Por que esse dinheiro está <b>parado?</b></h3>
+    <div class="porque">
+      <div class="rv d1"><span>01</span><b>A TV já foi comprada</b><p>Está instalada na parede da UPA, da farmácia e do posto de saúde, ligada na tomada. O investimento já foi feito.</p></div>
+      <div class="rv d2"><span>02</span><b>Mas não tem o que mostrar</b><p>Não existe aparelho nem sistema para mandar conteúdo para a tela. Sem isso, a TV fica desligada ou num canal qualquer.</p></div>
+      <div class="rv d3"><span>03</span><b>E ninguém cuida do conteúdo</b><p>Não há equipe criando e atualizando as mensagens da Prefeitura. A TV vira enfeite: ocupa a parede e não fala com ninguém.</p></div>
+    </div>
+    <p class="conclui rv">Ou seja: <b>a Prefeitura já pagou pela parte mais cara.</b> Falta só o que faz a TV trabalhar: o aparelho, o sistema e o time. É exatamente isso que a ADmídia entrega.</p>
   </div>
-  <div class="k" style="margin-top:56px">Três exemplos de tela</div>
-  <div class="ex3">
-    <figure class="rv"><div class="exf"><img src="img/tela1.jpg?v=2" alt="Exemplo de tela: IPTU 2027" loading="lazy"></div><figcaption><b>Serviço</b>IPTU 2027: boletos e calendário</figcaption></figure>
-    <figure class="rv"><div class="exf"><img src="img/tela2.jpg?v=3" alt="Exemplo de tela: o que está acontecendo na cidade" loading="lazy"></div><figcaption><b>Prestação de contas</b>Olha o que está acontecendo na cidade</figcaption></figure>
-    <figure class="rv"><div class="exf"><img src="img/tela3.jpg?v=3" alt="Exemplo de tela: Feliz Natal da Prefeitura" loading="lazy"></div><figcaption><b>Datas especiais</b>A Prefeitura deseja um Feliz Natal</figcaption></figure>
-  </div>
-  <p class="aprov rv" style="margin-top:10px">Exemplos de layout feitos pela ADmídia. Cada tela leva relógio, previsão do tempo e a faixa de notícias.</p>
-  <p class="aprov rv"><b>A Prefeitura decide o que passa.</b> Nada vai ao ar sem aprovação da Comunicação.</p>
-</div></section>
+</section>
 
-<section id="beneficios"><div class="wrap">
-  <div class="k">Benefícios para o município</div>
-  <h2>O que a Prefeitura <span>ganha</span> com a própria TV.</h2>
-  <div class="ben">
-    <div class="bn rv"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14.8c1.9.7 3.1 2.4 3.5 5.2"/></svg></div><h3>Fala com quem usa o serviço</h3><p>O público mais certo das campanhas da Prefeitura, todos os dias, nas próprias unidades.</p></div>
-    <div class="bn rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg></div><h3>Mostra o que está sendo feito</h3><p>Obras, entregas e programas da Prefeitura apresentados para o cidadão.</p></div>
-    <div class="bn rv"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div><h3>Aproveita o que já foi comprado</h3><p>As TVs que estão paradas voltam a ter função, sem comprar tela nova.</p></div>
-    <div class="bn rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></div><h3>Alertas em minutos</h3><p>Um aviso publicado nas unidades de uma vez, sem depender de cartaz.</p></div>
-    <div class="bn rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></div><h3>Menos papel e impressão</h3><p>Mural e cartaz trocados por tela, com conteúdo que muda quantas vezes precisar.</p></div>
-    <div class="bn rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 12h4l3-8 4 16 3-8h2"/></svg></div><h3>Espera mais organizada</h3><p>Informação útil na sala de espera deixa o atendimento mais tranquilo.</p></div>
+<section>
+  <div class="wrap">
+    <p class="eyebrow rv">03 · O paradoxo</p>
+    <h2 class="rv d1">A Prefeitura paga para falar com o cidadão lá fora, <b>e ignora quem já está dentro.</b></h2>
+    <div class="vs">
+      <div class="vcard off rv d1">
+        <p class="vh">Hoje</p>
+        <div class="vit"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M7 8l10-5"/><circle cx="8" cy="14" r="2.5"/><path d="M14 12h4M14 16h4"/></svg><div><b>Rádio, jornal e outdoor</b><span>Pago a cada campanha, e some quando a campanha acaba.</span></div></div>
+        <div class="vit"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg><div><b>Redes sociais</b><span>Só alcança quem já segue a Prefeitura.</span></div></div>
+        <div class="vit"><svg viewBox="0 0 24 24"><path d="M5 3h14v18H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><div><b>Cartaz na parede</b><span>Desatualiza rápido e quase ninguém lê.</span></div></div>
+        <div class="vit"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/><path d="M8 8l8 6M16 8l-8 6"/></svg><div><b>TVs nas unidades</b><span>Compradas, instaladas e desligadas.</span></div></div>
+      </div>
+      <div class="vmid" aria-hidden="true">vs</div>
+      <div class="vcard on rv d2">
+        <p class="vh">Com as telas ligadas</p>
+        <div class="vit"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.2c3 .2 5.5 2.6 5.5 5.8"/></svg><div><b>Público sentado, esperando</b><span>Atenção garantida de quem está na fila da UPA ou da farmácia.</span></div></div>
+        <div class="vit"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><div><b>Mensagem certa em cada unidade</b><span>Vacinação no posto de saúde, aviso de horário na farmácia.</span></div></div>
+        <div class="vit"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg><div><b>Atualiza na hora</b><span>De qualquer lugar, sem papel e sem pendrive.</span></div></div>
+        <div class="vit"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/><path d="M8 10.5l2.5 2.5L16 8"/></svg><div><b>Usa o que já existe</b><span>Nenhuma TV nova para comprar.</span></div></div>
+      </div>
+    </div>
   </div>
-</div></section>
+</section>
 
-<section style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
-  <div class="k">As unidades</div>
-  <h2>Cerca de 70 unidades. <span>Uma rede inteira.</span></h2>
-  <p class="lead">Ligadas ao mesmo sistema, todas as unidades viram um só canal: um aviso pode ir para todas, ou só para as escolas, ou só para a saúde.</p>
-  <div class="un">
-    <div class="u rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 10l9-6 9 6-9 6z"/><path d="M7 12.5V17c3 2 7 2 10 0v-4.5"/></svg></div><b>Escolas</b><span>Pais e responsáveis na entrada e na secretaria</span></div>
-    <div class="u rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 21V7l8-4 8 4v14"/><path d="M12 9v6M9 12h6"/></svg></div><b>UPA</b><span>Sala de espera com movimento o dia todo</span></div>
-    <div class="u rv"><div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M9 8V5h6v3M12 11v6M9 14h6"/></svg></div><b>Farmácias</b><span>Fila de retirada de medicamentos</span></div>
-    <div class="u rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 6.5-7 11-7 11z"/></svg></div><b>Postos de saúde</b><span>Consultas, vacinas e atendimento básico</span></div>
+<section>
+  <div class="wrap">
+    <p class="eyebrow rv">04 · E se</p>
+    <h2 class="rv d1">A mesma parede, a mesma TV. <span class="b">Agora falando com a cidade.</span></h2>
+    <div class="ba rv d2" id="ba">
+      <img src="img/antes.jpg" alt="Hoje: TV desligada" id="before">
+      <img src="img/depois_iptu.jpg" alt="Ligada: TV mostrando a arte do IPTU 2027 com o CapiTuba" class="after" id="after">
+      <span class="lb l">HOJE</span><span class="lb r">LIGADA</span>
+      <div class="hand" id="hand"><b><svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></b></div>
+    </div>
+    <p class="hint">Passe o mouse ou arraste para comparar.</p>
   </div>
-</div></section>
+</section>
 
-<section class="piloto" id="piloto"><div class="wrap">
-  <div class="k">Projeto piloto</div>
-  <h2>Começamos com <span>15 unidades, sem custo.</span></h2>
-  <p class="lead">A Prefeitura vê a TV funcionando nas próprias unidades antes de qualquer decisão sobre as demais.</p>
-  <div class="passos">
-    <div class="ps rv"><h3>Escolha das 15</h3><p>A Prefeitura indica as unidades com mais movimento.</p></div>
-    <div class="ps rv"><h3>Telas no ar</h3><p>A ADmídia instala o player nas TVs existentes e coloca o sistema funcionando.</p></div>
-    <div class="ps rv"><h3>Programação</h3><p>Avisos, vídeos, clima e notícias montados com a Comunicação da Prefeitura.</p></div>
-    <div class="ps rv"><h3>Avaliação</h3><p>Analisamos juntos o resultado e o caminho para as demais unidades.</p></div>
-  </div>
-  <div class="flow rv"><span class="on">15 unidades · piloto</span><i>→</i><span>Avaliação</span><i>→</i><span>~70 unidades</span></div>
-  <div class="free rv"><b>R$ 0</b><span>no piloto das 15 unidades: player, instalação, sistema e gerenciamento por conta da ADmídia. Prazo do piloto e formalização definidos com a Prefeitura.</span></div>
-</div></section>
-
-<section><div class="wrap">
-  <div class="k">Formatos</div>
-  <h2>Onde fizer sentido, <span>mais do que uma TV.</span></h2>
-  <p class="lead">Além das TVs existentes, espaços maiores podem receber várias telas lado a lado ou videowall.</p>
-  <div class="gal">
-    <figure class="rv"><img src="img/videowall.jpg" alt="Videowall e telas em grade" loading="lazy"><figcaption>Videowall · referência de formato</figcaption></figure>
-    <figure class="rv"><img src="img/lubrafer.jpg" alt="Videowall instalado pela ADmídia na Lubrafer" loading="lazy"><figcaption>Videowall · Lubrafer</figcaption></figure>
-    <figure class="rv"><img src="img/jhow-3telas.jpg" alt="Três telas lado a lado instaladas pela ADmídia" loading="lazy"><figcaption>3 telas lado a lado · Jhow Batata</figcaption></figure>
-    <figure class="rv"><img src="img/signage.jpg" alt="Telas horizontais e barras de LED" loading="lazy"><figcaption>Telas e barras · referência de formato</figcaption></figure>
-    <figure class="rv"><img src="img/magnifico.jpg" alt="Cardápio digital instalado pela ADmídia no Magnífico" loading="lazy" style="object-position:50% 64%"><figcaption>Cardápio digital · Magnífico</figcaption></figure>
-  </div>
-</div></section>
-
-<section style="padding-top:0"><div class="wrap sis">
-  <div>
-    <div class="k">Sistema de gestão</div>
-    <h2>Tudo à distância. <span>Sem pendrive.</span></h2>
-    <p class="lead">A Comunicação da Prefeitura acompanha e aprova tudo pelo painel, e vê na hora quais telas estão no ar.</p>
-    <ul>
-      <li>Publica em todas as unidades ou só em um grupo</li>
-      <li>Agenda campanhas com data para começar e terminar</li>
-      <li>Imagem, vídeo, clima, notícias e avisos rápidos</li>
-      <li>Alerta com prioridade em todas as telas</li>
+<section class="glow">
+  <div class="wrap">
+    <p class="eyebrow rv">05 · O que passa na tela</p>
+    <h2 class="rv d1">Cada tela vira um <b>canal oficial da Prefeitura</b> dentro da unidade.</h2>
+    <p class="exlbl rv">Três exemplos de tela</p>
+    <div class="telas">
+      <div class="ex rv d1"><div class="tv"><img src="img/tela1_capituba.jpg" alt="Arte IPTU 2027 com o CapiTuba"></div><small>Serviço</small><p>IPTU 2027: calendário e desconto</p></div>
+      <div class="ex rv d2"><div class="tv"><img src="img/tela2.jpg" alt="Tela o que está acontecendo na cidade"></div><small>Prestação de contas</small><p>Olha o que está acontecendo na cidade</p></div>
+      <div class="ex rv d3"><div class="tv"><img src="img/tela3.jpg" alt="Tela Feliz Natal"></div><small>Datas especiais</small><p>A Prefeitura deseja um Feliz Natal</p></div>
+    </div>
+    <p class="exnote rv">Exemplos de layout feitos pela ADmídia. Cada tela leva relógio, previsão do tempo e a faixa de notícias.</p>
+    <ul class="tipos rv">
+      <li>Avisos da unidade</li><li>Campanhas de saúde</li><li>Vacinação</li><li>Vídeos institucionais</li>
+      <li>Previsão do tempo</li><li>Notícias da cidade</li><li>Eventos</li><li>Hora certa</li>
     </ul>
+    <p class="okline rv"><b>Nada vai ao ar</b> sem a aprovação da Prefeitura.</p>
   </div>
-  <img class="rv" src="img/sistema-mac.jpg" alt="Painel de gestão das telas da ADmídia" loading="lazy">
-</div></section>
+</section>
 
-<section style="background:#fff;border-top:1px solid var(--line)"><div class="wrap">
-  <div class="k">Quem já usa</div>
-  <h2>Empresas da região com <span>TV corporativa</span> da ADmídia.</h2>
-  <div class="logos" id="logos">
-    <div class="lg t rv">Rede de Postos Premier</div>
-    <div class="lg t rv">Posto Michells</div>
-    <div class="lg t rv">Fluss Haus Land</div>
-    <div class="lg t rv">ibis Hotels</div>
-  </div>
-  <div class="nums">
-    <div class="rv"><b>4 anos</b><span>de ADmídia em Tubarão</span></div>
-    <div class="rv"><b>+40</b><span>pontos com telas digitais na região</span></div>
-    <div class="rv"><b>Local</b><span>instalação e suporte com equipe da cidade</span></div>
-  </div>
-</div></section>
+<section>
+  <div class="wrap">
+    <p class="eyebrow rv">06 · Como funciona</p>
+    <h2 class="rv d1">A TV continua sendo da Prefeitura. <b>A gente só liga.</b></h2>
 
-<section class="fim" id="contato"><div class="wrap">
-  <h2>Vamos ligar as <span>primeiras 15?</span></h2>
-  <p class="lead">Marcamos uma conversa com a Comunicação da Prefeitura e mostramos o sistema funcionando.</p>
-  <div class="acts"><a class="btn p" href="https://wa.me/5548991079940?text=Ol%C3%A1!%20Vi%20a%20proposta%20da%20TV%20da%20Prefeitura%20de%20Tubar%C3%A3o%20e%20quero%20conversar." target="_blank" rel="noopener">Conversar pelo WhatsApp</a></div>
-  <p class="tel">WhatsApp: <b>(48) 99107-9940</b></p>
-</div></section>
-<footer><img src="img/logo.png" alt="ADmídia">ADmídia Publicidade Digital · CNPJ 48.910.896/0001-72 · Tubarão/SC<br>Proposta comercial. A tela marcada como "Simulação" é um exemplo de layout e conteúdo. Valor das TVs paradas é estimativa.</footer>
+    <div class="rows">
+      <div class="row rv">
+        <div class="rt"><small>01 · Hardware</small><h3>Mini computador <b>em comodato</b></h3><p>Um aparelho compacto ligado na TV que já está na parede. É da ADmídia: instalação, manutenção e troca são por nossa conta. Sem obra e sem trocar a TV.</p></div>
+        <div class="rv-vis pcbox"><img src="img/minipc.jpg" alt="Mini computador"></div>
+      </div>
+      <div class="row rv">
+        <div class="rt"><small>02 · Sistema</small><h3>Plataforma OnPro. <b>Tudo à distância, sem pendrive.</b></h3><p>Todas as telas num painel só. Um clique e a previsão do tempo, um aviso ou uma campanha entram em uma unidade ou nas 70 ao mesmo tempo, com hora certa e faixa de notícias automáticas.</p></div>
+        <div class="rv-vis">
+      <div class="lap" aria-label="Sistema OnPro aberto no notebook com as telas da Prefeitura">
+        <div class="bez"><div class="scr">
+          <aside><img src="img/onpro.png" alt="OnPro"><ul>
+            <li class="on"><i></i>Todas as unidades</li><li><i></i>UPA Centro</li><li><i></i>Posto de Saúde</li><li><i></i>Farmácia Básica</li><li><i></i>Sala de Vacina</li><li class="mut">+ 10 unidades</li>
+          </ul></aside>
+          <main>
+            <div class="hd"><div><b>Prefeitura de Tubarão</b><span><i></i>15 telas online</span></div><em class="pub">Publicar</em></div>
+            <div class="tools"><em class="tw">+ Inserir previsão do tempo</em><em>+ Hora certa</em><em>+ Faixa de notícias</em><em>+ Vídeo</em></div>
+            <div class="gr">
+              <figure><img src="img/tela1_capituba.jpg" alt=""><figcaption><i></i>IPTU 2027</figcaption></figure>
+              <figure><img src="img/tela2.jpg" alt=""><figcaption><i></i>Acontece na cidade</figcaption></figure>
+              <figure><img src="img/tela3.jpg" alt=""><figcaption><i></i>Feliz Natal</figcaption></figure>
+              <figure class="new"><img src="img/tela4_tempo.jpg" alt=""><figcaption><i></i>Previsão do tempo</figcaption><b>Novo</b></figure>
+            </div>
+            <div class="toast">Previsão do tempo inserida em 15 telas</div>
+          </main>
+          <svg class="cur" viewBox="0 0 24 24"><path d="M4 2l15 9-6.5 1.5L16 20l-3 1.5-3.4-7.4L4 18z" fill="#fff" stroke="#0b1730" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        </div></div>
+        <div class="base"></div>
+      </div>
+        </div>
+      </div>
+      <div class="row rv">
+        <div class="rt"><small>03 · Gerenciamento</small><h3>Nosso time <b>cuida de tudo.</b></h3><p>O time da ADmídia cria as telas, publica e acompanha cada unidade. A Prefeitura só aprova o que vai passar. Acabou o pendrive e a escada.</p>
+          <div class="base-t"><img src="img/prime.jpg" alt="Prédio Prime Center Business, em Tubarão"><div><small>Nosso time em Tubarão</small><b>Prime Center Business</b><span>Escritório da ADmídia em frente ao Farol Shopping. Equipe local, perto de cada unidade.</span></div></div></div>
+        <div class="rv-vis"><div class="gwrap"><img class="gimg" src="img/gestao.jpg" alt="Hoje: trocar pendrive na TV, de escada. Com a ADmídia: nosso time no escritório publica o conteúdo da Prefeitura em todas as telas"><span class="gt l">Instalação</span><span class="gt r">Operação</span></div></div>
+      </div>
+    </div>
+    <p class="note rv"><b>Zero trabalho para as unidades.</b> Ninguém na unidade precisa mexer em nada: a tela liga sozinha, já com o conteúdo do dia.</p>
+  </div>
+</section>
+
+<section class="glow">
+  <div class="wrap">
+    <div class="rede">
+      <div class="rede-t">
+        <p class="eyebrow rv">07 · Quem já usa</p>
+        <h2 class="rv d1">Não é teste. O mesmo sistema <b>já roda em mais de 300 empresas.</b></h2>
+        <p class="t rv d2">A rede de telas da ADmídia e da OnPro está em <b>17 estados</b>, com Santa Catarina como base. A Prefeitura entra num sistema que já funciona todo dia.</p>
+        <div class="rnum rv d3"><div><b>+300</b><span>empresas atendidas</span></div><div><b>17</b><span>estados</span></div><div><b>SC</b><span>base da operação</span></div></div>
+      </div>
+      <figure class="mapa rv d1"><svg class="br" viewBox="0 0 1000 1030" role="img" aria-label="Mapa do Brasil com os pontos da rede de telas"><g class="uf"><path d="M297.5 484.1L301.0 485.1L302.7 483.9L305.2 485.3L305.2 487.8L310.9 492.6L312.7 494.8L318.7 494.4L321.5 495.6L327.1 494.0L328.4 495.1L333.1 494.3L335.4 495.4L336.4 497.2L340.7 499.2L342.6 496.0L348.8 492.9L349.2 489.4L350.2 487.8L351.8 483.1L354.0 480.2L355.6 480.0L357.9 471.1L359.9 470.6L364.2 463.8L361.4 461.3L361.1 458.0L359.1 455.7L359.0 452.7L356.1 450.9L355.8 444.0L360.2 439.8L360.7 437.6L359.1 435.0L359.2 432.0L348.7 431.2L347.0 428.5L333.3 428.5L322.5 428.4L319.4 428.4L321.3 422.6L321.7 413.6L319.4 410.6L318.6 404.2L319.7 402.6L320.5 399.0L318.8 395.2L321.3 392.9L318.6 388.5L317.8 385.0L317.5 383.2L320.0 383.0L319.3 378.9L321.5 374.4L318.6 371.2L315.3 368.3L312.2 369.5L310.5 372.9L308.3 373.1L307.3 371.2L304.9 371.3L303.3 365.8L301.3 365.4L300.8 367.0L298.8 363.2L299.0 360.7L296.3 359.2L295.0 360.4L293.9 357.7L291.5 356.3L290.6 352.7L286.2 349.7L267.1 349.7L267.1 351.1L263.9 355.8L262.8 359.0L260.8 357.9L259.0 359.0L258.3 362.8L259.5 364.9L256.7 368.5L254.0 369.7L254.0 375.0L249.7 376.4L249.4 374.6L243.0 376.2L242.1 376.9L237.2 376.1L233.8 379.7L234.4 382.2L231.0 387.0L228.7 388.1L227.0 383.8L225.5 383.4L222.4 385.3L221.2 384.6L221.4 388.5L217.5 387.3L215.2 388.3L213.9 391.2L211.5 390.3L207.8 387.3L202.7 387.8L196.7 387.1L197.2 389.5L194.4 393.0L191.7 393.8L186.6 397.8L191.2 399.9L201.7 398.3L203.2 397.0L207.5 397.6L210.0 396.1L214.5 396.4L218.3 398.2L221.1 394.0L223.3 395.3L225.0 399.1L223.9 401.2L225.0 408.4L222.4 412.4L222.7 413.8L221.5 415.2L222.1 419.4L223.6 420.9L223.2 423.6L225.4 425.4L226.0 428.3L223.1 432.6L224.6 441.9L227.0 442.6L227.2 448.3L230.0 447.3L231.6 454.8L236.4 455.2L239.9 457.6L239.6 459.4L242.6 460.5L244.6 460.7L244.6 463.9L247.3 466.6L251.7 466.8L258.5 468.7L260.4 466.6L265.5 466.7L271.8 469.6L275.3 472.7L280.5 471.5L282.6 476.8L285.6 477.3L288.0 480.9L291.4 480.2L292.6 482.1L297.5 484.1Z"/><path d="M178.4 394.1L173.6 392.0L173.6 391.9L168.8 391.1L157.2 385.7L151.0 382.8L140.2 377.8L133.3 371.6L125.9 365.1L120.1 359.9L111.1 351.9L104.7 346.3L93.1 344.9L78.6 343.2L71.2 342.3L56.9 340.6L51.3 339.9L40.8 338.6L32.8 335.6L11.7 327.7L10.1 327.1L12.7 331.9L8.2 334.2L5.9 333.6L7.1 336.3L5.5 339.0L9.6 342.9L12.8 344.3L12.5 347.0L10.9 346.7L11.9 349.5L14.3 351.9L16.7 359.4L21.9 362.7L21.6 366.1L27.1 370.5L28.9 374.0L30.4 374.4L31.8 378.3L27.8 384.4L25.0 387.2L37.4 387.2L42.5 389.3L47.0 389.8L49.2 392.7L48.7 395.9L51.7 397.3L51.0 402.6L71.3 402.6L75.5 401.7L78.8 398.1L80.9 397.9L84.1 393.8L85.9 393.3L91.7 387.8L93.3 387.5L91.0 392.3L92.8 395.2L90.4 398.2L90.4 404.7L90.4 413.7L90.4 421.1L90.4 428.7L92.7 427.0L95.3 429.7L98.4 430.5L102.0 429.9L107.7 426.7L112.7 428.1L120.6 426.8L125.4 427.2L133.5 429.3L137.7 429.2L138.5 432.6L142.9 431.7L146.8 429.8L150.5 427.6L156.5 419.6L160.0 419.4L164.0 420.9L167.5 415.9L174.0 412.5L173.8 410.9L177.3 411.5L181.8 408.6L184.4 405.5L191.2 399.9L186.6 397.8L178.4 394.1Z"/><path d="M405.4 333.1L404.5 328.9L400.6 323.8L398.1 321.8L396.9 318.5L398.3 314.1L402.4 310.5L412.6 287.6L425.5 258.9L435.5 236.8L436.5 234.3L439.1 228.3L440.2 226.0L449.4 205.4L447.9 204.7L449.8 200.7L454.4 198.2L457.1 194.2L453.8 194.9L449.1 198.1L446.3 197.1L444.8 198.1L442.4 199.0L440.4 198.0L440.7 193.8L437.9 193.9L433.6 191.3L432.3 187.8L427.8 185.5L425.4 186.6L419.5 182.5L417.3 182.9L416.4 180.5L410.1 177.7L409.1 176.0L410.0 171.8L408.3 169.9L405.1 173.4L402.6 170.7L401.1 171.2L398.3 168.1L398.1 164.5L392.3 159.9L390.5 157.2L390.8 152.7L387.1 150.3L387.3 143.2L386.5 141.5L386.5 134.3L377.2 134.3L372.9 134.3L357.6 134.3L352.8 144.4L348.6 155.6L350.7 160.0L346.0 161.6L345.0 163.9L341.7 164.4L339.3 163.4L338.0 159.2L335.0 155.5L327.7 154.2L327.4 155.9L321.8 158.3L319.8 160.9L318.7 166.7L319.6 168.9L317.5 175.2L317.7 177.6L319.7 178.6L321.3 182.5L318.1 179.0L313.2 177.3L312.1 177.8L310.7 177.7L307.6 171.0L304.9 168.3L301.5 166.7L298.1 162.6L295.2 161.0L295.8 159.0L299.1 159.5L300.8 157.7L300.0 155.4L303.3 149.6L301.8 148.9L302.0 145.6L300.0 143.7L299.9 141.2L297.7 139.2L296.6 135.8L296.8 131.3L295.0 129.6L294.5 123.5L296.4 120.9L296.9 116.1L296.2 112.8L294.9 112.8L291.9 103.6L289.5 101.2L287.7 99.6L289.7 96.7L290.3 90.6L286.9 88.5L282.2 88.5L279.4 84.7L275.8 84.9L273.4 83.3L272.8 85.0L268.6 85.4L261.9 89.7L258.2 89.1L256.0 90.7L255.9 97.4L249.3 103.6L247.5 104.7L247.5 101.3L243.6 104.1L242.7 106.2L238.3 109.0L236.8 107.7L233.5 109.0L231.8 112.0L228.4 111.8L228.2 116.3L224.0 116.8L221.1 123.1L218.7 124.2L217.4 122.3L219.7 119.2L217.5 114.8L213.7 115.0L209.0 117.9L208.0 120.0L203.3 121.7L201.7 120.8L199.1 121.9L199.0 121.4L185.4 109.0L179.6 110.7L180.0 103.5L179.4 95.9L177.9 92.8L174.8 92.1L172.0 82.5L168.6 84.4L166.2 88.3L162.1 88.1L158.0 93.3L154.4 91.5L153.0 89.3L150.4 90.8L149.8 93.4L152.6 95.9L121.4 96.0L117.8 94.7L114.8 96.3L110.0 96.5L109.9 113.0L113.6 111.9L113.5 113.1L123.2 112.7L125.1 113.8L127.8 118.1L126.6 121.6L128.4 124.3L122.5 125.1L119.2 122.0L115.5 124.8L114.0 123.8L110.5 125.7L104.9 126.5L104.9 139.4L104.6 146.1L108.0 149.8L110.0 150.2L115.9 154.6L117.1 157.9L115.5 160.8L118.0 165.3L120.7 167.3L121.3 171.1L120.5 177.4L115.8 205.0L110.2 237.6L107.3 252.8L104.9 255.5L102.7 253.1L101.0 255.1L98.3 252.2L98.7 249.9L92.9 249.3L90.5 250.8L86.9 249.9L84.2 252.4L82.4 255.8L74.1 255.8L74.2 256.9L68.1 257.2L65.2 259.6L61.1 258.4L57.7 259.6L56.9 261.7L49.4 266.1L46.2 266.9L45.1 269.3L40.5 271.4L33.2 276.1L33.6 279.7L31.2 284.9L31.3 289.0L26.5 294.5L24.0 301.8L27.6 308.8L24.9 313.1L21.4 313.6L14.1 318.0L11.2 322.7L11.9 324.8L10.1 327.1L11.7 327.7L32.8 335.6L40.8 338.6L51.3 339.9L56.9 340.6L71.2 342.3L78.6 343.2L93.1 344.9L104.7 346.3L111.1 351.9L120.1 359.9L125.9 365.1L133.3 371.6L140.2 377.8L151.0 382.8L157.2 385.7L168.8 391.1L173.6 391.9L173.6 392.0L178.4 394.1L186.6 397.8L191.7 393.8L194.4 393.0L197.2 389.5L196.7 387.1L202.7 387.8L207.8 387.3L211.5 390.3L213.9 391.2L215.2 388.3L217.5 387.3L221.4 388.5L221.2 384.6L222.4 385.3L225.5 383.4L227.0 383.8L228.7 388.1L231.0 387.0L234.4 382.2L233.8 379.7L237.2 376.1L242.1 376.9L243.0 376.2L249.4 374.6L249.7 376.4L254.0 375.0L254.0 369.7L256.7 368.5L259.5 364.9L258.3 362.8L259.0 359.0L260.8 357.9L262.8 359.0L263.9 355.8L267.1 351.1L267.1 349.7L286.2 349.7L290.6 352.7L291.5 356.3L293.9 357.7L295.0 360.4L296.3 359.2L299.0 360.7L298.8 363.2L300.8 367.0L301.3 365.4L303.3 365.8L304.9 371.3L307.3 371.2L308.3 373.1L310.5 372.9L312.2 369.5L315.3 368.3L318.6 371.2L348.0 371.1L380.6 371.3L397.9 371.2L400.8 368.9L398.0 368.7L399.3 365.9L398.5 363.1L401.1 358.8L401.9 352.6L399.5 345.8L401.7 344.3L404.0 340.4L403.7 336.2L405.6 333.5L405.4 333.1Z"/><path d="M252.9 50.0L254.6 53.9L252.1 60.4L253.9 62.1L257.2 67.7L257.9 71.9L256.0 75.7L258.6 76.5L261.5 75.9L263.6 77.3L267.6 76.9L271.1 78.4L272.4 77.0L273.9 78.9L273.4 83.3L275.8 84.9L279.4 84.7L282.2 88.5L286.9 88.5L290.3 90.6L289.7 96.7L287.7 99.6L289.5 101.2L291.9 103.6L294.9 112.8L296.2 112.8L296.9 116.1L296.4 120.9L294.5 123.5L295.0 129.6L296.8 131.3L296.6 135.8L297.7 139.2L299.9 141.2L300.0 143.7L302.0 145.6L301.8 148.9L303.3 149.6L300.0 155.4L300.8 157.7L299.1 159.5L295.8 159.0L295.2 161.0L298.1 162.6L301.5 166.7L304.9 168.3L307.6 171.0L310.7 177.7L312.1 177.8L313.2 177.3L318.1 179.0L321.3 182.5L319.7 178.6L317.7 177.6L317.5 175.2L319.6 168.9L318.7 166.7L319.8 160.9L321.8 158.3L327.4 155.9L327.7 154.2L335.0 155.5L338.0 159.2L339.3 163.4L341.7 164.4L345.0 163.9L346.0 161.6L350.7 160.0L348.6 155.6L352.8 144.4L357.6 134.3L372.9 134.3L377.2 134.3L386.5 134.3L386.5 109.1L385.8 106.7L382.6 106.6L377.4 104.9L375.5 101.6L373.4 100.6L370.4 96.3L366.4 95.3L367.1 92.5L365.0 92.8L365.3 88.9L365.1 81.2L362.5 80.5L358.9 71.1L359.0 64.6L360.9 57.2L363.5 53.5L363.5 49.4L361.8 48.0L367.1 44.1L370.5 38.6L365.9 32.4L365.4 29.1L366.8 27.5L365.3 25.5L359.3 23.3L354.5 23.1L357.9 18.2L359.3 8.5L356.2 6.8L355.2 4.0L353.2 3.4L350.3 5.1L344.0 5.3L341.0 4.5L343.8 11.6L342.1 13.5L339.6 16.9L334.7 19.5L333.4 23.1L329.6 24.0L326.5 22.5L324.5 25.7L322.0 25.1L320.5 28.2L319.1 30.0L314.7 29.9L312.7 32.2L308.2 32.0L304.5 34.6L298.2 31.9L294.1 33.8L294.6 35.4L289.5 35.6L288.2 39.4L289.7 41.7L289.2 45.2L287.6 43.6L283.2 46.8L280.8 44.6L281.3 43.1L277.7 41.5L277.7 37.9L271.4 37.8L272.4 38.9L269.9 40.6L265.7 36.1L264.8 39.1L263.7 38.2L259.4 38.5L258.4 40.0L254.8 34.4L253.2 33.2L246.7 33.1L243.4 33.9L237.9 29.1L237.1 32.0L245.5 42.3L250.3 44.5L252.6 47.6L252.9 50.0Z"/><path d="M656.7 269.6L660.1 266.8L661.0 266.1L666.3 261.8L669.7 261.7L671.3 260.4L675.7 253.3L677.5 252.2L678.1 248.6L684.6 242.1L686.1 235.4L685.9 234.4L688.2 232.1L688.3 229.5L691.6 227.5L692.7 224.2L695.0 222.1L694.9 216.8L697.2 215.6L695.2 212.7L696.8 210.2L699.3 209.6L701.1 205.8L701.0 204.3L701.6 200.6L705.0 197.5L705.5 194.7L706.5 191.2L706.8 189.0L704.3 188.4L704.2 186.7L706.8 186.3L708.0 183.6L707.7 179.8L709.5 176.1L708.0 174.7L709.5 172.6L710.5 170.1L709.7 167.9L707.2 169.4L706.9 164.3L703.6 167.9L700.3 168.0L699.6 164.0L698.7 166.1L696.1 166.5L696.2 162.1L692.0 163.9L691.0 160.7L688.3 163.6L687.1 159.8L685.3 161.9L684.5 158.8L682.8 161.1L682.5 158.8L680.3 158.1L677.1 157.0L676.1 158.4L674.9 156.7L674.7 160.5L672.0 156.2L671.5 159.4L670.9 159.6L670.9 156.9L667.8 157.0L663.7 156.0L662.2 159.1L660.3 158.4L658.0 160.9L657.3 162.5L654.2 165.2L651.3 164.9L649.6 164.0L648.8 160.8L650.5 152.0L652.2 149.1L650.8 147.1L642.8 147.7L638.4 147.2L632.2 144.6L626.7 146.2L625.3 144.5L627.3 141.9L626.3 139.5L620.4 139.2L618.7 137.2L620.4 134.9L624.0 132.4L621.9 130.3L613.9 132.7L606.9 132.3L606.8 130.8L610.2 127.2L609.3 124.6L605.4 123.0L600.8 124.9L596.0 134.7L594.8 135.7L592.3 137.8L586.5 140.1L582.9 143.7L580.6 144.2L577.1 149.0L574.9 153.5L570.8 158.2L568.6 162.0L568.2 169.0L566.2 171.0L563.5 171.7L561.5 170.6L557.8 172.9L557.6 171.1L552.2 170.3L550.0 168.7L549.1 162.9L547.7 163.6L548.0 159.8L547.1 156.2L544.4 156.5L543.0 154.2L543.3 149.4L537.1 144.9L535.8 140.3L533.0 136.1L530.9 131.2L531.6 125.5L532.7 123.4L525.0 116.9L523.8 111.5L524.4 108.9L522.1 109.5L521.9 106.6L512.9 104.4L512.7 103.1L507.9 102.2L507.0 99.2L500.6 95.1L497.6 95.5L494.9 94.5L491.3 94.7L491.0 89.6L489.6 87.9L490.8 83.6L488.1 77.5L486.0 73.6L482.2 75.1L480.5 74.3L476.8 75.4L475.1 77.9L472.2 77.3L467.0 78.3L466.7 78.4L461.2 74.9L458.3 80.1L456.1 81.9L458.5 82.9L460.4 86.6L462.0 91.8L459.6 93.3L455.7 91.7L453.5 92.0L448.6 90.1L445.0 91.3L441.4 90.8L439.7 92.7L436.4 90.7L434.3 91.3L432.2 88.2L428.0 90.2L426.7 89.0L423.4 91.3L423.0 93.9L419.8 97.0L414.3 96.0L414.2 97.1L409.3 97.8L409.0 101.9L405.8 102.0L405.0 100.4L401.1 100.2L399.7 102.4L396.2 102.9L397.5 105.3L396.6 108.0L391.1 107.5L390.8 109.3L388.3 110.6L386.5 109.1L386.5 134.3L386.5 141.5L387.3 143.2L387.1 150.3L390.8 152.7L390.5 157.2L392.3 159.9L398.1 164.5L398.3 168.1L401.1 171.2L402.6 170.7L405.1 173.4L408.3 169.9L410.0 171.8L409.1 176.0L410.1 177.7L416.4 180.5L417.3 182.9L419.5 182.5L425.4 186.6L427.8 185.5L432.3 187.8L433.6 191.3L437.9 193.9L440.7 193.8L440.4 198.0L442.4 199.0L444.8 198.1L446.3 197.1L449.1 198.1L453.8 194.9L457.1 194.2L454.4 198.2L449.8 200.7L447.9 204.7L449.4 205.4L440.2 226.0L439.1 228.3L436.5 234.3L435.5 236.8L425.5 258.9L412.6 287.6L402.4 310.5L398.3 314.1L396.9 318.5L398.1 321.8L400.6 323.8L404.5 328.9L405.4 333.1L405.6 333.5L407.5 334.5L411.7 341.9L413.3 349.3L418.1 356.1L417.0 361.0L418.3 364.1L419.4 370.1L423.8 371.0L423.8 372.8L429.2 374.4L433.4 379.0L432.8 381.2L434.5 382.6L438.9 382.9L440.5 387.1L442.6 386.1L452.7 386.9L455.6 387.2L462.9 387.8L485.0 389.7L494.6 390.5L507.4 391.4L520.5 392.4L532.0 393.3L545.0 394.3L554.1 395.0L578.2 396.7L589.7 397.4L605.4 398.5L608.8 390.4L610.2 384.0L611.9 382.5L614.6 378.6L614.9 378.1L619.1 372.7L621.4 372.3L624.2 367.9L626.3 364.6L627.5 361.3L629.2 360.2L630.8 355.6L631.9 350.6L632.1 346.6L632.3 344.9L627.7 341.3L627.2 340.3L626.8 337.2L629.7 333.7L631.7 329.3L631.5 327.6L631.5 325.2L631.1 322.2L634.3 320.1L635.4 319.2L640.1 317.6L644.8 315.4L645.6 310.9L645.8 310.5L649.0 307.2L652.1 307.1L650.6 303.3L651.7 301.9L654.3 300.6L653.2 298.1L655.7 296.7L654.2 293.8L654.7 290.9L657.3 290.4L658.1 287.6L653.3 284.9L652.2 282.4L650.5 282.6L646.5 282.9L642.5 281.0L650.2 274.8L656.3 269.9L656.7 269.6Z"/><path d="M593.8 85.1L591.1 75.9L590.2 75.5L588.7 69.4L587.0 67.0L585.0 57.2L583.1 51.0L583.8 48.1L583.8 39.6L582.1 38.9L580.4 32.7L578.7 30.1L573.6 25.2L569.8 23.3L568.8 27.9L570.1 30.7L569.3 35.2L566.1 37.5L565.7 39.6L561.3 44.3L560.9 46.4L554.7 56.5L551.7 59.4L552.4 60.6L548.5 68.4L546.7 75.3L543.9 79.1L539.3 81.3L537.8 84.0L533.2 83.3L528.3 84.0L529.6 82.0L527.2 79.8L523.4 82.2L516.4 80.7L516.0 79.0L511.6 82.6L505.3 84.2L499.1 83.4L494.9 80.1L492.6 79.4L491.3 76.6L488.1 77.5L490.8 83.6L489.6 87.9L491.0 89.6L491.3 94.7L494.9 94.5L497.6 95.5L500.6 95.1L507.0 99.2L507.9 102.2L512.7 103.1L512.9 104.4L521.9 106.6L522.1 109.5L524.4 108.9L523.8 111.5L525.0 116.9L532.7 123.4L531.6 125.5L530.9 131.2L533.0 136.1L535.8 140.3L537.1 144.9L543.3 149.4L543.0 154.2L544.4 156.5L547.1 156.2L548.0 159.8L547.7 163.6L549.1 162.9L550.0 168.7L552.2 170.3L557.6 171.1L557.8 172.9L561.5 170.6L563.5 171.7L566.2 171.0L568.2 169.0L568.6 162.0L570.8 158.2L574.9 153.5L577.1 149.0L580.6 144.2L582.9 143.7L586.5 140.1L592.3 137.8L594.8 135.7L596.0 134.7L600.8 124.9L605.4 123.0L611.4 118.3L611.4 116.6L613.9 114.7L613.6 108.7L614.1 102.0L613.1 97.0L607.1 93.8L600.4 94.0L593.8 85.1ZM598.3 84.0L598.3 86.3L600.4 85.8L598.3 84.0ZM599.7 86.0L597.9 88.7L599.6 91.8L603.1 90.3L602.0 87.4L599.7 86.0Z"/><path d="M676.0 309.1L677.3 304.6L676.0 299.8L675.8 298.3L675.8 294.3L675.7 293.6L674.8 288.6L674.8 288.1L672.7 284.0L669.7 282.8L666.0 282.0L665.0 279.9L663.2 278.2L661.2 278.1L659.9 279.0L656.9 278.6L655.9 278.0L652.4 276.3L649.3 277.0L647.4 277.9L646.3 280.7L642.5 281.0L646.5 282.9L650.5 282.6L652.2 282.4L653.3 284.9L658.1 287.6L657.3 290.4L654.7 290.9L654.2 293.8L655.7 296.7L653.2 298.1L654.3 300.6L651.7 301.9L650.6 303.3L652.1 307.1L649.0 307.2L645.8 310.5L645.6 310.9L644.8 315.4L640.1 317.6L635.4 319.2L634.3 320.1L631.1 322.2L631.5 325.2L631.5 327.6L631.7 329.3L629.7 333.7L626.8 337.2L627.2 340.3L627.7 341.3L632.3 344.9L632.1 346.6L631.9 350.6L630.8 355.6L629.2 360.2L627.5 361.3L626.3 364.6L624.2 367.9L621.4 372.3L619.1 372.7L614.9 378.1L614.6 378.6L611.9 382.5L610.2 384.0L608.8 390.4L605.4 398.5L603.5 403.5L601.1 406.7L600.6 411.9L599.1 413.2L597.4 418.5L595.9 419.9L595.9 419.9L596.7 422.3L595.1 427.0L595.7 430.5L593.4 436.9L592.5 443.0L594.2 444.0L593.0 447.8L595.0 451.9L593.9 454.7L593.9 460.6L594.9 460.7L595.4 466.8L593.8 471.8L595.4 476.3L598.2 477.4L600.1 471.9L603.4 467.8L607.5 465.2L605.7 467.5L606.2 469.6L604.9 470.5L603.3 475.6L606.4 478.3L613.4 480.4L627.1 488.2L627.4 485.1L630.4 478.0L633.4 475.5L637.0 479.9L639.4 476.3L639.6 475.9L645.3 481.3L647.1 484.3L647.0 489.2L648.6 484.7L650.0 488.4L658.0 485.0L657.3 488.9L659.7 487.3L662.5 489.3L666.7 489.6L669.7 493.3L671.2 490.7L670.1 486.7L672.5 484.1L676.9 487.9L690.5 482.8L693.2 480.2L696.1 480.3L700.6 480.3L700.9 479.4L701.6 476.4L702.9 480.8L709.3 478.9L703.8 479.9L705.0 474.9L704.6 469.9L707.1 468.1L707.1 468.1L705.4 468.1L704.8 464.8L702.7 464.0L702.7 457.5L702.3 456.2L704.2 453.4L702.5 451.3L703.6 450.0L702.6 448.3L704.3 446.7L703.0 445.2L708.5 445.1L710.1 445.1L709.3 444.6L703.3 442.0L701.0 442.4L698.0 438.5L698.2 435.7L703.5 427.2L705.4 427.0L705.5 423.8L706.9 423.5L708.9 418.8L716.7 414.5L717.2 411.1L719.7 409.4L719.1 406.7L718.6 408.9L714.7 409.5L714.4 412.3L711.8 409.2L711.5 407.4L707.2 407.4L703.9 407.4L700.9 404.6L700.1 400.1L699.2 397.3L695.8 395.8L697.2 391.8L698.5 391.1L696.1 387.2L693.1 387.3L690.7 384.1L691.4 382.0L688.7 380.0L688.4 378.1L685.1 378.1L685.9 376.5L688.9 372.7L689.3 365.8L690.8 364.3L692.4 359.9L693.8 360.3L698.4 358.6L700.4 352.2L699.5 349.6L696.8 347.5L691.8 349.0L686.5 351.9L682.1 346.2L680.6 345.3L676.0 338.5L674.2 335.7L671.9 335.7L674.8 333.0L673.2 331.1L670.4 332.1L669.6 330.6L668.1 328.4L670.2 328.1L673.1 324.6L673.7 320.0L674.3 316.3L675.1 313.2L676.1 311.0L676.0 309.1Z"/><path d="M661.0 266.1L660.1 266.8L656.7 269.6L656.3 269.9L650.2 274.8L642.5 281.0L646.3 280.7L647.4 277.9L649.3 277.0L652.4 276.3L655.9 278.0L656.9 278.6L659.9 279.0L661.2 278.1L663.2 278.2L665.0 279.9L666.0 282.0L669.7 282.8L672.7 284.0L674.8 288.1L674.8 288.6L675.7 293.6L675.8 294.3L675.8 298.3L676.0 299.8L677.3 304.6L676.0 309.1L676.1 311.0L675.1 313.2L674.3 316.3L673.7 320.0L673.1 324.6L670.2 328.1L668.1 328.4L669.6 330.6L670.4 332.1L673.2 331.1L674.8 333.0L671.9 335.7L674.2 335.7L676.0 338.5L680.6 345.3L682.1 346.2L686.5 351.9L691.8 349.0L696.8 347.5L699.5 349.6L700.4 352.2L698.4 358.6L693.8 360.3L692.4 359.9L690.8 364.3L689.3 365.8L688.9 372.7L685.9 376.5L685.1 378.1L688.4 378.1L688.7 380.0L691.4 382.0L690.7 384.1L693.1 387.3L696.1 387.2L698.5 391.1L697.2 391.8L695.8 395.8L699.2 397.3L700.1 400.1L700.9 404.6L703.9 407.4L707.2 407.4L711.5 407.4L711.8 409.2L713.5 409.4L716.1 401.0L715.5 399.3L716.4 394.2L716.1 391.2L717.4 389.1L714.8 385.4L713.7 377.5L712.2 374.6L713.7 370.9L716.1 369.0L719.5 360.5L720.6 356.9L722.6 354.4L724.2 347.4L723.8 346.7L725.9 341.7L728.8 339.4L735.2 337.3L737.6 336.8L737.7 336.8L742.0 333.6L745.2 334.5L748.4 330.2L752.9 327.3L754.7 327.3L755.7 325.7L756.3 324.2L759.7 319.1L764.4 318.2L768.8 316.4L771.8 316.8L775.5 319.5L776.4 320.2L778.0 319.8L781.6 318.1L788.1 317.6L790.0 315.0L790.7 311.2L791.7 305.3L788.4 301.7L786.6 300.7L785.4 295.7L786.0 294.5L785.5 288.0L787.8 286.1L788.7 283.7L792.5 280.2L793.0 276.9L790.7 269.1L790.6 269.0L789.1 263.7L791.7 258.8L789.2 255.8L788.8 255.2L788.2 251.5L789.3 250.1L791.5 247.8L793.2 245.2L794.9 242.7L796.2 240.3L795.9 237.8L797.1 236.1L797.6 235.6L798.9 234.2L800.6 231.3L801.3 232.3L803.0 232.0L806.2 231.2L808.0 230.9L810.0 228.7L810.0 226.6L813.5 225.4L813.6 225.3L816.4 221.2L818.3 218.6L817.3 217.4L817.5 213.3L818.0 212.5L812.0 212.5L811.3 211.4L807.5 211.6L806.5 213.3L800.8 211.8L796.9 209.8L787.5 205.4L781.9 202.8L780.0 202.3L778.3 202.4L775.7 203.5L776.2 206.2L774.3 204.5L773.3 206.7L770.3 206.9L769.2 204.8L771.6 204.0L772.9 200.9L769.7 201.1L768.6 204.4L766.7 204.4L766.4 206.8L764.4 208.1L760.6 212.9L758.9 213.5L755.9 213.3L758.2 211.8L760.3 208.5L761.7 208.0L761.3 205.6L761.8 204.1L758.2 205.4L758.0 205.5L757.1 205.9L754.9 206.2L752.3 214.4L751.9 218.1L750.1 220.3L748.8 220.8L747.7 220.7L745.9 219.9L746.2 216.8L746.2 214.5L748.6 209.1L753.6 202.4L750.9 197.3L746.4 201.2L745.5 200.8L750.1 194.1L748.0 194.2L750.5 193.2L748.7 190.5L749.1 188.8L747.1 187.3L743.4 187.8L744.9 186.3L742.4 185.7L746.6 183.4L744.4 181.9L741.1 183.5L740.2 183.1L740.9 178.1L738.6 182.0L737.2 180.0L732.4 180.1L730.6 183.0L729.2 182.9L729.6 176.0L725.4 179.9L724.4 175.4L721.9 174.5L720.0 174.5L717.6 172.4L717.4 172.2L717.3 172.1L716.0 172.9L715.8 168.7L713.3 172.6L712.3 168.7L709.5 172.6L708.0 174.7L709.5 176.1L707.7 179.8L708.0 183.6L706.8 186.3L704.2 186.7L704.3 188.4L706.8 189.0L706.5 191.2L705.5 194.7L705.0 197.5L701.6 200.6L701.0 204.3L701.1 205.8L699.3 209.6L696.8 210.2L695.2 212.7L697.2 215.6L694.9 216.8L695.0 222.1L692.7 224.2L691.6 227.5L688.3 229.5L688.2 232.1L685.9 234.4L686.1 235.4L684.6 242.1L678.1 248.6L677.5 252.2L675.7 253.3L671.3 260.4L669.7 261.7L666.3 261.8L661.0 266.1ZM750.5 212.5L747.8 214.8L746.5 219.1L748.5 220.2L750.5 218.5L750.5 212.5ZM738.2 174.4L736.6 175.6L737.6 177.8L740.7 175.9L738.2 174.4Z"/><path d="M844.3 356.7L848.4 353.0L849.1 351.1L849.1 351.1L849.5 350.3L849.9 349.3L849.6 345.6L846.6 344.1L847.9 341.4L845.6 336.7L847.2 335.5L849.8 334.4L850.4 332.5L850.9 329.7L852.0 326.2L852.9 322.5L854.3 319.0L851.6 317.2L845.7 315.7L845.0 313.7L843.7 311.1L844.0 307.0L842.1 303.9L842.0 300.8L840.8 299.2L841.6 297.3L840.7 291.9L840.7 288.7L840.2 284.8L840.0 283.4L840.2 276.4L836.4 274.3L835.3 272.5L832.1 268.5L832.5 266.9L834.0 263.1L832.3 260.7L833.9 258.0L834.6 255.3L835.4 254.2L835.9 250.5L835.9 250.5L834.9 248.9L833.8 246.2L832.6 244.9L832.2 243.0L832.3 238.2L829.9 237.5L829.1 234.3L830.7 232.5L830.2 229.7L827.9 228.8L830.2 224.3L831.8 221.0L831.5 218.8L830.2 217.5L827.4 217.1L822.0 216.1L818.6 213.3L817.5 213.3L817.3 217.4L818.3 218.6L816.4 221.2L813.6 225.3L813.5 225.4L810.0 226.6L810.0 228.7L808.0 230.9L806.2 231.2L803.0 232.0L801.3 232.3L800.6 231.3L798.9 234.2L797.6 235.6L797.1 236.1L795.9 237.8L796.2 240.3L794.9 242.7L793.2 245.2L791.5 247.8L789.3 250.1L788.2 251.5L788.8 255.2L789.2 255.8L791.7 258.8L789.1 263.7L790.6 269.0L790.7 269.1L793.0 276.9L792.5 280.2L788.7 283.7L787.8 286.1L785.5 288.0L786.0 294.5L785.4 295.7L786.6 300.7L788.4 301.7L791.7 305.3L790.7 311.2L790.0 315.0L788.1 317.6L781.6 318.1L778.0 319.8L776.4 320.2L775.5 319.5L771.8 316.8L768.8 316.4L764.4 318.2L759.7 319.1L756.3 324.2L755.7 325.7L754.7 327.3L752.9 327.3L748.4 330.2L745.2 334.5L742.0 333.6L737.7 336.8L737.6 336.8L735.2 337.3L728.8 339.4L725.9 341.7L723.8 346.7L724.2 347.4L722.6 354.4L720.6 356.9L719.5 360.5L716.1 369.0L713.7 370.9L712.2 374.6L713.7 377.5L714.8 385.4L717.4 389.1L716.1 391.2L716.4 394.2L715.5 399.3L716.1 401.0L713.5 409.4L711.8 409.2L714.4 412.3L714.7 409.5L718.6 408.9L719.1 406.7L722.1 405.4L723.3 408.3L725.0 410.5L727.4 414.2L726.1 415.9L726.9 419.5L731.2 424.1L735.3 424.6L738.8 426.6L740.8 425.7L745.8 422.4L745.7 420.6L748.0 419.0L750.0 419.6L753.9 417.0L758.4 419.4L760.5 418.0L762.9 413.5L764.8 412.9L766.7 410.5L768.7 404.6L770.4 404.2L770.0 400.5L771.4 398.5L768.1 396.4L766.4 390.8L768.0 388.4L768.1 388.3L772.6 385.7L774.2 384.5L776.8 383.4L780.7 387.4L782.4 386.9L786.0 386.9L786.4 386.8L788.9 387.7L789.1 389.8L793.7 392.7L795.7 390.7L797.9 390.0L800.7 389.4L805.1 384.7L807.4 383.9L811.4 383.2L815.3 383.7L816.8 382.8L819.9 378.8L820.1 376.8L824.6 374.9L828.0 370.6L828.8 368.8L829.3 368.8L833.2 366.9L834.6 364.3L838.9 360.7L840.2 362.0L841.9 360.0L843.9 358.1L844.3 356.7Z"/><path d="M854.2 214.7L852.1 214.5L848.7 215.6L844.4 215.7L835.8 217.0L831.5 216.7L830.2 217.5L831.5 218.8L831.8 221.0L830.2 224.3L827.9 228.8L830.2 229.7L830.7 232.5L829.1 234.3L829.9 237.5L832.3 238.2L832.2 243.0L832.6 244.9L833.8 246.2L834.9 248.9L835.9 250.5L835.9 250.5L835.4 254.2L834.6 255.3L833.9 258.0L832.3 260.7L834.0 263.1L832.5 266.9L832.1 268.5L835.3 272.5L836.4 274.3L840.2 276.4L840.0 283.4L840.2 284.8L840.7 288.7L840.7 291.9L841.6 297.3L840.8 299.2L842.0 300.8L842.1 303.9L844.0 307.0L843.7 311.1L845.0 313.7L845.7 315.7L851.6 317.2L854.3 319.0L852.9 322.5L852.0 326.2L850.9 329.7L850.4 332.5L852.7 333.8L854.9 332.8L857.5 332.5L859.7 333.9L866.0 333.0L866.4 333.1L870.2 332.7L873.8 335.4L875.1 336.8L877.3 336.5L877.6 339.1L879.0 340.1L879.6 340.4L882.2 341.6L885.2 343.0L886.3 344.3L886.5 346.6L888.4 345.4L889.7 346.3L889.8 346.2L891.5 343.8L896.0 340.6L896.1 340.4L896.9 339.3L900.3 332.9L900.1 330.8L898.5 329.9L897.9 329.0L897.2 325.4L897.1 325.4L894.8 324.0L894.8 321.8L897.2 320.2L898.6 318.5L897.7 317.8L897.2 316.5L897.8 314.4L898.8 311.9L898.7 312.0L900.5 309.0L899.9 307.3L899.7 305.7L901.0 303.9L902.4 301.2L903.9 299.5L905.6 300.1L907.2 299.8L907.8 298.3L910.0 296.4L910.1 296.1L912.7 291.6L912.1 289.5L913.4 288.2L916.6 285.0L918.9 280.2L919.5 279.7L919.6 278.2L919.5 277.6L922.3 273.3L923.2 270.0L927.6 268.9L928.1 268.8L930.4 268.2L933.0 267.5L931.2 264.1L925.7 262.6L924.2 261.9L920.0 256.9L918.1 255.7L910.4 248.4L908.5 245.9L904.0 241.1L902.4 238.1L899.3 237.8L897.7 237.4L893.8 233.9L890.6 231.8L887.3 230.2L884.7 228.1L882.4 225.3L879.3 224.4L875.0 221.7L870.7 219.5L865.1 216.1L859.0 214.7L854.2 214.7Z"/><path d="M951.9 308.1L956.0 305.9L957.2 305.7L957.6 306.3L957.2 307.7L958.9 309.4L960.2 309.3L962.2 309.0L962.2 309.0L965.5 310.7L967.9 310.8L970.2 310.7L970.4 310.7L973.1 309.7L973.8 309.9L975.2 310.7L978.7 310.8L979.6 310.8L980.7 311.4L981.3 312.1L984.2 311.7L985.0 312.4L986.2 312.5L987.1 311.2L990.7 310.8L989.1 306.2L989.1 305.5L987.5 302.8L987.4 301.7L986.8 297.6L986.0 295.4L984.8 291.3L984.2 287.9L983.4 285.4L981.7 281.9L980.2 278.9L977.5 276.0L974.3 274.9L969.9 273.9L967.0 273.4L963.7 273.2L962.1 273.9L956.9 274.6L954.4 274.0L946.6 274.0L943.0 271.2L940.4 269.8L935.9 270.5L933.8 268.8L933.0 267.5L930.4 268.2L928.1 268.8L927.6 268.9L923.2 270.0L922.3 273.3L919.5 277.6L919.6 278.2L919.5 279.7L918.9 280.2L916.6 285.0L913.4 288.2L912.1 289.5L912.7 291.6L910.1 296.1L910.0 296.4L907.8 298.3L907.2 299.8L905.6 300.1L903.9 299.5L902.4 301.2L901.0 303.9L899.7 305.7L899.9 307.3L902.6 306.7L902.8 308.6L905.5 310.0L906.9 311.3L908.4 310.7L911.1 311.7L912.4 310.2L913.5 310.4L916.2 308.8L918.1 306.7L919.8 304.5L921.5 302.7L923.8 302.6L926.2 302.0L929.8 300.3L932.9 298.8L935.0 299.3L935.4 302.0L933.5 303.6L931.0 306.1L929.6 308.3L929.8 309.5L927.7 312.0L927.2 316.6L931.5 316.0L932.7 317.2L933.5 319.6L935.6 318.9L937.5 317.7L938.5 317.2L939.3 316.6L940.4 318.5L941.7 317.8L943.6 317.1L946.2 319.9L945.5 321.9L948.1 322.3L950.3 320.9L950.5 320.0L950.9 320.0L951.2 317.2L951.5 314.0L953.6 314.5L952.5 311.6L951.3 310.6L951.9 308.1Z"/><path d="M925.0 337.0L926.2 335.7L928.5 333.5L929.7 333.5L931.5 331.7L932.8 331.3L934.9 332.3L938.1 334.1L939.0 334.7L939.8 336.6L938.8 337.2L938.7 337.2L937.4 337.7L934.4 340.8L935.3 342.4L935.6 342.9L935.6 344.6L935.1 345.1L930.6 349.0L935.6 350.9L935.8 353.6L935.3 354.8L938.9 357.9L940.5 358.1L941.7 356.9L944.8 355.3L947.3 354.4L948.8 353.2L950.2 348.6L951.1 347.7L953.4 348.1L954.6 345.4L958.0 345.9L959.2 344.2L961.4 344.7L964.1 345.4L964.6 345.4L966.1 344.8L967.7 344.2L969.1 343.8L970.0 343.5L972.7 342.6L974.3 341.5L976.6 341.0L977.2 337.6L977.4 336.8L978.9 336.5L980.7 335.8L981.2 335.2L981.5 335.0L982.8 334.3L986.0 334.4L990.3 336.3L990.3 337.2L993.6 338.3L994.1 338.5L994.9 334.3L994.8 330.6L993.9 325.6L993.5 325.0L993.2 323.6L992.5 320.7L991.8 318.1L991.6 316.9L990.8 313.8L990.7 310.8L987.1 311.2L986.2 312.5L985.0 312.4L984.2 311.7L981.3 312.1L980.7 311.4L979.6 310.8L978.7 310.8L975.2 310.7L973.8 309.9L973.1 309.7L970.4 310.7L970.2 310.7L967.9 310.8L965.5 310.7L962.2 309.0L962.2 309.0L960.2 309.3L958.9 309.4L957.2 307.7L957.6 306.3L957.2 305.7L956.0 305.9L951.9 308.1L951.3 310.6L952.5 311.6L953.6 314.5L951.5 314.0L951.2 317.2L950.9 320.0L950.5 320.0L950.3 320.9L948.1 322.3L945.5 321.9L946.2 319.9L943.6 317.1L941.7 317.8L940.4 318.5L939.3 316.6L938.5 317.2L937.5 317.7L935.6 318.9L933.5 319.6L932.7 317.2L931.5 316.0L927.2 316.6L927.7 312.0L929.8 309.5L929.6 308.3L931.0 306.1L933.5 303.6L935.4 302.0L935.0 299.3L932.9 298.8L929.8 300.3L926.2 302.0L923.8 302.6L921.5 302.7L919.8 304.5L918.1 306.7L916.2 308.8L913.5 310.4L912.4 310.2L911.1 311.7L908.4 310.7L906.9 311.3L905.5 310.0L902.8 308.6L902.6 306.7L899.9 307.3L900.5 309.0L898.7 312.0L898.8 311.9L897.8 314.4L897.2 316.5L897.7 317.8L898.6 318.5L897.2 320.2L894.8 321.8L894.8 324.0L897.1 325.4L897.2 325.4L897.9 329.0L898.5 329.9L900.1 330.8L900.3 332.9L896.9 339.3L896.1 340.4L899.2 343.9L902.6 343.0L903.2 343.0L905.2 341.9L906.3 343.5L908.5 345.6L910.8 345.0L911.1 345.6L912.4 344.4L914.1 344.5L915.2 344.2L916.6 342.4L920.0 341.4L920.4 340.5L920.6 340.1L920.8 339.8L923.7 337.9L925.0 337.0Z"/><path d="M829.3 368.8L831.4 369.5L835.5 368.7L835.8 370.7L839.4 372.3L842.1 375.3L842.9 378.6L846.7 381.3L844.3 388.1L845.6 388.2L847.9 389.1L853.1 385.7L854.6 386.3L856.7 378.6L858.4 378.1L860.4 379.3L863.5 378.0L864.2 377.9L866.8 374.8L866.3 372.0L871.9 370.8L872.6 367.6L876.9 365.8L879.9 364.6L882.0 365.6L883.1 368.9L887.3 369.4L890.1 371.4L892.6 370.8L896.3 372.9L896.6 374.3L898.7 375.3L899.7 372.0L902.3 373.0L901.2 375.4L904.0 377.4L906.0 376.2L906.2 380.3L908.1 385.1L910.2 383.0L911.8 381.0L913.8 380.5L915.4 379.0L918.5 374.7L920.3 372.4L921.7 374.8L923.3 376.6L926.1 375.5L926.3 375.6L929.4 377.2L932.4 380.5L933.6 382.4L934.4 382.1L935.1 383.4L937.9 384.8L938.0 384.5L939.9 385.9L941.0 386.3L942.4 383.7L944.5 383.8L947.0 384.1L948.9 385.1L952.0 383.3L954.5 382.3L955.7 382.2L957.3 381.0L959.7 377.6L961.6 377.2L961.8 376.9L961.4 375.4L963.8 374.1L964.9 374.0L965.9 373.6L968.6 373.1L969.0 373.1L971.6 374.1L973.4 373.4L975.2 372.5L975.5 372.4L976.3 371.8L979.6 372.2L981.0 372.8L984.0 373.4L986.0 374.2L986.6 372.9L987.3 370.8L987.7 368.4L988.7 366.3L990.9 359.9L991.7 356.2L992.2 354.4L993.4 351.5L994.2 349.3L993.9 346.3L993.8 345.5L993.7 342.2L994.1 338.5L993.6 338.3L990.3 337.2L990.3 336.3L986.0 334.4L982.8 334.3L981.5 335.0L981.2 335.2L980.7 335.8L978.9 336.5L977.4 336.8L977.2 337.6L976.6 341.0L974.3 341.5L972.7 342.6L970.0 343.5L969.1 343.8L967.7 344.2L966.1 344.8L964.6 345.4L964.1 345.4L961.4 344.7L959.2 344.2L958.0 345.9L954.6 345.4L953.4 348.1L951.1 347.7L950.2 348.6L948.8 353.2L947.3 354.4L944.8 355.3L941.7 356.9L940.5 358.1L938.9 357.9L935.3 354.8L935.8 353.6L935.6 350.9L930.6 349.0L935.1 345.1L935.6 344.6L935.6 342.9L935.3 342.4L934.4 340.8L937.4 337.7L938.7 337.2L938.8 337.2L939.8 336.6L939.0 334.7L938.1 334.1L934.9 332.3L932.8 331.3L931.5 331.7L929.7 333.5L928.5 333.5L926.2 335.7L925.0 337.0L923.7 337.9L920.8 339.8L920.6 340.1L920.4 340.5L920.0 341.4L916.6 342.4L915.2 344.2L914.1 344.5L912.4 344.4L911.1 345.6L910.8 345.0L908.5 345.6L906.3 343.5L905.2 341.9L903.2 343.0L902.6 343.0L899.2 343.9L896.1 340.4L896.0 340.6L891.5 343.8L889.8 346.2L889.7 346.3L888.4 345.4L886.5 346.6L886.3 344.3L885.2 343.0L882.2 341.6L879.6 340.4L879.0 340.1L877.6 339.1L877.3 336.5L875.1 336.8L873.8 335.4L870.2 332.7L866.4 333.1L866.0 333.0L859.7 333.9L857.5 332.5L854.9 332.8L852.7 333.8L850.4 332.5L849.8 334.4L847.2 335.5L845.6 336.7L847.9 341.4L846.6 344.1L849.6 345.6L849.9 349.3L849.5 350.3L849.1 351.1L849.1 351.1L848.4 353.0L844.3 356.7L843.9 358.1L841.9 360.0L840.2 362.0L838.9 360.7L834.6 364.3L833.2 366.9L829.3 368.8Z"/><path d="M913.8 380.5L911.8 381.0L910.2 383.0L908.1 385.1L908.7 385.7L909.0 387.4L912.2 388.0L914.1 389.9L916.8 390.6L918.1 391.6L922.6 393.9L922.7 394.2L927.6 396.0L931.9 398.2L933.7 399.9L936.0 400.4L940.6 403.2L940.7 404.4L940.7 404.6L941.5 405.9L942.4 406.5L943.2 407.3L943.3 407.5L946.5 409.5L946.9 409.7L947.4 409.7L948.7 409.2L949.8 410.5L950.5 413.5L952.3 413.7L952.4 413.7L954.6 415.6L957.0 411.6L958.1 409.5L963.9 403.9L965.6 401.1L967.1 398.8L968.3 397.1L970.0 395.1L971.6 394.4L975.8 389.2L976.7 388.0L978.0 385.8L980.1 383.9L981.3 382.5L982.4 380.5L983.8 378.2L986.0 374.2L984.0 373.4L981.0 372.8L979.6 372.2L976.3 371.8L975.5 372.4L975.2 372.5L973.4 373.4L971.6 374.1L969.0 373.1L968.6 373.1L965.9 373.6L964.9 374.0L963.8 374.1L961.4 375.4L961.8 376.9L961.6 377.2L959.7 377.6L957.3 381.0L955.7 382.2L954.5 382.3L952.0 383.3L948.9 385.1L947.0 384.1L944.5 383.8L942.4 383.7L941.0 386.3L939.9 385.9L938.0 384.5L937.9 384.8L935.1 383.4L934.4 382.1L933.6 382.4L932.4 380.5L929.4 377.2L926.3 375.6L926.1 375.5L923.3 376.6L921.7 374.8L920.3 372.4L918.5 374.7L915.4 379.0L913.8 380.5Z"/><path d="M941.5 405.9L940.7 404.6L940.7 404.4L940.6 403.2L936.0 400.4L933.7 399.9L931.9 398.2L927.6 396.0L922.7 394.2L922.6 393.9L918.1 391.6L916.8 390.6L914.1 389.9L912.6 391.8L914.1 400.1L916.6 400.5L919.4 403.5L919.1 405.5L919.8 406.4L920.1 407.7L920.0 410.2L920.6 411.5L918.0 414.2L918.8 416.1L919.0 418.3L918.9 420.6L914.8 422.4L913.1 420.9L910.5 421.4L909.0 421.2L908.1 423.5L908.8 426.9L909.6 427.3L911.5 429.4L913.0 433.5L914.6 434.0L914.3 437.7L914.6 437.8L918.4 441.4L919.2 442.4L922.4 443.6L923.4 442.3L924.8 443.2L930.1 440.7L930.8 440.3L932.8 436.3L935.5 433.0L938.5 427.6L943.1 422.1L947.7 419.1L952.4 416.6L954.6 415.6L952.4 413.7L952.3 413.7L950.5 413.5L949.8 410.5L948.7 409.2L947.4 409.7L946.9 409.7L946.5 409.5L943.3 407.5L943.2 407.3L942.4 406.5L941.5 405.9Z"/><path d="M879.9 364.6L876.9 365.8L872.6 367.6L871.9 370.8L866.3 372.0L866.8 374.8L864.2 377.9L863.5 378.0L860.4 379.3L858.4 378.1L856.7 378.6L854.6 386.3L853.1 385.7L847.9 389.1L845.6 388.2L844.3 388.1L846.7 381.3L842.9 378.6L842.1 375.3L839.4 372.3L835.8 370.7L835.5 368.7L831.4 369.5L829.3 368.8L828.8 368.8L828.0 370.6L824.6 374.9L820.1 376.8L819.9 378.8L816.8 382.8L815.3 383.7L811.4 383.2L807.4 383.9L805.1 384.7L800.7 389.4L797.9 390.0L795.7 390.7L793.7 392.7L789.1 389.8L788.9 387.7L786.4 386.8L786.0 386.9L782.4 386.9L780.7 387.4L776.8 383.4L774.2 384.5L772.6 385.7L768.1 388.3L768.0 388.4L766.4 390.8L768.1 396.4L771.4 398.5L770.0 400.5L770.4 404.2L768.7 404.6L766.7 410.5L764.8 412.9L762.9 413.5L760.5 418.0L758.4 419.4L753.9 417.0L750.0 419.6L748.0 419.0L745.7 420.6L745.8 422.4L740.8 425.7L738.8 426.6L735.3 424.6L731.2 424.1L726.9 419.5L726.1 415.9L727.4 414.2L725.0 410.5L723.3 408.3L722.1 405.4L719.1 406.7L719.7 409.4L717.2 411.1L716.7 414.5L708.9 418.8L706.9 423.5L705.5 423.8L705.4 427.0L703.5 427.2L698.2 435.7L698.0 438.5L701.0 442.4L703.3 442.0L709.3 444.6L710.1 445.1L708.5 445.1L703.0 445.2L704.3 446.7L702.6 448.3L703.6 450.0L702.5 451.3L704.2 453.4L702.3 456.2L702.7 457.5L702.7 464.0L704.8 464.8L705.4 468.1L707.1 468.1L707.1 468.1L704.6 469.9L705.0 474.9L703.8 479.9L709.3 478.9L704.6 482.7L703.8 487.6L704.7 489.3L709.5 487.8L710.4 488.8L705.8 492.4L706.8 493.2L705.9 496.2L708.0 496.8L706.2 499.5L705.4 505.8L706.8 507.4L706.4 508.5L707.5 511.3L710.6 513.2L714.5 516.5L712.1 518.9L712.4 524.3L711.6 524.7L711.5 524.9L711.1 530.1L711.2 530.0L713.0 532.4L710.2 540.2L712.8 537.3L718.7 536.5L721.8 533.7L729.7 529.0L732.2 526.6L735.0 526.9L736.4 525.0L740.5 522.8L741.6 520.2L743.9 519.4L748.6 516.0L752.2 514.5L755.2 513.8L761.5 514.6L763.4 514.3L768.1 516.0L767.2 517.3L765.6 521.9L765.6 524.2L769.9 525.9L774.5 528.5L774.5 528.5L775.6 527.8L780.0 524.7L783.5 524.2L789.4 525.7L791.1 527.2L797.5 531.7L800.1 532.9L801.0 533.7L806.1 536.3L806.4 536.6L808.8 535.6L811.9 537.8L814.3 537.9L817.9 536.0L818.1 535.9L819.2 536.9L826.9 544.1L829.2 546.2L829.2 546.3L829.7 550.0L830.0 552.8L834.8 553.5L843.0 550.3L844.2 552.0L845.9 550.8L847.4 552.4L850.5 554.2L852.3 553.2L852.9 554.4L857.7 554.3L860.4 557.0L863.5 559.5L865.8 559.5L867.3 562.4L865.7 566.9L863.2 568.6L860.9 571.2L859.6 574.6L856.7 574.5L855.7 577.2L855.9 577.7L856.5 583.0L853.5 582.7L853.3 583.0L852.7 582.7L851.2 582.7L849.0 589.5L849.8 593.0L848.4 594.9L850.5 597.3L851.4 598.4L853.2 601.6L854.9 601.7L857.6 604.8L858.0 604.8L858.3 609.0L858.0 611.2L858.1 611.3L865.9 616.4L872.0 620.6L872.8 617.8L876.5 611.7L882.4 607.3L885.4 603.5L884.0 597.3L883.5 589.8L885.9 582.8L885.3 579.4L886.3 577.7L887.3 570.9L888.7 568.5L888.6 565.9L890.2 561.9L892.6 555.5L891.6 553.4L890.5 550.7L889.6 543.4L889.0 535.6L888.2 527.7L887.3 526.7L888.0 520.7L888.4 518.1L889.2 512.9L890.7 504.7L890.1 503.8L889.7 503.2L889.6 503.1L889.2 499.8L889.7 498.6L891.6 497.8L890.6 495.3L891.6 493.1L890.1 491.2L890.9 486.6L894.0 484.6L897.9 481.4L899.4 481.4L902.3 481.4L906.5 478.7L907.1 477.9L913.4 470.5L916.8 465.6L920.0 461.1L922.1 457.5L926.4 448.1L930.8 440.3L930.1 440.7L924.8 443.2L923.4 442.3L922.4 443.6L919.2 442.4L918.4 441.4L914.6 437.8L914.3 437.7L914.6 434.0L913.0 433.5L911.5 429.4L909.6 427.3L908.8 426.9L908.1 423.5L909.0 421.2L910.5 421.4L913.1 420.9L914.8 422.4L918.9 420.6L919.0 418.3L918.8 416.1L918.0 414.2L920.6 411.5L920.0 410.2L920.1 407.7L919.8 406.4L919.1 405.5L919.4 403.5L916.6 400.5L914.1 400.1L912.6 391.8L914.1 389.9L912.2 388.0L909.0 387.4L908.7 385.7L908.1 385.1L906.2 380.3L906.0 376.2L904.0 377.4L901.2 375.4L902.3 373.0L899.7 372.0L898.7 375.3L896.6 374.3L896.3 372.9L892.6 370.8L890.1 371.4L887.3 369.4L883.1 368.9L882.0 365.6L879.9 364.6Z"/><path d="M669.7 621.1L667.4 622.7L665.1 623.3L665.0 623.5L662.8 624.8L660.9 623.2L655.9 620.8L654.8 620.4L653.0 621.4L645.1 620.7L641.7 621.0L638.4 619.8L637.4 620.2L635.0 622.3L631.2 622.6L630.1 625.4L629.0 626.5L626.9 628.3L624.1 625.7L622.5 625.9L618.1 627.7L617.2 627.7L616.3 628.6L610.4 627.5L609.1 629.3L604.3 629.6L602.2 631.6L599.2 635.8L597.6 640.5L594.8 641.4L592.6 642.8L592.4 643.5L590.2 646.0L589.0 649.0L590.3 650.3L587.5 650.1L587.6 653.3L584.9 656.0L585.0 658.6L585.8 666.3L588.7 663.8L589.8 663.2L593.8 661.8L595.6 660.4L596.9 659.2L599.6 658.5L602.6 660.6L606.8 660.8L608.4 660.8L610.0 661.9L613.5 662.4L617.4 662.1L620.9 661.9L624.9 663.5L630.0 663.2L628.6 667.1L629.7 670.0L629.8 670.8L631.7 672.3L633.3 671.1L634.7 668.1L636.7 668.5L637.3 674.6L639.2 675.5L639.7 674.5L639.2 671.2L640.9 668.3L643.2 668.0L645.3 668.4L648.0 667.5L650.2 667.3L656.1 667.4L656.5 665.2L659.7 667.9L662.1 665.0L664.2 667.3L664.9 666.0L665.4 663.8L667.6 663.7L670.7 665.3L673.0 663.9L674.5 663.2L678.6 667.1L681.0 669.8L681.0 670.0L679.9 671.7L679.5 675.0L681.2 676.9L683.2 678.2L683.4 678.7L683.3 678.8L684.3 681.9L682.2 683.2L681.1 686.4L681.1 686.4L682.3 689.0L683.1 691.1L683.9 694.2L683.9 695.0L685.8 697.2L687.0 699.5L686.6 701.2L689.8 700.8L692.4 699.9L692.8 699.6L695.8 700.1L696.6 701.4L699.3 703.0L699.2 705.0L698.1 707.3L696.6 707.9L696.2 710.3L694.7 712.1L696.5 716.2L695.7 716.6L694.0 718.5L697.0 719.9L695.8 721.0L695.2 721.0L694.9 722.0L693.9 724.3L695.4 725.9L696.6 727.8L698.2 728.6L700.6 730.0L701.4 732.0L702.2 733.7L700.2 734.8L703.7 736.4L702.7 737.8L703.4 740.0L707.3 738.9L710.8 739.8L713.2 738.5L715.4 739.1L718.0 738.2L719.4 736.5L717.0 735.6L719.8 733.4L718.9 732.5L720.2 731.3L720.6 733.4L722.8 732.1L722.7 733.4L725.2 731.8L726.8 732.6L727.3 733.4L730.6 732.3L733.2 730.2L734.2 729.3L734.8 729.1L738.2 728.8L741.3 727.5L742.2 726.9L742.2 726.9L742.3 726.6L745.8 726.1L745.9 726.3L748.9 725.0L751.1 723.1L753.5 723.0L756.1 723.3L757.8 722.6L758.1 722.3L763.2 720.2L768.6 718.0L770.0 718.3L771.0 718.6L772.9 717.8L776.8 717.9L779.1 716.4L779.6 716.5L782.1 717.1L784.6 717.1L784.6 717.2L784.3 719.1L787.8 717.2L790.2 716.1L796.3 713.0L797.8 712.3L801.4 710.7L801.5 710.7L803.6 709.7L806.4 708.9L804.2 705.7L804.4 705.4L806.7 702.9L806.2 701.4L807.2 699.1L807.5 699.0L808.0 696.0L808.2 694.4L808.7 693.6L810.1 692.1L811.1 691.0L811.0 690.8L809.3 689.5L813.7 688.5L814.9 686.1L814.9 684.8L816.3 684.1L816.9 682.1L817.5 676.7L818.2 676.5L818.1 675.1L817.3 674.7L816.7 673.8L817.6 672.2L818.8 670.8L819.3 669.4L821.6 669.5L827.9 669.5L828.0 669.4L830.9 662.4L831.5 662.5L833.7 661.2L834.0 658.0L834.1 655.5L839.1 651.1L839.2 649.0L840.1 644.5L840.0 643.7L839.3 641.1L836.8 639.4L836.7 636.5L834.9 635.0L832.2 634.1L832.5 632.6L834.7 632.6L837.7 633.6L840.5 633.1L839.9 629.8L837.1 628.3L837.7 625.5L837.8 623.7L833.8 623.2L834.7 622.4L834.4 619.8L837.1 616.1L844.1 614.6L840.8 611.4L843.5 610.6L846.9 612.1L850.3 608.9L854.3 609.7L858.0 611.2L858.3 609.0L858.0 604.8L857.6 604.8L854.9 601.7L853.2 601.6L851.4 598.4L850.5 597.3L848.4 594.9L849.8 593.0L849.0 589.5L851.2 582.7L852.7 582.7L853.3 583.0L853.5 582.7L856.5 583.0L855.9 577.7L855.7 577.2L856.7 574.5L859.6 574.6L860.9 571.2L863.2 568.6L865.7 566.9L867.3 562.4L865.8 559.5L863.5 559.5L860.4 557.0L857.7 554.3L852.9 554.4L852.3 553.2L850.5 554.2L847.4 552.4L845.9 550.8L844.2 552.0L843.0 550.3L834.8 553.5L830.0 552.8L829.7 550.0L829.2 546.3L829.2 546.2L826.9 544.1L819.2 536.9L818.1 535.9L817.9 536.0L814.3 537.9L811.9 537.8L808.8 535.6L806.4 536.6L806.1 536.3L801.0 533.7L800.1 532.9L797.5 531.7L791.1 527.2L789.4 525.7L783.5 524.2L780.0 524.7L775.6 527.8L774.5 528.5L774.5 528.5L769.9 525.9L765.6 524.2L765.6 521.9L767.2 517.3L768.1 516.0L763.4 514.3L761.5 514.6L755.2 513.8L752.2 514.5L748.6 516.0L743.9 519.4L741.6 520.2L740.5 522.8L736.4 525.0L735.0 526.9L732.2 526.6L729.7 529.0L721.8 533.7L718.7 536.5L712.8 537.3L710.2 540.2L713.0 532.4L711.2 530.0L711.1 530.1L707.7 532.0L704.1 530.7L704.0 528.5L699.4 525.6L698.0 528.5L699.4 534.7L698.8 534.8L696.3 535.7L690.5 533.6L688.8 534.8L688.5 538.7L690.1 540.8L690.7 543.1L688.6 544.9L688.2 548.1L689.8 549.3L691.8 556.1L688.1 557.3L683.4 557.6L679.0 560.4L679.1 560.8L678.7 564.9L675.4 571.6L676.4 574.5L679.4 575.8L681.2 578.3L681.6 582.3L683.7 585.1L682.3 587.3L678.0 590.0L674.5 594.7L674.0 594.1L673.6 596.4L673.3 597.6L675.1 599.6L679.0 599.8L680.2 601.6L677.5 607.3L679.7 612.8L676.6 615.5L676.0 616.1L671.5 618.2L671.5 620.0L669.7 621.1Z"/><path d="M831.5 662.5L830.9 662.4L828.0 669.4L827.9 669.5L821.6 669.5L819.3 669.4L818.8 670.8L817.6 672.2L816.7 673.8L817.3 674.7L818.1 675.1L818.2 676.5L817.5 676.7L816.9 682.1L816.3 684.1L817.1 684.4L818.8 685.0L819.7 686.9L819.9 688.7L820.3 692.9L822.1 693.9L824.3 694.7L826.5 695.5L831.4 696.5L834.9 696.1L839.4 698.1L840.3 695.2L843.2 690.1L844.5 686.7L845.9 685.9L849.2 684.0L854.1 678.0L856.7 672.4L858.2 670.4L858.8 665.5L859.7 664.4L862.3 659.2L865.9 655.9L868.4 654.9L871.5 645.9L870.7 640.4L870.0 630.2L870.5 625.3L872.0 620.6L865.9 616.4L858.1 611.3L858.0 611.2L854.3 609.7L850.3 608.9L846.9 612.1L843.5 610.6L840.8 611.4L844.1 614.6L837.1 616.1L834.4 619.8L834.7 622.4L833.8 623.2L837.8 623.7L837.7 625.5L837.1 628.3L839.9 629.8L840.5 633.1L837.7 633.6L834.7 632.6L832.5 632.6L832.2 634.1L834.9 635.0L836.7 636.5L836.8 639.4L839.3 641.1L840.0 643.7L840.1 644.5L839.2 649.0L839.1 651.1L834.1 655.5L834.0 658.0L833.7 661.2L831.5 662.5Z"/><path d="M746.5 740.2L742.6 742.0L741.8 746.7L740.3 747.8L744.3 752.1L747.9 751.8L749.1 750.1L746.1 747.4L744.4 747.7L745.7 743.9L749.5 743.2L753.9 740.4L753.9 743.3L758.4 743.4L762.5 741.0L765.6 740.3L767.8 740.3L773.7 743.9L780.7 742.9L783.8 740.0L781.0 737.5L782.5 735.4L786.9 734.4L787.2 735.3L787.2 735.8L785.3 738.7L785.1 741.3L787.5 741.9L796.9 740.8L803.5 740.8L806.0 740.9L812.2 740.7L813.9 737.8L813.8 735.4L813.3 732.0L813.7 731.0L817.7 727.2L821.0 724.2L824.7 722.5L835.0 718.8L838.3 716.9L838.8 714.0L837.2 706.3L836.6 703.2L839.4 698.1L834.9 696.1L831.4 696.5L826.5 695.5L824.3 694.7L822.1 693.9L820.3 692.9L819.9 688.7L819.7 686.9L818.8 685.0L817.1 684.4L816.3 684.1L814.9 684.8L814.9 686.1L813.7 688.5L809.3 689.5L811.0 690.8L811.1 691.0L810.1 692.1L808.7 693.6L808.2 694.4L808.0 696.0L807.5 699.0L807.2 699.1L806.2 701.4L806.7 702.9L804.4 705.4L804.2 705.7L806.4 708.9L803.6 709.7L801.5 710.7L801.4 710.7L797.8 712.3L796.3 713.0L790.2 716.1L787.8 717.2L784.3 719.1L784.6 717.2L784.6 717.1L782.1 717.1L779.6 716.5L779.1 716.4L776.8 717.9L772.9 717.8L771.0 718.6L770.0 718.3L768.6 718.0L763.2 720.2L758.1 722.3L757.8 722.6L756.1 723.3L753.5 723.0L751.1 723.1L748.9 725.0L745.9 726.3L745.8 726.1L742.3 726.6L742.2 726.9L742.2 726.9L745.2 730.0L746.3 732.1L750.9 732.4L753.5 732.3L754.0 731.7L756.9 732.1L758.4 733.9L754.6 738.4L750.1 738.5L746.7 740.0L746.5 740.2ZM753.8 748.1L759.1 746.8L756.7 744.8L753.2 746.9L753.8 748.1ZM767.9 744.1L763.3 743.7L763.8 744.7L767.9 744.1L771.0 743.9L771.0 743.6L767.9 744.1Z"/><path d="M694.7 712.1L696.2 710.3L696.6 707.9L698.1 707.3L699.2 705.0L699.3 703.0L696.6 701.4L695.8 700.1L692.8 699.6L692.4 699.9L689.8 700.8L686.6 701.2L687.0 699.5L685.8 697.2L683.9 695.0L683.9 694.2L683.1 691.1L682.3 689.0L681.1 686.4L681.1 686.4L682.2 683.2L684.3 681.9L683.3 678.8L683.4 678.7L683.2 678.2L681.2 676.9L679.5 675.0L679.9 671.7L681.0 670.0L681.0 669.8L678.6 667.1L674.5 663.2L673.0 663.9L670.7 665.3L667.6 663.7L665.4 663.8L664.9 666.0L664.2 667.3L662.1 665.0L659.7 667.9L656.5 665.2L656.1 667.4L650.2 667.3L648.0 667.5L645.3 668.4L643.2 668.0L640.9 668.3L639.2 671.2L639.7 674.5L639.2 675.5L637.3 674.6L636.7 668.5L634.7 668.1L633.3 671.1L631.7 672.3L629.8 670.8L629.7 670.0L628.6 667.1L630.0 663.2L624.9 663.5L620.9 661.9L617.4 662.1L613.5 662.4L610.0 661.9L608.4 660.8L606.8 660.8L602.6 660.6L599.6 658.5L596.9 659.2L595.6 660.4L593.8 661.8L589.8 663.2L588.7 663.8L585.8 666.3L585.8 666.6L583.1 671.4L577.2 673.3L575.3 676.2L571.5 680.2L571.3 680.3L569.8 683.8L570.1 688.7L566.4 691.5L563.6 695.4L564.1 699.0L561.6 703.1L558.0 705.1L559.2 707.9L556.5 710.3L552.6 715.6L550.7 719.3L549.1 721.2L544.1 724.3L536.7 728.7L533.5 730.7L532.7 732.6L534.4 732.5L535.1 732.0L537.3 731.1L540.8 732.1L541.3 732.2L545.7 731.1L547.0 732.4L549.4 732.2L550.0 732.3L553.3 732.8L556.0 733.5L556.8 731.2L557.2 730.1L559.8 730.4L559.9 730.4L563.1 732.1L563.4 732.4L564.2 732.8L567.7 733.8L569.9 733.5L570.0 733.5L572.8 734.4L574.6 733.4L577.4 733.8L578.3 733.9L580.5 735.2L581.4 735.6L585.7 737.1L586.4 736.8L587.7 737.2L590.3 739.0L591.0 741.2L595.0 740.0L596.5 740.0L597.8 740.8L602.0 740.3L602.5 741.1L606.0 741.2L607.8 740.9L609.8 740.0L611.8 741.3L611.8 741.4L615.3 744.2L615.7 744.5L615.9 744.8L618.3 746.4L620.5 749.8L620.3 751.6L621.3 754.4L620.6 756.2L621.2 759.5L621.9 760.1L622.2 763.2L621.0 764.4L622.8 766.7L623.2 766.4L624.1 769.3L627.9 772.2L627.5 774.4L629.9 776.9L630.0 779.2L630.0 780.0L630.0 780.3L628.4 783.1L628.5 786.0L631.1 786.9L632.4 786.2L633.1 786.4L638.6 786.2L641.1 786.3L646.4 786.1L648.0 787.6L647.3 792.6L646.5 794.8L647.6 797.0L651.2 794.2L653.4 795.7L655.6 794.5L659.2 802.8L663.8 798.9L663.9 796.1L668.4 791.6L676.4 786.3L684.9 780.3L689.5 775.2L694.2 772.4L696.9 771.0L702.2 768.6L703.2 767.9L704.4 768.4L707.5 768.4L708.8 764.9L716.1 762.3L723.4 763.3L724.4 764.5L727.4 763.6L726.6 761.0L727.1 758.8L730.4 757.6L735.7 755.3L739.7 751.2L741.3 752.6L744.3 752.1L740.3 747.8L741.8 746.7L742.6 742.0L746.5 740.2L746.7 740.0L750.1 738.5L754.6 738.4L758.4 733.9L756.9 732.1L754.0 731.7L753.5 732.3L750.9 732.4L746.3 732.1L745.2 730.0L742.2 726.9L741.3 727.5L738.2 728.8L734.8 729.1L734.2 729.3L733.2 730.2L730.6 732.3L727.3 733.4L726.8 732.6L725.2 731.8L722.7 733.4L722.8 732.1L720.6 733.4L720.2 731.3L718.9 732.5L719.8 733.4L717.0 735.6L719.4 736.5L718.0 738.2L715.4 739.1L713.2 738.5L710.8 739.8L707.3 738.9L703.4 740.0L702.7 737.8L703.7 736.4L700.2 734.8L702.2 733.7L701.4 732.0L700.6 730.0L698.2 728.6L696.6 727.8L695.4 725.9L693.9 724.3L694.9 722.0L695.2 721.0L695.8 721.0L697.0 719.9L694.0 718.5L695.7 716.6L696.5 716.2L694.7 712.1ZM730.0 765.2L731.6 762.8L728.7 761.5L726.2 766.9L731.1 766.1L730.0 765.2Z"/><path d="M633.1 786.4L632.4 786.2L631.1 786.9L628.5 786.0L628.4 783.1L630.0 780.3L630.0 780.0L630.0 779.2L629.9 776.9L627.5 774.4L627.9 772.2L624.1 769.3L623.2 766.4L622.8 766.7L621.0 764.4L622.2 763.2L621.9 760.1L621.2 759.5L620.6 756.2L621.3 754.4L620.3 751.6L620.5 749.8L618.3 746.4L615.9 744.8L615.7 744.5L615.3 744.2L611.8 741.4L611.8 741.3L609.8 740.0L607.8 740.9L606.0 741.2L602.5 741.1L602.0 740.3L597.8 740.8L596.5 740.0L595.0 740.0L591.0 741.2L590.3 739.0L587.7 737.2L586.4 736.8L585.7 737.1L581.4 735.6L580.5 735.2L578.3 733.9L577.4 733.8L574.6 733.4L572.8 734.4L570.0 733.5L569.9 733.5L567.7 733.8L564.2 732.8L563.4 732.4L563.1 732.1L559.9 730.4L559.8 730.4L557.2 730.1L556.8 731.2L556.0 733.5L553.3 732.8L550.0 732.3L549.4 732.2L547.0 732.4L545.7 731.1L541.3 732.2L540.8 732.1L537.3 731.1L535.1 732.0L534.4 732.5L532.7 732.6L532.1 733.4L529.3 735.5L527.1 736.3L525.0 737.6L521.5 739.6L519.3 742.6L519.3 745.7L517.3 749.9L516.1 751.9L511.1 754.1L509.3 758.9L508.8 760.4L508.0 763.5L508.0 765.1L505.8 768.6L502.9 770.4L501.4 772.7L503.5 778.4L502.6 779.8L502.1 784.1L501.8 785.9L501.7 786.8L500.3 788.9L498.6 795.8L499.4 798.8L498.1 800.3L494.5 806.5L495.1 810.2L498.9 812.2L502.6 809.3L505.6 810.0L506.5 808.4L510.3 810.1L513.9 812.8L514.1 814.9L514.7 818.6L514.2 820.1L516.8 822.0L518.4 825.5L518.9 826.3L519.2 827.5L524.5 828.3L524.5 828.3L524.5 828.3L526.7 827.4L531.1 830.0L531.3 830.1L534.6 830.6L536.9 830.4L537.7 830.3L541.3 830.1L542.9 830.3L544.3 830.9L546.5 831.6L547.4 831.3L549.4 832.4L556.6 833.1L559.9 835.2L565.1 836.1L572.9 836.1L575.5 839.6L576.0 838.2L579.8 837.3L580.3 836.4L578.3 831.8L579.0 831.0L579.5 830.1L580.7 828.7L583.9 826.8L586.1 827.0L588.4 828.5L593.4 825.8L593.5 825.7L595.2 822.5L596.7 821.0L601.9 823.8L604.3 822.0L606.3 822.7L611.3 821.2L612.8 821.4L614.5 821.8L618.9 825.9L621.1 826.8L624.1 826.0L624.1 825.7L625.5 825.3L627.3 824.5L630.4 821.7L637.2 820.6L637.6 820.6L644.4 820.5L646.6 820.3L647.7 817.0L649.6 813.4L652.6 810.1L653.8 807.7L656.2 807.1L659.2 802.8L655.6 794.5L653.4 795.7L651.2 794.2L647.6 797.0L646.5 794.8L647.3 792.6L648.0 787.6L646.4 786.1L641.1 786.3L638.6 786.2L633.1 786.4ZM518.8 803.9L519.6 803.8L519.5 803.8L518.8 803.9ZM525.8 748.8L525.8 748.8L525.9 748.7L525.8 748.8Z"/><path class="sc" d="M549.4 832.4L547.4 831.3L546.5 831.6L544.3 830.9L542.9 830.3L541.3 830.1L537.7 830.3L536.9 830.4L534.6 830.6L531.3 830.1L531.1 830.0L526.7 827.4L524.5 828.3L524.5 828.3L519.2 827.5L518.0 832.1L518.0 832.5L517.1 835.0L516.9 836.6L517.3 840.5L518.2 843.0L518.3 844.2L518.4 845.5L516.9 847.2L514.2 851.4L514.7 851.6L517.2 851.8L520.2 852.0L521.5 851.7L523.0 852.1L526.4 850.0L527.9 850.5L527.2 852.5L530.6 852.1L533.4 849.9L534.9 849.5L535.5 850.7L536.1 852.7L539.1 851.5L540.4 852.4L540.8 852.4L543.1 854.5L546.9 853.3L547.1 853.8L549.7 852.7L550.0 854.4L550.6 854.7L553.0 855.4L554.0 853.8L554.9 855.7L557.9 856.0L559.4 856.1L561.0 856.9L564.2 859.5L564.7 860.7L566.0 860.5L568.2 859.6L569.9 859.8L571.3 862.1L572.0 861.7L574.3 862.9L578.1 865.9L579.0 866.3L584.5 869.8L584.4 870.2L585.8 872.2L586.4 871.8L589.0 874.3L592.2 879.7L593.5 880.2L595.6 883.5L600.4 884.5L609.4 885.7L611.8 884.7L615.8 885.4L618.0 886.8L618.6 889.6L618.6 889.7L616.6 889.1L615.1 891.8L612.8 892.2L612.4 896.5L612.2 898.0L612.2 901.1L610.7 904.1L607.6 904.4L607.5 906.4L610.1 908.6L610.3 908.5L608.2 906.1L612.2 904.5L613.6 905.0L616.4 906.8L618.4 907.8L620.1 905.6L623.3 901.8L626.9 898.2L629.0 896.3L631.6 894.2L639.9 889.3L642.8 886.4L643.8 882.1L645.6 876.1L645.9 871.7L646.8 870.7L647.1 869.1L648.5 867.5L652.3 858.8L651.1 857.0L648.3 857.7L646.6 855.3L646.4 852.7L647.0 852.6L649.1 852.2L648.8 849.9L646.8 850.8L646.7 848.6L645.7 846.0L645.4 844.8L645.9 842.5L644.9 841.1L644.4 839.7L644.8 836.1L645.2 835.2L646.6 832.7L649.2 826.6L647.2 825.3L646.6 820.3L644.4 820.5L637.6 820.6L637.2 820.6L630.4 821.7L627.3 824.5L625.5 825.3L624.1 825.7L624.1 826.0L621.1 826.8L618.9 825.9L614.5 821.8L612.8 821.4L611.3 821.2L606.3 822.7L604.3 822.0L601.9 823.8L596.7 821.0L595.2 822.5L593.5 825.7L593.4 825.8L588.4 828.5L586.1 827.0L583.9 826.8L580.7 828.7L579.5 830.1L579.0 831.0L578.3 831.8L580.3 836.4L579.8 837.3L576.0 838.2L575.5 839.6L572.9 836.1L565.1 836.1L559.9 835.2L556.6 833.1L549.4 832.4Z"/><path d="M511.4 976.6L517.0 980.3L518.3 984.0L519.1 987.8L524.3 992.1L530.9 995.0L535.4 993.2L536.2 990.6L540.3 989.4L542.3 987.4L539.9 986.5L542.5 981.8L544.9 981.6L543.2 986.1L545.4 989.8L544.9 994.4L542.3 999.6L539.6 1001.7L535.3 998.6L532.2 998.5L530.9 1004.0L528.8 1006.7L527.1 1005.6L523.5 1010.6L524.6 1015.3L522.5 1017.8L522.2 1021.9L524.7 1023.3L526.0 1023.4L541.0 1011.3L544.9 1006.6L548.1 1000.4L549.9 994.2L553.2 986.6L558.2 982.0L557.7 976.2L554.1 973.8L555.0 972.2L556.8 969.9L559.7 969.8L560.3 967.2L560.3 964.7L562.6 959.7L565.4 959.1L570.2 958.7L570.0 955.6L572.3 954.6L574.7 953.9L573.2 951.0L574.5 948.3L576.4 948.3L576.2 942.3L577.8 942.4L579.2 938.0L582.4 936.9L580.6 933.4L577.6 931.4L578.3 926.9L579.0 926.5L580.0 930.3L584.3 932.3L584.5 935.7L587.6 936.9L588.0 934.0L594.5 933.0L595.4 930.7L597.4 932.1L596.4 938.3L592.7 935.1L593.8 938.6L593.7 944.0L592.1 946.9L586.7 948.9L587.0 951.7L581.3 955.1L581.9 959.1L579.9 963.6L576.7 965.5L575.0 964.5L569.2 971.7L564.7 972.6L563.1 974.4L558.1 973.5L560.2 975.7L558.7 981.5L564.9 975.6L575.1 969.8L581.2 964.8L589.8 956.6L591.7 954.5L602.7 938.6L604.8 933.4L605.5 931.7L606.8 928.0L608.1 924.9L609.2 922.5L609.5 921.8L610.7 919.5L612.8 915.7L613.1 915.2L616.1 910.9L618.4 907.8L616.4 906.8L613.6 905.0L612.2 904.5L608.2 906.1L610.3 908.5L610.1 908.6L607.5 906.4L607.6 904.4L610.7 904.1L612.2 901.1L612.2 898.0L612.4 896.5L612.8 892.2L615.1 891.8L616.6 889.1L618.6 889.7L618.6 889.6L618.0 886.8L615.8 885.4L611.8 884.7L609.4 885.7L600.4 884.5L595.6 883.5L593.5 880.2L592.2 879.7L589.0 874.3L586.4 871.8L585.8 872.2L584.4 870.2L584.5 869.8L579.0 866.3L578.1 865.9L574.3 862.9L572.0 861.7L571.3 862.1L569.9 859.8L568.2 859.6L566.0 860.5L564.7 860.7L564.2 859.5L561.0 856.9L559.4 856.1L557.9 856.0L554.9 855.7L554.0 853.8L553.0 855.4L550.6 854.7L550.0 854.4L549.7 852.7L547.1 853.8L546.9 853.3L543.1 854.5L540.8 852.4L540.4 852.4L539.1 851.5L536.1 852.7L535.5 850.7L534.9 849.5L533.4 849.9L530.6 852.1L527.2 852.5L527.9 850.5L526.4 850.0L523.0 852.1L521.5 851.7L520.2 852.0L517.2 851.8L514.7 851.6L514.2 851.4L511.4 851.0L508.7 853.9L507.3 855.0L505.4 854.0L504.6 857.1L502.9 858.8L499.7 857.6L498.1 859.6L495.2 859.0L494.1 861.3L491.8 861.8L489.5 861.0L487.3 865.3L484.9 867.7L483.5 869.3L479.7 869.5L477.8 871.4L476.3 872.3L475.4 874.1L473.8 875.4L465.4 879.5L467.9 882.1L467.4 884.1L463.4 882.5L462.5 885.7L459.0 886.9L459.5 888.3L454.7 893.5L452.0 894.3L451.4 897.4L448.7 901.4L444.7 902.5L442.8 907.0L439.9 910.3L435.1 916.2L431.0 919.5L428.4 919.7L426.0 922.5L426.1 924.7L422.6 928.4L419.3 930.2L420.0 932.1L424.5 933.4L429.2 932.9L431.4 928.4L438.1 927.8L443.0 930.7L445.8 934.9L447.9 935.5L450.0 938.6L452.3 939.4L454.9 941.3L455.8 943.9L459.0 946.0L459.3 953.8L462.9 953.5L468.0 950.4L470.2 947.2L473.8 951.7L476.0 952.6L478.6 958.2L483.0 960.3L483.9 959.0L489.0 963.2L492.4 963.0L495.3 963.6L498.2 966.5L498.6 968.7L507.9 976.0L511.4 976.6Z"/><path d="M525.2 611.6L523.1 612.8L519.9 611.2L515.8 611.8L511.3 609.6L513.7 604.0L516.2 603.2L517.6 602.9L518.2 592.3L514.6 593.3L510.8 598.0L509.5 598.1L508.2 601.7L505.3 601.4L502.5 602.9L497.4 598.2L491.2 599.2L488.4 601.9L481.4 602.6L481.3 602.5L477.3 599.8L472.1 598.3L469.6 595.2L469.6 595.2L460.0 592.4L458.5 590.1L453.2 591.3L448.5 594.2L441.3 593.7L437.5 599.5L434.8 600.8L434.6 602.8L431.3 606.0L424.7 607.2L423.0 608.5L419.1 606.7L417.1 604.3L416.9 602.0L415.3 600.4L414.6 602.3L416.4 604.7L416.1 607.3L419.8 615.2L422.9 617.9L420.2 618.0L415.0 635.3L416.4 638.8L414.6 638.8L405.8 657.8L412.6 663.3L404.8 668.4L406.7 670.7L407.2 674.2L409.2 675.6L408.8 679.9L410.1 682.5L412.5 683.6L410.1 684.9L412.6 685.6L410.9 687.4L413.3 688.5L412.5 691.2L412.8 698.5L410.1 704.9L412.0 708.1L409.9 712.3L411.2 713.1L409.2 718.6L415.5 720.0L418.9 718.8L421.3 720.9L426.3 722.7L433.1 722.4L438.3 724.2L445.2 721.7L446.9 718.9L449.7 718.3L450.9 721.1L454.3 723.6L463.6 723.8L465.5 726.4L466.6 730.8L469.4 734.4L468.0 738.6L469.8 746.5L471.2 748.8L472.1 752.4L470.7 755.1L471.5 758.9L473.8 761.2L473.6 766.4L474.7 767.9L478.2 768.4L483.3 768.4L492.8 764.2L499.3 766.8L502.9 770.4L505.8 768.6L508.0 765.1L508.0 763.5L508.8 760.4L509.3 758.9L511.1 754.1L516.1 751.9L517.3 749.9L519.3 745.7L519.3 742.6L521.5 739.6L525.0 737.6L527.1 736.3L529.3 735.5L532.1 733.4L532.7 732.6L533.5 730.7L536.7 728.7L544.1 724.3L549.1 721.2L550.7 719.3L552.6 715.6L556.5 710.3L559.2 707.9L558.0 705.1L561.6 703.1L564.1 699.0L563.6 695.4L566.4 691.5L570.1 688.7L569.8 683.8L571.3 680.3L571.5 680.2L575.3 676.2L577.2 673.3L583.1 671.4L585.8 666.6L585.8 666.3L585.0 658.6L584.9 656.0L587.6 653.3L587.5 650.1L583.5 645.9L574.5 642.1L572.2 641.6L568.4 641.0L564.3 639.3L562.1 637.1L558.6 636.6L556.0 633.9L552.2 633.4L550.2 631.2L547.9 629.4L541.7 629.8L538.6 628.6L537.3 627.8L536.2 626.1L539.4 622.8L541.4 621.2L539.9 619.9L532.8 620.0L531.7 614.0L533.5 612.6L529.3 611.9L525.2 611.6Z"/><path d="M452.7 386.9L442.6 386.1L440.5 387.1L438.9 382.9L434.5 382.6L432.8 381.2L433.4 379.0L429.2 374.4L423.8 372.8L423.8 371.0L419.4 370.1L418.3 364.1L417.0 361.0L418.1 356.1L413.3 349.3L411.7 341.9L407.5 334.5L405.6 333.5L403.7 336.2L404.0 340.4L401.7 344.3L399.5 345.8L401.9 352.6L401.1 358.8L398.5 363.1L399.3 365.9L398.0 368.7L400.8 368.9L397.9 371.2L380.6 371.3L348.0 371.1L318.6 371.2L321.5 374.4L319.3 378.9L320.0 383.0L317.5 383.2L317.8 385.0L318.6 388.5L321.3 392.9L318.8 395.2L320.5 399.0L319.7 402.6L318.6 404.2L319.4 410.6L321.7 413.6L321.3 422.6L319.4 428.4L322.5 428.4L333.3 428.5L347.0 428.5L348.7 431.2L359.2 432.0L359.1 435.0L360.7 437.6L360.2 439.8L355.8 444.0L356.1 450.9L359.0 452.7L359.1 455.7L361.1 458.0L361.4 461.3L364.2 463.8L359.9 470.6L357.9 471.1L355.6 480.0L354.0 480.2L351.8 483.1L350.2 487.8L349.2 489.4L348.8 492.9L342.6 496.0L340.7 499.2L346.6 501.8L347.2 505.5L348.9 507.0L346.4 509.7L347.1 515.4L351.7 523.4L352.4 535.9L344.0 535.9L352.5 545.7L354.2 566.4L372.0 566.8L389.3 567.5L398.2 567.9L401.0 566.4L400.4 573.0L398.1 575.0L397.1 584.0L399.2 586.7L399.0 590.4L402.9 594.9L409.2 599.1L412.0 597.4L415.3 600.4L416.9 602.0L417.1 604.3L419.1 606.7L423.0 608.5L424.7 607.2L431.3 606.0L434.6 602.8L434.8 600.8L437.5 599.5L441.3 593.7L448.5 594.2L453.2 591.3L458.5 590.1L460.0 592.4L469.6 595.2L469.6 595.2L472.1 598.3L477.3 599.8L481.3 602.5L481.4 602.6L488.4 601.9L491.2 599.2L497.4 598.2L502.5 602.9L505.3 601.4L508.2 601.7L509.5 598.1L510.8 598.0L514.6 593.3L518.2 592.3L517.6 602.9L516.2 603.2L513.7 604.0L511.3 609.6L515.8 611.8L519.9 611.2L523.1 612.8L525.2 611.6L529.3 611.9L533.5 612.6L531.2 605.6L529.4 604.2L529.3 601.3L529.2 598.8L529.9 593.4L532.5 588.4L533.9 587.6L535.0 582.1L537.1 581.4L537.5 580.7L539.6 579.7L542.5 576.1L542.1 574.8L544.7 573.0L543.4 567.4L546.8 565.3L548.7 562.8L551.5 561.6L554.2 556.7L560.4 556.5L561.3 555.2L563.6 554.9L566.5 550.4L566.1 547.6L568.2 546.0L569.5 537.9L572.4 535.0L576.9 533.2L575.3 533.1L577.0 533.1L577.2 532.8L577.3 532.7L577.4 532.5L578.1 532.8L578.9 534.5L583.3 531.4L583.4 531.4L583.7 531.3L583.5 530.6L583.5 530.4L586.8 521.0L585.9 518.0L588.1 511.1L589.9 509.9L589.0 500.2L590.7 499.3L591.9 494.6L594.3 492.4L595.7 489.4L596.7 481.9L598.2 477.4L595.4 476.3L593.8 471.8L595.4 466.8L594.9 460.7L593.9 460.6L593.9 454.7L595.0 451.9L593.0 447.8L594.2 444.0L592.5 443.0L593.4 436.9L595.7 430.5L595.1 427.0L596.7 422.3L595.9 419.9L595.9 419.9L597.4 418.5L599.1 413.2L600.6 411.9L601.1 406.7L603.5 403.5L605.4 398.5L589.7 397.4L578.2 396.7L554.1 395.0L545.0 394.3L532.0 393.3L520.5 392.4L507.4 391.4L494.6 390.5L485.0 389.7L462.9 387.8L455.6 387.2L452.7 386.9Z"/><path d="M655.7 550.6L656.6 546.5L659.7 546.5L660.2 546.5L660.2 546.5L660.7 546.5L674.4 546.4L678.8 548.7L678.9 552.9L677.3 556.4L677.6 559.6L679.0 560.4L683.4 557.6L688.1 557.3L691.8 556.1L689.8 549.3L688.2 548.1L688.6 544.9L690.7 543.1L690.1 540.8L688.5 538.7L688.8 534.8L690.5 533.6L696.3 535.7L698.8 534.8L699.4 534.7L698.0 528.5L699.4 525.6L704.0 528.5L704.1 530.7L707.7 532.0L711.1 530.1L711.5 524.9L711.6 524.7L712.4 524.3L712.1 518.9L714.5 516.5L710.6 513.2L707.5 511.3L706.4 508.5L706.8 507.4L705.4 505.8L706.2 499.5L708.0 496.8L705.9 496.2L706.8 493.2L705.8 492.4L710.4 488.8L709.5 487.8L704.7 489.3L703.8 487.6L704.6 482.7L709.3 478.9L702.9 480.8L701.6 476.4L700.9 479.4L700.6 480.3L696.1 480.3L693.2 480.2L690.5 482.8L676.9 487.9L672.5 484.1L670.1 486.7L671.2 490.7L669.7 493.3L666.7 489.6L662.5 489.3L659.7 487.3L657.3 488.9L658.0 485.0L650.0 488.4L648.6 484.7L647.0 489.2L647.1 484.3L645.3 481.3L639.6 475.9L639.4 476.3L637.0 479.9L633.4 475.5L630.4 478.0L627.4 485.1L627.1 488.2L613.4 480.4L606.4 478.3L603.3 475.6L604.9 470.5L606.2 469.6L605.7 467.5L607.5 465.2L603.4 467.8L600.1 471.9L598.2 477.4L596.7 481.9L595.7 489.4L594.3 492.4L591.9 494.6L590.7 499.3L589.0 500.2L589.9 509.9L588.1 511.1L585.9 518.0L586.8 521.0L583.5 530.4L583.5 530.6L583.7 531.3L583.4 531.4L583.3 531.4L578.9 534.5L578.1 532.8L577.3 532.7L577.2 532.8L577.1 533.0L576.9 533.2L572.4 535.0L569.5 537.9L568.2 546.0L566.1 547.6L566.5 550.4L563.6 554.9L561.3 555.2L560.4 556.5L554.2 556.7L551.5 561.6L548.7 562.8L546.8 565.3L543.4 567.4L544.7 573.0L542.1 574.8L542.5 576.1L539.6 579.7L537.5 580.7L537.1 581.4L535.0 582.1L533.9 587.6L532.5 588.4L529.9 593.4L529.2 598.8L529.3 601.3L529.4 604.2L531.2 605.6L533.5 612.6L531.7 614.0L532.8 620.0L539.9 619.9L541.4 621.2L539.4 622.8L536.2 626.1L537.3 627.8L538.6 628.6L541.7 629.8L547.9 629.4L550.2 631.2L552.2 633.4L556.0 633.9L558.6 636.6L562.1 637.1L564.3 639.3L568.4 641.0L572.2 641.6L574.5 642.1L583.5 645.9L587.5 650.1L590.3 650.3L589.0 649.0L590.2 646.0L592.4 643.5L592.6 642.8L594.8 641.4L597.6 640.5L599.2 635.8L602.2 631.6L604.3 629.6L609.1 629.3L610.4 627.5L616.3 628.6L617.2 627.7L618.1 627.7L622.5 625.9L624.1 625.7L626.9 628.3L629.0 626.5L630.1 625.4L631.2 622.6L635.0 622.3L637.4 620.2L638.4 619.8L641.7 621.0L645.1 620.7L653.0 621.4L654.8 620.4L655.9 620.8L660.9 623.2L662.8 624.8L665.0 623.5L665.1 623.3L667.4 622.7L669.7 621.1L671.5 620.0L671.5 618.2L676.0 616.1L676.6 615.5L679.7 612.8L677.5 607.3L680.2 601.6L679.0 599.8L675.1 599.6L673.3 597.6L673.6 596.4L674.0 594.1L674.5 594.7L678.0 590.0L682.3 587.3L683.7 585.1L681.6 582.3L681.2 578.3L679.4 575.8L676.4 574.5L675.4 571.6L678.7 564.9L679.1 560.8L669.6 560.8L663.2 560.8L661.2 560.8L661.2 560.8L661.2 560.8L659.5 560.8L654.6 560.8L654.5 555.0L656.4 552.1L655.7 550.6Z"/><path d="M661.2 560.8L663.2 560.8L669.6 560.8L679.1 560.8L679.0 560.4L677.6 559.6L677.3 556.4L678.9 552.9L678.8 548.7L674.4 546.4L660.7 546.5L660.2 546.5L660.2 546.5L659.7 546.5L656.6 546.5L655.7 550.6L656.4 552.1L654.5 555.0L654.6 560.8L659.5 560.8L661.2 560.8L661.2 560.8Z"/></g><g class="pts"><circle cx="565.5" cy="947.8" r="5"/><circle cx="636.0" cy="885.5" r="5"/><circle cx="595.5" cy="777.0" r="5"/><circle cx="645.2" cy="844.2" r="5"/><circle cx="629.5" cy="806.0" r="5"/><circle cx="624.1" cy="897.6" r="5"/><circle cx="610.6" cy="919.0" r="5"/><circle cx="778.0" cy="741.6" r="5"/><circle cx="628.9" cy="891.8" r="5"/><circle cx="967.7" cy="330.1" r="5"/><circle cx="586.0" cy="924.0" r="5"/><circle cx="672.7" cy="727.0" r="5"/><circle cx="637.3" cy="884.9" r="5"/><circle cx="580.7" cy="231.8" r="5"/><circle cx="581.1" cy="928.1" r="5"/><circle cx="677.2" cy="732.2" r="5"/><circle cx="600.5" cy="846.2" r="5"/><circle cx="582.6" cy="917.5" r="5"/><circle cx="645.1" cy="844.6" r="5"/><circle cx="694.0" cy="756.6" r="5"/><circle cx="696.1" cy="756.9" r="5"/><circle cx="645.3" cy="852.8" r="5"/><circle cx="634.4" cy="833.7" r="5"/><circle cx="632.3" cy="880.3" r="5"/><circle cx="692.2" cy="773.4" r="5"/><circle cx="596.7" cy="854.6" r="5"/><circle cx="583.6" cy="924.1" r="5"/><circle cx="635.9" cy="880.1" r="5"/><circle cx="760.5" cy="661.8" r="5"/><circle cx="581.3" cy="923.4" r="5"/><circle cx="627.2" cy="841.4" r="5"/><circle cx="565.8" cy="755.1" r="5"/><circle cx="647.1" cy="826.8" r="5"/><circle cx="616.1" cy="823.9" r="5"/><circle cx="632.0" cy="839.9" r="5"/><circle cx="667.1" cy="694.8" r="5"/><circle cx="538.1" cy="926.7" r="5"/><circle cx="581.5" cy="916.4" r="5"/><circle cx="582.3" cy="917.4" r="5"/><circle cx="627.6" cy="800.5" r="5"/><circle cx="578.8" cy="895.6" r="5"/><circle cx="644.4" cy="837.5" r="5"/><circle cx="734.1" cy="260.5" r="5"/><circle cx="649.9" cy="858.5" r="5"/><circle cx="629.4" cy="579.4" r="5"/><circle cx="532.9" cy="889.7" r="5"/><circle cx="628.7" cy="576.9" r="5"/><circle cx="640.2" cy="828.9" r="5"/><circle cx="641.9" cy="885.8" r="5"/><circle cx="637.4" cy="845.1" r="5"/><circle cx="515.0" cy="917.3" r="5"/><circle cx="631.0" cy="890.2" r="5"/><circle cx="693.8" cy="754.2" r="5"/><circle cx="581.0" cy="742.3" r="5"/><circle cx="686.8" cy="702.3" r="5"/><circle cx="493.9" cy="571.5" r="5"/><circle cx="636.9" cy="877.4" r="5"/><circle cx="675.3" cy="755.6" r="5"/><circle cx="761.4" cy="728.8" r="5"/><circle cx="647.7" cy="862.7" r="5"/><circle cx="559.8" cy="911.3" r="5"/><circle cx="646.1" cy="847.2" r="5"/><circle cx="737.1" cy="733.8" r="5"/><circle cx="646.1" cy="849.5" r="5"/><circle cx="587.5" cy="886.5" r="5"/><circle cx="645.9" cy="873.9" r="5"/><circle cx="779.4" cy="709.7" r="5"/><circle cx="354.9" cy="474.2" r="5"/><circle cx="764.0" cy="662.0" r="5"/><circle cx="679.3" cy="749.4" r="5"/><circle cx="544.8" cy="849.2" r="5"/><circle cx="503.6" cy="770.8" r="5"/><circle cx="644.4" cy="872.3" r="5"/><circle cx="582.1" cy="847.3" r="5"/><circle cx="855.1" cy="672.4" r="5"/><circle cx="630.1" cy="756.4" r="5"/><circle cx="682.5" cy="725.4" r="5"/><circle cx="694.0" cy="698.3" r="5"/><circle cx="613.2" cy="911.2" r="5"/><circle cx="579.8" cy="927.7" r="5"/><circle cx="690.3" cy="757.7" r="5"/><circle cx="495.0" cy="676.9" r="5"/><circle cx="569.2" cy="748.7" r="5"/><circle cx="740.1" cy="715.3" r="5"/><circle cx="674.7" cy="285.9" r="5"/><circle cx="639.7" cy="829.5" r="5"/><circle cx="587.9" cy="923.3" r="5"/><circle cx="595.5" cy="777.2" r="5"/><circle cx="581.4" cy="751.6" r="5"/><circle cx="646.2" cy="605.1" r="5"/><circle cx="634.8" cy="845.1" r="5"/><circle cx="644.3" cy="844.4" r="5"/><circle cx="494.2" cy="676.2" r="5"/><circle cx="642.1" cy="725.4" r="5"/><circle cx="630.7" cy="578.3" r="5"/><circle cx="674.2" cy="742.0" r="5"/><circle cx="692.2" cy="756.5" r="5"/><circle cx="580.9" cy="929.6" r="5"/><circle cx="547.4" cy="845.8" r="5"/><circle cx="700.6" cy="753.3" r="5"/><circle cx="647.0" cy="809.8" r="5"/><circle cx="562.3" cy="891.8" r="5"/><circle cx="673.7" cy="755.5" r="5"/><circle cx="789.6" cy="693.2" r="5"/><circle cx="644.2" cy="864.0" r="5"/><circle cx="698.0" cy="756.8" r="5"/><circle cx="804.6" cy="739.2" r="5"/><circle cx="552.7" cy="851.1" r="5"/><circle cx="702.5" cy="757.7" r="5"/><circle cx="781.9" cy="740.6" r="5"/><circle cx="646.5" cy="848.6" r="5"/><circle cx="707.5" cy="755.9" r="5"/><circle cx="561.6" cy="911.5" r="5"/><circle cx="684.5" cy="740.3" r="5"/><circle cx="644.8" cy="863.9" r="5"/><circle cx="612.5" cy="547.9" r="5"/><circle cx="550.8" cy="863.4" r="5"/><circle cx="758.0" cy="730.2" r="5"/><circle cx="571.4" cy="878.3" r="5"/><circle cx="609.2" cy="750.2" r="5"/><circle cx="583.1" cy="922.3" r="5"/><circle cx="645.8" cy="863.1" r="5"/><circle cx="850.1" cy="638.3" r="5"/><circle cx="535.1" cy="638.6" r="5"/><circle cx="573.4" cy="851.6" r="5"/><circle cx="573.2" cy="907.1" r="5"/><circle cx="544.0" cy="826.7" r="5"/><circle cx="984.7" cy="295.0" r="5"/><circle cx="856.8" cy="670.3" r="5"/><circle cx="491.8" cy="204.5" r="5"/><circle cx="627.5" cy="805.8" r="5"/><circle cx="711.2" cy="338.1" r="5"/><circle cx="340.7" cy="67.4" r="5"/><circle cx="645.4" cy="847.0" r="5"/><circle cx="630.8" cy="802.3" r="5"/><circle cx="623.9" cy="569.5" r="5"/><circle cx="623.0" cy="807.0" r="5"/><circle cx="617.7" cy="908.1" r="5"/><circle cx="638.2" cy="849.7" r="5"/><circle cx="992.1" cy="354.6" r="5"/><circle cx="633.5" cy="542.0" r="5"/><circle cx="660.6" cy="757.6" r="5"/><circle cx="594.7" cy="747.0" r="5"/><circle cx="641.1" cy="826.5" r="5"/><circle cx="778.1" cy="735.4" r="5"/><circle cx="634.1" cy="843.8" r="5"/><circle cx="679.4" cy="737.9" r="5"/></g></svg><figcaption>Pontos da rede de telas pelo Brasil.</figcaption></figure>
+    </div>
+    <p class="exlbl rv">Empresas que a ADmídia atende</p>
+    <div class="logos5">
+      <div class="lg5 rv d1"><div class="tile"><span class="wm wm-aero"><small>Aeroporto Regional Sul</small>Jaguaruna</span></div><p>Aeroporto de Jaguaruna</p></div>
+      <div class="lg5 rv d1"><div class="tile"><img src="img/lg_premier.png" alt="Rede de Postos Premier"></div><p>Rede de Postos Premier</p></div>
+      <div class="lg5 rv d2"><div class="tile"><img src="img/lg_michells.png" alt="Posto Michells" class="wide"></div><p>Posto Michells</p></div>
+      <div class="lg5 rv d2"><div class="tile"><span class="wm wm-fluss">Fluss Haus<small>Land</small></span></div><p>Fluss Haus Land</p></div>
+      <div class="lg5 rv d3"><div class="tile"><img src="img/lg_ibis.png" alt="ibis Hotels"></div><p>ibis Hotels</p></div>
+    </div>
+    <p class="mais rv">e mais de <b>300 empresas</b> com telas no nosso sistema.</p>
+  </div>
+</section>
+
+<section class="glow">
+  <div class="wrap">
+    <p class="eyebrow rv">08 · O primeiro passo</p>
+    <h2 class="rv d1">Começar pequeno, ver funcionando, <b>depois decidir.</b></h2>
+    <div class="slots">
+      <div class="slot rv d1"><small>Agora</small><b>15 unidades</b><span>Escolhidas pela Prefeitura. Instalamos, montamos as telas e colocamos no ar.</span></div>
+      <div class="slot on rv d2"><small>Primeiros 3 meses</small><b>Sem custo</b><span>A Prefeitura usa, acompanha o resultado e ouve o cidadão. Sistema e gerenciamento inclusos.</span></div>
+      <div class="slot rv d3"><small>Depois</small><b>~70 unidades</b><span>Se fizer sentido, expandimos para toda a rede. Todas as telas ligadas.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <video src="img/tv_liga.mp4" poster="img/tv_liga_poster.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+  <div class="wrap">
+    <p class="lead rv">As telas já estão lá.</p>
+    <p class="date rv d1">Só falta ligar.</p>
+    <div class="logos rv d2"><span class="pm"><img src="img/pmt.png" alt="Prefeitura de Tubarão"></span><i></i><img class="ad" src="img/logo.png" alt="ADmídia"></div>
+  </div>
+</section>
+
+<footer><div class="wrap"><p><b>Tubarão Informa</b> · Proposta ADmídia para a Prefeitura de Tubarão</p><p>2026</p></div></footer>
 
 <script>
-(function(){if(!('IntersectionObserver' in window)){document.querySelectorAll('.rv').forEach(e=>e.classList.add('in'));}else{
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
-document.querySelectorAll('.rv').forEach((e,i)=>{e.style.transitionDelay=(i%4)*60+'ms';io.observe(e);});}
-function clk(){const d=new Date(),h=document.getElementById('hr'),t=document.getElementById('dt');if(h)h.textContent=String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');if(t){let x=d.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'short'}).replace('-feira','').replace('.','');t.textContent=x.charAt(0).toUpperCase()+x.slice(1);}}
-clk();setInterval(clk,20000);})();
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const tv=document.getElementById('tvs');
+for(let i=0;i<70;i++){const e=document.createElement('i');tv.appendChild(e)}
+let doneT=false,doneM=false;
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!doneT){doneT=true;
+  [...tv.children].forEach((k,i)=>setTimeout(()=>k.classList.add('on'),150+i*22));
+  setTimeout(()=>document.querySelector('.fita').classList.add('on'),150+70*22);
+}}),{threshold:.25}).observe(document.querySelector('.tvwrap'));
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!doneM){doneM=true;
+  const el=document.getElementById('cnt'),T=84000,t0=performance.now(),D=2200;
+  (function f(t){const p=Math.min(1,(t-t0)/D),v=Math.round(T*(1-Math.pow(1-p,3))/100)*100;el.textContent=v.toLocaleString('pt-BR');if(p<1)requestAnimationFrame(f)})(t0);
+}}),{threshold:.5}).observe(document.querySelector('.money'));
+const ba=document.getElementById('ba'),af=document.getElementById('after'),hd=document.getElementById('hand');
+function setP(x){const r=ba.getBoundingClientRect();const p=Math.max(0,Math.min(1,(x-r.left)/r.width));af.style.clipPath=`inset(0 0 0 ${p*100}%)`;hd.style.left=(p*100)+'%'}
+let drag=false,hov=false;
+ba.addEventListener('pointerdown',e=>{drag=true;ba.setPointerCapture(e.pointerId);setP(e.clientX)});
+ba.addEventListener('pointermove',e=>{if(drag||e.pointerType==='mouse'){hov=true;setP(e.clientX)}});
+ba.addEventListener('pointerup',()=>drag=false);
+let baDone=false;
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!baDone){baDone=true;const t0=performance.now();
+  (function f(t){if(drag||hov)return;const p=Math.min(1,(t-t0)/2600);
+    const pos=p<.5?.36+.5*Math.sin(p*Math.PI*2):.36-.3*Math.sin((p-.5)*Math.PI*2);
+    const r=ba.getBoundingClientRect();setP(r.left+r.width*(p<1?pos:.36));if(p<1)requestAnimationFrame(f)})(t0);}}),{threshold:.6}).observe(ba);
 </script>
+
 </body>
 </html>
