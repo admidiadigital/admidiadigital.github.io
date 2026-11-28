@@ -192,6 +192,11 @@ footer img{height:22px;margin:0 auto 10px;opacity:.8}
 .vidtag{display:inline-flex;align-items:center;gap:6px;font-size:clamp(8px,.95vw,11px);font-weight:800;background:#ffffff26;border-radius:99px;padding:3px 9px;letter-spacing:.06em;text-transform:uppercase}
 .vidtag:before{content:"";width:0;height:0;border-left:7px solid currentColor;border-top:4.5px solid transparent;border-bottom:4.5px solid transparent}
 
+.scr.rot{background:#000}
+.scr.rot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:rot 15s infinite}
+.scr.rot img:nth-child(2){animation-delay:5s}.scr.rot img:nth-child(3){animation-delay:10s}
+@keyframes rot{0%{opacity:0}4%{opacity:1}31%{opacity:1}36%{opacity:0}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.scr.rot img{animation:none}.scr.rot img:first-child{opacity:1}}
 /* números */
 .stripe{background:#fff;border-bottom:1px solid var(--line)}
 .stripe .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
@@ -280,20 +285,10 @@ footer img{height:22px;margin:0 auto 10px;opacity:.8}
   </div>
   <div class="tvw rv">
     <span class="simtag">Simulação</span>
-    <div class="tv"><div class="scr tvc">
-      <div class="main">
-        <div class="sl s1"><div class="who">Prefeitura de Tubarão</div><div><div class="t">IPTU 2027</div><div class="s">Informações e boletos no site da Prefeitura.</div></div><div class="bar"></div></div>
-        <div class="sl s3"><div class="who">Saúde</div><div><div class="t">Vacinação em dia</div><div class="s">Veja as unidades com sala de vacina perto de você.</div></div><div class="bar"></div></div>
-        <div class="sl s6"><div class="who">Vídeo institucional</div><div><span class="vidtag">Vídeo</span><div class="t" style="margin-top:8px">O que a Prefeitura está fazendo</div><div class="s">Obras, entregas e serviços da cidade.</div></div><div class="bar"></div></div>
-        <div class="sl s2"><div class="who">Eventos</div><div><div class="t">Natal Tubarão Luz 2026</div><div class="s">Confira a programação de Natal na cidade.</div></div><div class="bar"></div></div>
-        <div class="sl s4"><div class="who">Meio ambiente</div><div><div class="t">Coleta seletiva</div><div class="s">Confira o cronograma do seu bairro.</div></div><div class="bar"></div></div>
-        <div class="sl s5"><div class="who">Aviso</div><div><div class="t">Horário de atendimento</div><div class="s">Avisos da unidade atualizados na hora.</div></div><div class="bar"></div></div>
-      </div>
-      <div class="side">
-        <div class="clk"><b id="hr">09:41</b><span id="dt">quarta, 27 nov</span></div>
-        <div class="wx"><small>Tubarão</small><b>☀ 26°</b><span>Previsão do tempo</span></div>
-      </div>
-      <div class="tick"><em>Notícias</em><div><span>Prefeitura de Tubarão · IPTU 2027: informações no site da Prefeitura · Vacinação: confira as unidades com sala de vacina · Natal Tubarão Luz 2026 · Coleta seletiva: veja o cronograma do seu bairro · Concursos e editais abertos no site oficial</span><span>Prefeitura de Tubarão · IPTU 2027: informações no site da Prefeitura · Vacinação: confira as unidades com sala de vacina · Natal Tubarão Luz 2026 · Coleta seletiva: veja o cronograma do seu bairro · Concursos e editais abertos no site oficial</span></div></div>
+    <div class="tv"><div class="scr rot">
+      <img src="img/tela2.jpg?v=3" alt="Tela: o que está acontecendo na cidade">
+      <img src="img/tela1.jpg?v=2" alt="Tela: IPTU 2027">
+      <img src="img/tela3.jpg?v=3" alt="Tela: Feliz Natal da Prefeitura">
     </div></div>
     <div class="stand"></div>
   </div>
