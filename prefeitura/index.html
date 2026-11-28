@@ -241,6 +241,12 @@ footer img{height:22px;margin:0 auto 10px;opacity:.8}
 .hoje p{color:#c3d1ea;font-size:15px;margin-top:10px;max-width:46em}
 .hoje img{border-radius:14px;width:100%;max-height:520px;object-fit:cover}
 @media(min-width:900px){.hoje.foto{grid-template-columns:minmax(0,1fr) minmax(0,.8fr);align-items:center}}
+.ex3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px}
+.ex3 figure{margin:0}
+.exf{background:#05070c;border-radius:12px;padding:8px;box-shadow:0 22px 44px -26px #0b1b3a99}
+.exf img{border-radius:5px;width:100%;aspect-ratio:16/9;object-fit:cover}
+.ex3 figcaption{font-size:14px;color:var(--mut);margin-top:10px}.ex3 figcaption b{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+@media(max-width:820px){.ex3{grid-template-columns:1fr}}
 /* unidades */
 .un{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:36px}
 .u{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}
@@ -331,6 +337,13 @@ footer img{height:22px;margin:0 auto 10px;opacity:.8}
     <div class="ft rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 6.5-7 11-7 11z"/></svg></div><div><b>Campanhas de saúde</b><span>Vacinação, dengue, Outubro Rosa, Novembro Azul.</span></div></div>
     <div class="ft rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></div><div><b>Alertas</b><span>Defesa Civil, chuva e nível do rio, com prioridade em todas as telas.</span></div></div>
   </div>
+  <div class="k" style="margin-top:56px">Três exemplos de tela</div>
+  <div class="ex3">
+    <figure class="rv"><div class="exf"><img src="img/tela1.jpg" alt="Exemplo de tela: IPTU 2027" loading="lazy"></div><figcaption><b>Serviço</b>IPTU 2027: boletos e calendário</figcaption></figure>
+    <figure class="rv"><div class="exf"><img src="img/tela2.jpg" alt="Exemplo de tela: o que está acontecendo na cidade" loading="lazy"></div><figcaption><b>Prestação de contas</b>Olha o que está acontecendo na cidade</figcaption></figure>
+    <figure class="rv"><div class="exf"><img src="img/tela3.jpg" alt="Exemplo de tela: Feliz Natal da Prefeitura" loading="lazy"></div><figcaption><b>Datas especiais</b>A Prefeitura deseja um Feliz Natal</figcaption></figure>
+  </div>
+  <p class="aprov rv" style="margin-top:10px">Exemplos de layout feitos pela ADmídia. Cada tela leva relógio, previsão do tempo e a faixa de notícias.</p>
   <p class="aprov rv"><b>A Prefeitura decide o que passa.</b> Nada vai ao ar sem aprovação da Comunicação.</p>
 </div></section>
 
